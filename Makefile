@@ -1,5 +1,5 @@
 DOCKER_IMAGE="openapitools/openapi-generator-cli"
-PACKAGE_NAME="fermyon-cloud-openapi"
+PACKAGE_NAME="cloud-openapi"
 
 clients: swagger.json
 	@echo "==> Building OpenAPI clients..."
