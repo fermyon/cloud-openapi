@@ -16,7 +16,7 @@ HTTP API in the language of your choice.
 To use the Rust client, add a reference to it in your Cargo.toml:
 
 ```
-fermyon-cloud-openapi = "0.9"
+fermyon-cloud-openapi = { git = "https://github.com/fermyon/cloud-openapi/clients/rust" }
 ```
 
 ## Code Generation
