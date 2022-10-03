@@ -19,6 +19,10 @@ pub struct AppChannelListItem {
     pub name: String,
     #[serde(rename = "activeRevisionNumber", skip_serializing_if = "Option::is_none")]
     pub active_revision_number: Option<String>,
+    #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
+    pub domain: Option<String>,
+    #[serde(rename = "created", skip_serializing_if = "Option::is_none")]
+    pub created: Option<String>,
 }
 
 impl AppChannelListItem {
@@ -27,6 +31,8 @@ impl AppChannelListItem {
             id,
             name,
             active_revision_number: None,
+            domain: None,
+            created: None,
         }
     }
 }

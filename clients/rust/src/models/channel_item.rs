@@ -31,8 +31,6 @@ pub struct ChannelItem {
     pub last_publish_at: Option<String>,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<String>,
-    #[serde(rename = "certificate", skip_serializing_if = "Option::is_none")]
-    pub certificate: Option<Box<crate::models::CertificateItem>>,
     #[serde(rename = "environmentVariables")]
     pub environment_variables: Vec<crate::models::EnvironmentVariableItem>,
     #[serde(rename = "appSummary", skip_serializing_if = "Option::is_none")]
@@ -51,7 +49,6 @@ impl ChannelItem {
             active_revision: None,
             last_publish_at: None,
             range_rule: None,
-            certificate: None,
             environment_variables,
             app_summary: None,
         }

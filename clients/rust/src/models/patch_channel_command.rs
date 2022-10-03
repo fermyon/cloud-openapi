@@ -19,16 +19,12 @@ pub struct PatchChannelCommand {
     pub environment_variables: Option<Box<crate::models::UpdateEnvironmentVariableDtoListField>>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<Box<crate::models::StringField>>,
-    #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
-    pub domain: Option<Box<crate::models::StringField>>,
     #[serde(rename = "revisionSelectionStrategy", skip_serializing_if = "Option::is_none")]
     pub revision_selection_strategy: Option<Box<crate::models::ChannelRevisionSelectionStrategyField>>,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<Box<crate::models::StringField>>,
     #[serde(rename = "activeRevisionId", skip_serializing_if = "Option::is_none")]
     pub active_revision_id: Option<Box<crate::models::GuidNullableField>>,
-    #[serde(rename = "certificateId", skip_serializing_if = "Option::is_none")]
-    pub certificate_id: Option<Box<crate::models::GuidNullableField>>,
 }
 
 impl PatchChannelCommand {
@@ -37,11 +33,9 @@ impl PatchChannelCommand {
             channel_id: None,
             environment_variables: None,
             name: None,
-            domain: None,
             revision_selection_strategy: None,
             range_rule: None,
             active_revision_id: None,
-            certificate_id: None,
         }
     }
 }

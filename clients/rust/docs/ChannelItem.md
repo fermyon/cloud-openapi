@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **active_revision** | Option<[**crate::models::RevisionItem**](RevisionItem.md)> |  | [optional]
 **last_publish_at** | Option<**String**> |  | [optional]
 **range_rule** | Option<**String**> |  | [optional]
-**certificate** | Option<[**crate::models::CertificateItem**](CertificateItem.md)> |  | [optional]
 **environment_variables** | [**Vec<crate::models::EnvironmentVariableItem>**](EnvironmentVariableItem.md) |  | 
 **app_summary** | Option<[**crate::models::AppSummaryDto**](AppSummaryDto.md)> |  | [optional]
 

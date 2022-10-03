@@ -25,17 +25,12 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountsApi* | [**api_accounts_post**](docs/AccountsApi.md#api_accounts_post) | **POST** /api/accounts | 
 *AppsApi* | [**api_apps_get**](docs/AppsApi.md#api_apps_get) | **GET** /api/apps | 
 *AppsApi* | [**api_apps_id_delete**](docs/AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_get**](docs/AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_put**](docs/AppsApi.md#api_apps_id_put) | **PUT** /api/apps/{id} | 
 *AppsApi* | [**api_apps_post**](docs/AppsApi.md#api_apps_post) | **POST** /api/apps | 
 *AuthTokensApi* | [**api_auth_tokens_post**](docs/AuthTokensApi.md#api_auth_tokens_post) | **POST** /api/auth-tokens | 
-*CertificatesApi* | [**api_certificates_get**](docs/CertificatesApi.md#api_certificates_get) | **GET** /api/certificates | 
-*CertificatesApi* | [**api_certificates_id_delete**](docs/CertificatesApi.md#api_certificates_id_delete) | **DELETE** /api/certificates/{id} | 
-*CertificatesApi* | [**api_certificates_id_put**](docs/CertificatesApi.md#api_certificates_id_put) | **PUT** /api/certificates/{id} | 
-*CertificatesApi* | [**api_certificates_post**](docs/CertificatesApi.md#api_certificates_post) | **POST** /api/certificates | 
 *ChannelStatusesApi* | [**api_channel_statuses_get**](docs/ChannelStatusesApi.md#api_channel_statuses_get) | **GET** /api/channel-statuses | 
 *ChannelsApi* | [**api_channels_channel_id_desired_status_put**](docs/ChannelsApi.md#api_channels_channel_id_desired_status_put) | **PUT** /api/channels/{channelId}/desired-status | 
 *ChannelsApi* | [**api_channels_get**](docs/ChannelsApi.md#api_channels_get) | **GET** /api/channels | 
@@ -52,7 +47,6 @@ Class | Method | HTTP request | Description
 *RegistryApi* | [**api_registry_i_bindle_name_post**](docs/RegistryApi.md#api_registry_i_bindle_name_post) | **POST** /api/registry/_i/{bindleName} | 
 *RegistryApi* | [**api_registry_i_post**](docs/RegistryApi.md#api_registry_i_post) | **POST** /api/registry/_i | 
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
-*RevisionsApi* | [**api_revisions_id_delete**](docs/RevisionsApi.md#api_revisions_id_delete) | **DELETE** /api/revisions/{id} | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
 
@@ -65,17 +59,13 @@ Class | Method | HTTP request | Description
  - [AppItem](docs/AppItem.md)
  - [AppItemPage](docs/AppItemPage.md)
  - [AppSummaryDto](docs/AppSummaryDto.md)
- - [CertificateItem](docs/CertificateItem.md)
- - [CertificateItemPage](docs/CertificateItemPage.md)
  - [ChannelItem](docs/ChannelItem.md)
  - [ChannelItemPage](docs/ChannelItemPage.md)
  - [ChannelJobStatusItem](docs/ChannelJobStatusItem.md)
  - [ChannelJobStatusItemPage](docs/ChannelJobStatusItemPage.md)
  - [ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
  - [ChannelRevisionSelectionStrategyField](docs/ChannelRevisionSelectionStrategyField.md)
- - [CreateAccountCommand](docs/CreateAccountCommand.md)
  - [CreateAppCommand](docs/CreateAppCommand.md)
- - [CreateCertificateCommand](docs/CreateCertificateCommand.md)
  - [CreateChannelCommand](docs/CreateChannelCommand.md)
  - [CreateDeviceCodeCommand](docs/CreateDeviceCodeCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
@@ -95,7 +85,6 @@ Class | Method | HTTP request | Description
  - [StringPage](docs/StringPage.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [UpdateAppCommand](docs/UpdateAppCommand.md)
- - [UpdateCertificateCommand](docs/UpdateCertificateCommand.md)
  - [UpdateChannelCommand](docs/UpdateChannelCommand.md)
  - [UpdateDesiredStatusCommand](docs/UpdateDesiredStatusCommand.md)
  - [UpdateEnvironmentVariableDto](docs/UpdateEnvironmentVariableDto.md)

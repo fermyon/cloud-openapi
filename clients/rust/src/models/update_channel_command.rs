@@ -17,28 +17,22 @@ pub struct UpdateChannelCommand {
     pub id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "domain")]
-    pub domain: String,
     #[serde(rename = "revisionSelectionStrategy")]
     pub revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<String>,
     #[serde(rename = "activeRevisionId", skip_serializing_if = "Option::is_none")]
     pub active_revision_id: Option<uuid::Uuid>,
-    #[serde(rename = "certificateId", skip_serializing_if = "Option::is_none")]
-    pub certificate_id: Option<uuid::Uuid>,
 }
 
 impl UpdateChannelCommand {
-    pub fn new(id: uuid::Uuid, name: String, domain: String, revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy) -> UpdateChannelCommand {
+    pub fn new(id: uuid::Uuid, name: String, revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy) -> UpdateChannelCommand {
         UpdateChannelCommand {
             id,
             name,
-            domain,
             revision_selection_strategy,
             range_rule: None,
             active_revision_id: None,
-            certificate_id: None,
         }
     }
 }

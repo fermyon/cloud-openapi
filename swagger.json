@@ -5,59 +5,6 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/accounts": {
-      "post": {
-        "tags": [
-          "accounts"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAccountCommand"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAccountCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAccountCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateAccountCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/apps": {
       "get": {
         "tags": [
@@ -340,201 +287,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/certificates": {
-      "get": {
-        "tags": [
-          "certificates"
-        ],
-        "parameters": [
-          {
-            "name": "searchText",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": ""
-            }
-          },
-          {
-            "name": "pageIndex",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 50
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": "Name"
-            }
-          },
-          {
-            "name": "IsSortedAscending",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "default": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CertificateItemPage"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CertificateItemPage"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CertificateItemPage"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "certificates"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCertificateCommand"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCertificateCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCertificateCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCertificateCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/certificates/{id}": {
-      "put": {
-        "tags": [
-          "certificates"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCertificateCommand"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCertificateCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCertificateCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateCertificateCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "certificates"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }
@@ -1226,29 +978,6 @@
         }
       }
     },
-    "/api/revisions/{id}": {
-      "delete": {
-        "tags": [
-          "revisions"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/storages": {
       "get": {
         "tags": [
@@ -1355,6 +1084,14 @@
           "activeRevisionNumber": {
             "type": "string",
             "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -1458,76 +1195,6 @@
         },
         "additionalProperties": false
       },
-      "CertificateItem": {
-        "required": [
-          "channels",
-          "id",
-          "name",
-          "privateKey",
-          "publicKey"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "publicKey": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "privateKey": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "channels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChannelItem"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "CertificateItemPage": {
-        "required": [
-          "isLastPage",
-          "items",
-          "pageIndex",
-          "pageSize",
-          "totalItems"
-        ],
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CertificateItem"
-            }
-          },
-          "totalItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isLastPage": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChannelItem": {
         "required": [
           "appId",
@@ -1574,9 +1241,6 @@
           "rangeRule": {
             "type": "string",
             "nullable": true
-          },
-          "certificate": {
-            "$ref": "#/components/schemas/CertificateItem"
           },
           "environmentVariables": {
             "type": "array",
@@ -1693,24 +1357,6 @@
         },
         "additionalProperties": false
       },
-      "CreateAccountCommand": {
-        "required": [
-          "password",
-          "userName"
-        ],
-        "type": "object",
-        "properties": {
-          "userName": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "password": {
-            "minLength": 1,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateAppCommand": {
         "required": [
           "name",
@@ -1723,29 +1369,6 @@
             "type": "string"
           },
           "storageId": {
-            "minLength": 1,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateCertificateCommand": {
-        "required": [
-          "name",
-          "privateKey",
-          "publicKey"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "publicKey": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "privateKey": {
             "minLength": 1,
             "type": "string"
           }
@@ -1768,10 +1391,6 @@
             "minLength": 1,
             "type": "string"
           },
-          "domain": {
-            "type": "string",
-            "nullable": true
-          },
           "revisionSelectionStrategy": {
             "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
           },
@@ -1780,11 +1399,6 @@
             "nullable": true
           },
           "activeRevisionId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "certificateId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -1936,9 +1550,6 @@
           "name": {
             "$ref": "#/components/schemas/StringField"
           },
-          "domain": {
-            "$ref": "#/components/schemas/StringField"
-          },
           "revisionSelectionStrategy": {
             "$ref": "#/components/schemas/ChannelRevisionSelectionStrategyField"
           },
@@ -1946,9 +1557,6 @@
             "$ref": "#/components/schemas/StringField"
           },
           "activeRevisionId": {
-            "$ref": "#/components/schemas/GuidNullableField"
-          },
-          "certificateId": {
             "$ref": "#/components/schemas/GuidNullableField"
           }
         },
@@ -2155,37 +1763,8 @@
         },
         "additionalProperties": false
       },
-      "UpdateCertificateCommand": {
-        "required": [
-          "id",
-          "name",
-          "privateKey",
-          "publicKey"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "publicKey": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "privateKey": {
-            "minLength": 1,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
       "UpdateChannelCommand": {
         "required": [
-          "domain",
           "id",
           "name",
           "revisionSelectionStrategy"
@@ -2200,10 +1779,6 @@
             "minLength": 1,
             "type": "string"
           },
-          "domain": {
-            "minLength": 1,
-            "type": "string"
-          },
           "revisionSelectionStrategy": {
             "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
           },
@@ -2212,11 +1787,6 @@
             "nullable": true
           },
           "activeRevisionId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "certificateId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
