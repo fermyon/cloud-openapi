@@ -13,14 +13,11 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct UpdateEnvironmentVariableDtoListField {
-    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Vec<crate::models::UpdateEnvironmentVariableDto>>,
 }
 
 impl UpdateEnvironmentVariableDtoListField {
     pub fn new() -> UpdateEnvironmentVariableDtoListField {
         UpdateEnvironmentVariableDtoListField {
-            value: None,
         }
     }
 }

@@ -16,7 +16,7 @@ pub struct PatchChannelCommand {
     #[serde(rename = "channelId", skip_serializing_if = "Option::is_none")]
     pub channel_id: Option<uuid::Uuid>,
     #[serde(rename = "environmentVariables", skip_serializing_if = "Option::is_none")]
-    pub environment_variables: Option<Box<crate::models::UpdateEnvironmentVariableDtoListField>>,
+    pub environment_variables: Option<Vec<crate::models::UpdateEnvironmentVariableDto>>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
     pub name: Option<Box<crate::models::StringField>>,
     #[serde(rename = "revisionSelectionStrategy", skip_serializing_if = "Option::is_none")]

@@ -1349,7 +1349,7 @@
         "type": "string"
       },
       "ChannelRevisionSelectionStrategyField": {
-        "type": "object",
+        "type": "string",
         "properties": {
           "value": {
             "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
@@ -1518,7 +1518,7 @@
         "additionalProperties": false
       },
       "GuidNullableField": {
-        "type": "object",
+        "type": "string",
         "properties": {
           "value": {
             "type": "string",
@@ -1686,7 +1686,7 @@
         "additionalProperties": false
       },
       "StringField": {
-        "type": "object",
+        "type": "string",
         "properties": {
           "value": {
             "type": "string",
@@ -1830,7 +1830,10 @@
         "additionalProperties": false
       },
       "UpdateEnvironmentVariableDtoListField": {
-        "type": "object",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
+        },
         "properties": {
           "value": {
             "type": "array",
