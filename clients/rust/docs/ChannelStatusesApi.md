@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## api_channel_statuses_get
 
-> crate::models::ChannelJobStatusItemPage api_channel_statuses_get(page_index, page_size, channel_id)
+> crate::models::ChannelJobStatusItemPage api_channel_statuses_get(page_index, page_size, channel_id, api_version)
 
 
 ### Parameters
@@ -21,6 +21,7 @@ Name | Type | Description  | Required | Notes
 **page_index** | Option<**i32**> |  |  |[default to 0]
 **page_size** | Option<**i32**> |  |  |[default to 2147483647]
 **channel_id** | Option<**uuid::Uuid**> |  |  |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 

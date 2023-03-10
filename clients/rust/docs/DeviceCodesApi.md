@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## api_device_codes_activate_post
 
-> api_device_codes_activate_post(activate_device_code_command)
+> api_device_codes_activate_post(activate_device_code_command, api_version)
 
 
 ### Parameters
@@ -20,7 +20,8 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**activate_device_code_command** | Option<[**ActivateDeviceCodeCommand**](ActivateDeviceCodeCommand.md)> |  |  |
+**activate_device_code_command** | [**ActivateDeviceCodeCommand**](ActivateDeviceCodeCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -40,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_device_codes_post
 
-> crate::models::DeviceCodeItem api_device_codes_post(create_device_code_command)
+> crate::models::DeviceCodeItem api_device_codes_post(create_device_code_command, api_version)
 
 
 ### Parameters
@@ -48,7 +49,8 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**create_device_code_command** | Option<[**CreateDeviceCodeCommand**](CreateDeviceCodeCommand.md)> |  |  |
+**create_device_code_command** | [**CreateDeviceCodeCommand**](CreateDeviceCodeCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -68,7 +70,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_device_codes_user_code_get
 
-> crate::models::DeviceCodeDetails api_device_codes_user_code_get(user_code)
+> crate::models::DeviceCodeDetails api_device_codes_user_code_get(user_code, api_version)
 
 
 ### Parameters
@@ -77,6 +79,7 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **user_code** | **String** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 

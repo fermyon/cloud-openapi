@@ -13,12 +13,12 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeviceCodeItem {
-    #[serde(rename = "deviceCode", skip_serializing_if = "Option::is_none")]
-    pub device_code: Option<String>,
-    #[serde(rename = "userCode", skip_serializing_if = "Option::is_none")]
-    pub user_code: Option<String>,
-    #[serde(rename = "verificationUrl", skip_serializing_if = "Option::is_none")]
-    pub verification_url: Option<String>,
+    #[serde(rename = "deviceCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub device_code: Option<Option<String>>,
+    #[serde(rename = "userCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub user_code: Option<Option<String>>,
+    #[serde(rename = "verificationUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub verification_url: Option<Option<String>>,
     #[serde(rename = "expiresIn", skip_serializing_if = "Option::is_none")]
     pub expires_in: Option<i64>,
     #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]

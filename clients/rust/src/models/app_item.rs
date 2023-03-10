@@ -19,8 +19,8 @@ pub struct AppItem {
     pub name: String,
     #[serde(rename = "storageId")]
     pub storage_id: String,
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<String>>,
     #[serde(rename = "channels")]
     pub channels: Vec<crate::models::AppChannelListItem>,
 }

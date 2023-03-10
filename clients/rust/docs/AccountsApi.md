@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_accounts_post**](AccountsApi.md#api_accounts_post) | **POST** /api/accounts | 
+[**api_accounts_id_delete**](AccountsApi.md#api_accounts_id_delete) | **DELETE** /api/accounts/{id} | 
 
 
 
-## api_accounts_post
+## api_accounts_id_delete
 
-> String api_accounts_post(create_account_command)
+> api_accounts_id_delete(id, api_version)
 
 
 ### Parameters
@@ -18,11 +18,12 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**create_account_command** | Option<[**CreateAccountCommand**](CreateAccountCommand.md)> |  |  |
+**id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
-**String**
+ (empty response body)
 
 ### Authorization
 
@@ -30,8 +31,8 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

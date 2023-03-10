@@ -8,13 +8,14 @@ Method | HTTP request | Description
 [**api_apps_id_delete**](AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 [**api_apps_id_get**](AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
 [**api_apps_id_put**](AppsApi.md#api_apps_id_put) | **PUT** /api/apps/{id} | 
+[**api_apps_id_request_count_get**](AppsApi.md#api_apps_id_request_count_get) | **GET** /api/apps/{id}/request-count | 
 [**api_apps_post**](AppsApi.md#api_apps_post) | **POST** /api/apps | 
 
 
 
 ## api_apps_get
 
-> crate::models::AppItemPage api_apps_get(search_text, page_index, page_size, sort_by, is_sorted_ascending)
+> crate::models::AppItemPage api_apps_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, api_version)
 
 
 ### Parameters
@@ -27,6 +28,7 @@ Name | Type | Description  | Required | Notes
 **page_size** | Option<**i32**> |  |  |[default to 50]
 **sort_by** | Option<**String**> |  |  |[default to Name]
 **is_sorted_ascending** | Option<**bool**> |  |  |[default to true]
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -46,7 +48,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_delete
 
-> api_apps_id_delete(id)
+> api_apps_id_delete(id, api_version)
 
 
 ### Parameters
@@ -55,6 +57,7 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -74,7 +77,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_get
 
-> crate::models::AppItem api_apps_id_get(id)
+> crate::models::AppItem api_apps_id_get(id, api_version)
 
 
 ### Parameters
@@ -83,6 +86,7 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -102,7 +106,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_put
 
-> api_apps_id_put(id, update_app_command)
+> api_apps_id_put(id, update_app_command, api_version)
 
 
 ### Parameters
@@ -111,7 +115,8 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
-**update_app_command** | Option<[**UpdateAppCommand**](UpdateAppCommand.md)> |  |  |
+**update_app_command** | [**UpdateAppCommand**](UpdateAppCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -129,9 +134,9 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## api_apps_post
+## api_apps_id_request_count_get
 
-> uuid::Uuid api_apps_post(create_app_command)
+> crate::models::AppRequestCount api_apps_id_request_count_get(id, from, to, api_version)
 
 
 ### Parameters
@@ -139,7 +144,39 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**create_app_command** | Option<[**CreateAppCommand**](CreateAppCommand.md)> |  |  |
+**id** | **uuid::Uuid** |  | [required] |
+**from** | Option<**String**> |  |  |
+**to** | Option<**String**> |  |  |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
+
+### Return type
+
+[**crate::models::AppRequestCount**](AppRequestCount.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_apps_post
+
+> uuid::Uuid api_apps_post(create_app_command, api_version)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**create_app_command** | [**CreateAppCommand**](CreateAppCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 

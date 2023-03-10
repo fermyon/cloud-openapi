@@ -12,14 +12,17 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct GuidNullableField {
-    #[serde(rename = "value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Option<uuid::Uuid>>,
+pub struct AppRequestPoint {
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<i64>,
+    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
+    pub value: Option<f32>,
 }
 
-impl GuidNullableField {
-    pub fn new() -> GuidNullableField {
-        GuidNullableField {
+impl AppRequestPoint {
+    pub fn new() -> AppRequestPoint {
+        AppRequestPoint {
+            timestamp: None,
             value: None,
         }
     }

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## api_channels_channel_id_desired_status_put
 
-> api_channels_channel_id_desired_status_put(channel_id, update_desired_status_command)
+> api_channels_channel_id_desired_status_put(channel_id, update_desired_status_command, api_version)
 
 
 ### Parameters
@@ -26,7 +26,8 @@ Method | HTTP request | Description
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **channel_id** | **uuid::Uuid** |  | [required] |
-**update_desired_status_command** | Option<[**UpdateDesiredStatusCommand**](UpdateDesiredStatusCommand.md)> |  |  |
+**update_desired_status_command** | [**UpdateDesiredStatusCommand**](UpdateDesiredStatusCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -46,7 +47,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_get
 
-> crate::models::ChannelItemPage api_channels_get(search_text, page_index, page_size, sort_by, is_sorted_ascending)
+> crate::models::ChannelItemPage api_channels_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, api_version)
 
 
 ### Parameters
@@ -59,6 +60,7 @@ Name | Type | Description  | Required | Notes
 **page_size** | Option<**i32**> |  |  |[default to 50]
 **sort_by** | Option<**String**> |  |  |[default to Name]
 **is_sorted_ascending** | Option<**bool**> |  |  |[default to true]
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -78,7 +80,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_delete
 
-> api_channels_id_delete(id)
+> api_channels_id_delete(id, api_version)
 
 
 ### Parameters
@@ -87,6 +89,7 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -106,7 +109,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_get
 
-> crate::models::ChannelItem api_channels_id_get(id)
+> crate::models::ChannelItem api_channels_id_get(id, api_version)
 
 
 ### Parameters
@@ -115,6 +118,7 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -134,7 +138,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_logs_get
 
-> crate::models::GetChannelLogsVm api_channels_id_logs_get(id)
+> crate::models::GetChannelLogsVm api_channels_id_logs_get(id, max, api_version)
 
 
 ### Parameters
@@ -143,6 +147,8 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
+**max** | Option<**i32**> |  |  |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -162,7 +168,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_patch
 
-> api_channels_id_patch(id, patch_channel_command)
+> api_channels_id_patch(id, patch_channel_command, api_version)
 
 
 ### Parameters
@@ -171,7 +177,8 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
-**patch_channel_command** | Option<[**PatchChannelCommand**](PatchChannelCommand.md)> |  |  |
+**patch_channel_command** | [**PatchChannelCommand**](PatchChannelCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -191,7 +198,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_put
 
-> api_channels_id_put(id, update_channel_command)
+> api_channels_id_put(id, update_channel_command, api_version)
 
 
 ### Parameters
@@ -200,7 +207,8 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
-**update_channel_command** | Option<[**UpdateChannelCommand**](UpdateChannelCommand.md)> |  |  |
+**update_channel_command** | [**UpdateChannelCommand**](UpdateChannelCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -220,7 +228,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_post
 
-> uuid::Uuid api_channels_post(create_channel_command)
+> uuid::Uuid api_channels_post(create_channel_command, api_version)
 
 
 ### Parameters
@@ -228,7 +236,8 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**create_channel_command** | Option<[**CreateChannelCommand**](CreateChannelCommand.md)> |  |  |
+**create_channel_command** | [**CreateChannelCommand**](CreateChannelCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 

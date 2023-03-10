@@ -1,16 +1,16 @@
-# \AuthTokensApi
+# \KeyValuePairsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_auth_tokens_post**](AuthTokensApi.md#api_auth_tokens_post) | **POST** /api/auth-tokens | 
+[**api_key_value_pairs_post**](KeyValuePairsApi.md#api_key_value_pairs_post) | **POST** /api/key-value-pairs | 
 
 
 
-## api_auth_tokens_post
+## api_key_value_pairs_post
 
-> crate::models::TokenInfo api_auth_tokens_post(create_token_command, api_version)
+> api_key_value_pairs_post(create_key_value_pair_command, api_version)
 
 
 ### Parameters
@@ -18,12 +18,12 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**create_token_command** | [**CreateTokenCommand**](CreateTokenCommand.md) |  | [required] |
+**create_key_value_pair_command** | [**CreateKeyValuePairCommand**](CreateKeyValuePairCommand.md) |  | [required] |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
-[**crate::models::TokenInfo**](TokenInfo.md)
+ (empty response body)
 
 ### Authorization
 
@@ -32,7 +32,7 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

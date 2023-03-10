@@ -5,6 +5,38 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/accounts/{id}": {
+      "delete": {
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/apps": {
       "get": {
         "tags": [
@@ -52,6 +84,15 @@
               "type": "boolean",
               "default": true
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -81,6 +122,17 @@
         "tags": [
           "apps"
         ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
@@ -103,7 +155,8 @@
                 "$ref": "#/components/schemas/CreateAppCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -146,6 +199,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -184,6 +246,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "requestBody": {
@@ -208,7 +279,8 @@
                 "$ref": "#/components/schemas/UpdateAppCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -229,6 +301,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -238,10 +319,86 @@
         }
       }
     },
+    "/api/apps/{id}/request-count": {
+      "get": {
+        "tags": [
+          "apps"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppRequestCount"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppRequestCount"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppRequestCount"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/auth-tokens": {
       "post": {
         "tags": [
           "auth-tokens"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -265,7 +422,8 @@
                 "$ref": "#/components/schemas/CreateTokenCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -322,6 +480,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -345,7 +512,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/api/channels": {
@@ -395,6 +563,15 @@
               "type": "boolean",
               "default": true
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -424,6 +601,17 @@
         "tags": [
           "channels"
         ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
@@ -446,7 +634,8 @@
                 "$ref": "#/components/schemas/CreateChannelCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -489,6 +678,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -527,6 +725,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "requestBody": {
@@ -551,7 +758,8 @@
                 "$ref": "#/components/schemas/UpdateChannelCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -572,6 +780,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "requestBody": {
@@ -596,7 +813,8 @@
                 "$ref": "#/components/schemas/PatchChannelCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -616,6 +834,15 @@
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
             }
           }
         ],
@@ -640,6 +867,15 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "requestBody": {
@@ -664,7 +900,8 @@
                 "$ref": "#/components/schemas/UpdateDesiredStatusCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -686,6 +923,23 @@
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
             }
           }
         ],
@@ -718,6 +972,17 @@
         "tags": [
           "device-codes"
         ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
@@ -740,7 +1005,8 @@
                 "$ref": "#/components/schemas/CreateDeviceCodeCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -779,6 +1045,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -810,6 +1085,17 @@
         "tags": [
           "device-codes"
         ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
@@ -832,8 +1118,234 @@
                 "$ref": "#/components/schemas/ActivateDeviceCodeCommand"
               }
             }
-          }
+          },
+          "required": true
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/key-value-pairs": {
+      "post": {
+        "tags": [
+          "key-value-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateKeyValuePairCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateKeyValuePairCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateKeyValuePairCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateKeyValuePairCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/personal-access-tokens": {
+      "post": {
+        "tags": [
+          "personal-access-tokens"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePersonalAccessTokenCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePersonalAccessTokenCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePersonalAccessTokenCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePersonalAccessTokenCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAccessTokenValue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAccessTokenValue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAccessTokenValue"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "personal-access-tokens"
+        ],
+        "parameters": [
+          {
+            "name": "searchText",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "CreatedAt"
+            }
+          },
+          {
+            "name": "isSortedAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAccessTokenItemPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAccessTokenItemPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonalAccessTokenItemPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/personal-access-tokens/{id}": {
+      "delete": {
+        "tags": [
+          "personal-access-tokens"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -845,6 +1357,17 @@
       "post": {
         "tags": [
           "registry"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -866,6 +1389,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -885,6 +1417,15 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
             }
           }
         ],
@@ -918,6 +1459,15 @@
               "format": "int32",
               "default": 50
             }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
           }
         ],
         "responses": {
@@ -947,6 +1497,17 @@
         "tags": [
           "revisions"
         ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json-patch+json": {
@@ -969,7 +1530,8 @@
                 "$ref": "#/components/schemas/RegisterRevisionCommand"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1016,6 +1578,15 @@
             "schema": {
               "type": "boolean",
               "default": true
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
             }
           }
         ],
@@ -1161,6 +1732,53 @@
           "isLastPage": {
             "type": "boolean",
             "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppRequestCount": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "end": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "interval": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "number",
+            "format": "float"
+          },
+          "averagePerSecond": {
+            "type": "number",
+            "format": "float"
+          },
+          "points": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppRequestPoint"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppRequestPoint": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "number",
+            "format": "float"
           }
         },
         "additionalProperties": false
@@ -1419,6 +2037,47 @@
         },
         "additionalProperties": false
       },
+      "CreateKeyValuePairCommand": {
+        "required": [
+          "appId",
+          "key",
+          "storeName",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "storeName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "key": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePersonalAccessTokenCommand": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateTokenCommand": {
         "type": "object",
         "properties": {
@@ -1558,6 +2217,77 @@
           },
           "activeRevisionId": {
             "$ref": "#/components/schemas/GuidNullableField"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonalAccessTokenItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonalAccessTokenItemPage": {
+        "required": [
+          "isLastPage",
+          "items",
+          "pageIndex",
+          "pageSize",
+          "totalItems"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PersonalAccessTokenItem"
+            }
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isLastPage": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonalAccessTokenValue": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false

@@ -13,8 +13,8 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeviceCodeDetails {
-    #[serde(rename = "clientName", skip_serializing_if = "Option::is_none")]
-    pub client_name: Option<String>,
+    #[serde(rename = "clientName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub client_name: Option<Option<String>>,
 }
 
 impl DeviceCodeDetails {

@@ -12,15 +12,15 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct GuidNullableField {
-    #[serde(rename = "value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Option<uuid::Uuid>>,
+pub struct CreatePersonalAccessTokenCommand {
+    #[serde(rename = "name")]
+    pub name: String,
 }
 
-impl GuidNullableField {
-    pub fn new() -> GuidNullableField {
-        GuidNullableField {
-            value: None,
+impl CreatePersonalAccessTokenCommand {
+    pub fn new(name: String) -> CreatePersonalAccessTokenCommand {
+        CreatePersonalAccessTokenCommand {
+            name,
         }
     }
 }

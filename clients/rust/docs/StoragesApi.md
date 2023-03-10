@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## api_storages_get
 
-> crate::models::StringPage api_storages_get(search_text, page_index, page_size, is_sorted_ascending)
+> crate::models::StringPage api_storages_get(search_text, page_index, page_size, is_sorted_ascending, api_version)
 
 
 ### Parameters
@@ -22,6 +22,7 @@ Name | Type | Description  | Required | Notes
 **page_index** | Option<**i32**> |  |  |[default to 0]
 **page_size** | Option<**i32**> |  |  |[default to 50]
 **is_sorted_ascending** | Option<**bool**> |  |  |[default to true]
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 

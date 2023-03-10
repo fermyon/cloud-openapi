@@ -21,8 +21,8 @@ pub struct RevisionItem {
     pub revision_number: String,
     #[serde(rename = "components")]
     pub components: Vec<crate::models::RevisionComponentDto>,
-    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub r#type: Option<String>,
+    #[serde(rename = "type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<Option<String>>,
 }
 
 impl RevisionItem {

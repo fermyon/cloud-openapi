@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## api_revisions_get
 
-> crate::models::RevisionItemPage api_revisions_get(page_index, page_size)
+> crate::models::RevisionItemPage api_revisions_get(page_index, page_size, api_version)
 
 
 ### Parameters
@@ -21,6 +21,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **page_index** | Option<**i32**> |  |  |[default to 0]
 **page_size** | Option<**i32**> |  |  |[default to 50]
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
@@ -40,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_revisions_post
 
-> api_revisions_post(register_revision_command)
+> api_revisions_post(register_revision_command, api_version)
 
 
 ### Parameters
@@ -48,7 +49,8 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**register_revision_command** | Option<[**RegisterRevisionCommand**](RegisterRevisionCommand.md)> |  |  |
+**register_revision_command** | [**RegisterRevisionCommand**](RegisterRevisionCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 

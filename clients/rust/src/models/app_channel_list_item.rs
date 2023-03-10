@@ -17,10 +17,10 @@ pub struct AppChannelListItem {
     pub id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "activeRevisionNumber", skip_serializing_if = "Option::is_none")]
-    pub active_revision_number: Option<String>,
-    #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
-    pub domain: Option<String>,
+    #[serde(rename = "activeRevisionNumber", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub active_revision_number: Option<Option<String>>,
+    #[serde(rename = "domain", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub domain: Option<Option<String>>,
     #[serde(rename = "created", skip_serializing_if = "Option::is_none")]
     pub created: Option<String>,
 }

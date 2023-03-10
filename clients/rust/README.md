@@ -25,10 +25,12 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountsApi* | [**api_accounts_id_delete**](docs/AccountsApi.md#api_accounts_id_delete) | **DELETE** /api/accounts/{id} | 
 *AppsApi* | [**api_apps_get**](docs/AppsApi.md#api_apps_get) | **GET** /api/apps | 
 *AppsApi* | [**api_apps_id_delete**](docs/AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_get**](docs/AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_put**](docs/AppsApi.md#api_apps_id_put) | **PUT** /api/apps/{id} | 
+*AppsApi* | [**api_apps_id_request_count_get**](docs/AppsApi.md#api_apps_id_request_count_get) | **GET** /api/apps/{id}/request-count | 
 *AppsApi* | [**api_apps_post**](docs/AppsApi.md#api_apps_post) | **POST** /api/apps | 
 *AuthTokensApi* | [**api_auth_tokens_post**](docs/AuthTokensApi.md#api_auth_tokens_post) | **POST** /api/auth-tokens | 
 *ChannelStatusesApi* | [**api_channel_statuses_get**](docs/ChannelStatusesApi.md#api_channel_statuses_get) | **GET** /api/channel-statuses | 
@@ -43,6 +45,10 @@ Class | Method | HTTP request | Description
 *DeviceCodesApi* | [**api_device_codes_activate_post**](docs/DeviceCodesApi.md#api_device_codes_activate_post) | **POST** /api/device-codes/activate | 
 *DeviceCodesApi* | [**api_device_codes_post**](docs/DeviceCodesApi.md#api_device_codes_post) | **POST** /api/device-codes | 
 *DeviceCodesApi* | [**api_device_codes_user_code_get**](docs/DeviceCodesApi.md#api_device_codes_user_code_get) | **GET** /api/device-codes/{userCode} | 
+*KeyValuePairsApi* | [**api_key_value_pairs_post**](docs/KeyValuePairsApi.md#api_key_value_pairs_post) | **POST** /api/key-value-pairs | 
+*PersonalAccessTokensApi* | [**api_personal_access_tokens_get**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_get) | **GET** /api/personal-access-tokens | 
+*PersonalAccessTokensApi* | [**api_personal_access_tokens_id_delete**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_id_delete) | **DELETE** /api/personal-access-tokens/{id} | 
+*PersonalAccessTokensApi* | [**api_personal_access_tokens_post**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_post) | **POST** /api/personal-access-tokens | 
 *RegistryApi* | [**api_registry_i_bindle_name_get**](docs/RegistryApi.md#api_registry_i_bindle_name_get) | **GET** /api/registry/_i/{bindleName} | 
 *RegistryApi* | [**api_registry_i_bindle_name_post**](docs/RegistryApi.md#api_registry_i_bindle_name_post) | **POST** /api/registry/_i/{bindleName} | 
 *RegistryApi* | [**api_registry_i_post**](docs/RegistryApi.md#api_registry_i_post) | **POST** /api/registry/_i | 
@@ -58,6 +64,8 @@ Class | Method | HTTP request | Description
  - [AppChannelListItem](docs/AppChannelListItem.md)
  - [AppItem](docs/AppItem.md)
  - [AppItemPage](docs/AppItemPage.md)
+ - [AppRequestCount](docs/AppRequestCount.md)
+ - [AppRequestPoint](docs/AppRequestPoint.md)
  - [AppSummaryDto](docs/AppSummaryDto.md)
  - [ChannelItem](docs/ChannelItem.md)
  - [ChannelItemPage](docs/ChannelItemPage.md)
@@ -68,6 +76,8 @@ Class | Method | HTTP request | Description
  - [CreateAppCommand](docs/CreateAppCommand.md)
  - [CreateChannelCommand](docs/CreateChannelCommand.md)
  - [CreateDeviceCodeCommand](docs/CreateDeviceCodeCommand.md)
+ - [CreateKeyValuePairCommand](docs/CreateKeyValuePairCommand.md)
+ - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
  - [DesiredStatus](docs/DesiredStatus.md)
  - [DeviceCodeDetails](docs/DeviceCodeDetails.md)
@@ -77,6 +87,9 @@ Class | Method | HTTP request | Description
  - [GuidNullableField](docs/GuidNullableField.md)
  - [JobStatus](docs/JobStatus.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
+ - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
+ - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
+ - [PersonalAccessTokenValue](docs/PersonalAccessTokenValue.md)
  - [RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [RevisionComponentDto](docs/RevisionComponentDto.md)
  - [RevisionItem](docs/RevisionItem.md)

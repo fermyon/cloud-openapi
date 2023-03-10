@@ -37,7 +37,7 @@ pub enum ApiRegistryIPostError {
 }
 
 
-pub async fn api_registry_i_bindle_name_get(configuration: &configuration::Configuration, bindle_name: &str) -> Result<(), Error<ApiRegistryIBindleNameGetError>> {
+pub async fn api_registry_i_bindle_name_get(configuration: &configuration::Configuration, bindle_name: &str, api_version: Option<&str>) -> Result<(), Error<ApiRegistryIBindleNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -47,6 +47,9 @@ pub async fn api_registry_i_bindle_name_get(configuration: &configuration::Confi
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = api_version {
+        local_var_req_builder = local_var_req_builder.header("Api-Version", local_var_param_value.to_string());
     }
     if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
@@ -72,7 +75,7 @@ pub async fn api_registry_i_bindle_name_get(configuration: &configuration::Confi
     }
 }
 
-pub async fn api_registry_i_bindle_name_post(configuration: &configuration::Configuration, bindle_name: &str) -> Result<(), Error<ApiRegistryIBindleNamePostError>> {
+pub async fn api_registry_i_bindle_name_post(configuration: &configuration::Configuration, bindle_name: &str, api_version: Option<&str>) -> Result<(), Error<ApiRegistryIBindleNamePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -82,6 +85,9 @@ pub async fn api_registry_i_bindle_name_post(configuration: &configuration::Conf
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = api_version {
+        local_var_req_builder = local_var_req_builder.header("Api-Version", local_var_param_value.to_string());
     }
     if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();
@@ -107,7 +113,7 @@ pub async fn api_registry_i_bindle_name_post(configuration: &configuration::Conf
     }
 }
 
-pub async fn api_registry_i_post(configuration: &configuration::Configuration, ) -> Result<(), Error<ApiRegistryIPostError>> {
+pub async fn api_registry_i_post(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<(), Error<ApiRegistryIPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -117,6 +123,9 @@ pub async fn api_registry_i_post(configuration: &configuration::Configuration, )
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = api_version {
+        local_var_req_builder = local_var_req_builder.header("Api-Version", local_var_param_value.to_string());
     }
     if let Some(ref local_var_apikey) = local_var_configuration.api_key {
         let local_var_key = local_var_apikey.key.clone();

@@ -27,10 +27,10 @@ pub struct ChannelItem {
     pub desired_status: String,
     #[serde(rename = "activeRevision", skip_serializing_if = "Option::is_none")]
     pub active_revision: Option<Box<crate::models::RevisionItem>>,
-    #[serde(rename = "lastPublishAt", skip_serializing_if = "Option::is_none")]
-    pub last_publish_at: Option<String>,
-    #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
-    pub range_rule: Option<String>,
+    #[serde(rename = "lastPublishAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub last_publish_at: Option<Option<String>>,
+    #[serde(rename = "rangeRule", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub range_rule: Option<Option<String>>,
     #[serde(rename = "environmentVariables")]
     pub environment_variables: Vec<crate::models::EnvironmentVariableItem>,
     #[serde(rename = "appSummary", skip_serializing_if = "Option::is_none")]
