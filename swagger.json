@@ -1639,6 +1639,7 @@
       },
       "AppChannelListItem": {
         "required": [
+          "created",
           "id",
           "name"
         ],
@@ -1653,12 +1654,10 @@
             "type": "string"
           },
           "activeRevisionNumber": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "domain": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "created": {
             "type": "string",
@@ -1689,8 +1688,7 @@
             "type": "string"
           },
           "description": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "channels": {
             "type": "array",
@@ -1737,6 +1735,14 @@
         "additionalProperties": false
       },
       "AppRequestCount": {
+        "required": [
+          "averagePerSecond",
+          "end",
+          "interval",
+          "points",
+          "start",
+          "total"
+        ],
         "type": "object",
         "properties": {
           "start": {
@@ -1763,8 +1769,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AppRequestPoint"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -2082,12 +2087,10 @@
         "type": "object",
         "properties": {
           "providerCode": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "clientId": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "provider": {
             "$ref": "#/components/schemas/AccountProvider"
@@ -2106,26 +2109,32 @@
         "type": "object",
         "properties": {
           "clientName": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "DeviceCodeItem": {
+        "required": [
+          "deviceCode",
+          "expiresIn",
+          "interval",
+          "userCode",
+          "verificationUrl"
+        ],
         "type": "object",
         "properties": {
           "deviceCode": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "userCode": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "verificationUrl": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "expiresIn": {
             "type": "integer",
@@ -2229,8 +2238,7 @@
             "format": "uuid"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -2278,12 +2286,10 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "token": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "id": {
             "type": "string",
@@ -2419,8 +2425,7 @@
         "type": "string",
         "properties": {
           "value": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -2573,8 +2578,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false

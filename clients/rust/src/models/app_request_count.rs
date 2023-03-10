@@ -13,29 +13,29 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AppRequestCount {
-    #[serde(rename = "start", skip_serializing_if = "Option::is_none")]
-    pub start: Option<i64>,
-    #[serde(rename = "end", skip_serializing_if = "Option::is_none")]
-    pub end: Option<i64>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
-    #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
-    pub total: Option<f32>,
-    #[serde(rename = "averagePerSecond", skip_serializing_if = "Option::is_none")]
-    pub average_per_second: Option<f32>,
-    #[serde(rename = "points", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub points: Option<Option<Vec<crate::models::AppRequestPoint>>>,
+    #[serde(rename = "start")]
+    pub start: i64,
+    #[serde(rename = "end")]
+    pub end: i64,
+    #[serde(rename = "interval")]
+    pub interval: i32,
+    #[serde(rename = "total")]
+    pub total: f32,
+    #[serde(rename = "averagePerSecond")]
+    pub average_per_second: f32,
+    #[serde(rename = "points")]
+    pub points: Vec<crate::models::AppRequestPoint>,
 }
 
 impl AppRequestCount {
-    pub fn new() -> AppRequestCount {
+    pub fn new(start: i64, end: i64, interval: i32, total: f32, average_per_second: f32, points: Vec<crate::models::AppRequestPoint>) -> AppRequestCount {
         AppRequestCount {
-            start: None,
-            end: None,
-            interval: None,
-            total: None,
-            average_per_second: None,
-            points: None,
+            start,
+            end,
+            interval,
+            total,
+            average_per_second,
+            points,
         }
     }
 }

@@ -13,26 +13,26 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct DeviceCodeItem {
-    #[serde(rename = "deviceCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub device_code: Option<Option<String>>,
-    #[serde(rename = "userCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub user_code: Option<Option<String>>,
-    #[serde(rename = "verificationUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub verification_url: Option<Option<String>>,
-    #[serde(rename = "expiresIn", skip_serializing_if = "Option::is_none")]
-    pub expires_in: Option<i64>,
-    #[serde(rename = "interval", skip_serializing_if = "Option::is_none")]
-    pub interval: Option<i32>,
+    #[serde(rename = "deviceCode")]
+    pub device_code: String,
+    #[serde(rename = "userCode")]
+    pub user_code: String,
+    #[serde(rename = "verificationUrl")]
+    pub verification_url: String,
+    #[serde(rename = "expiresIn")]
+    pub expires_in: i64,
+    #[serde(rename = "interval")]
+    pub interval: i32,
 }
 
 impl DeviceCodeItem {
-    pub fn new() -> DeviceCodeItem {
+    pub fn new(device_code: String, user_code: String, verification_url: String, expires_in: i64, interval: i32) -> DeviceCodeItem {
         DeviceCodeItem {
-            device_code: None,
-            user_code: None,
-            verification_url: None,
-            expires_in: None,
-            interval: None,
+            device_code,
+            user_code,
+            verification_url,
+            expires_in,
+            interval,
         }
     }
 }
