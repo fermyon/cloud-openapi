@@ -2461,11 +2461,15 @@
         "additionalProperties": false
       },
       "TokenInfo": {
+        "required": [
+          "expiration",
+          "token"
+        ],
         "type": "object",
         "properties": {
           "token": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "expiration": {
             "type": "string",

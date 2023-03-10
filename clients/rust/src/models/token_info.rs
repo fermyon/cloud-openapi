@@ -13,17 +13,17 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct TokenInfo {
-    #[serde(rename = "token", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub token: Option<Option<String>>,
-    #[serde(rename = "expiration", skip_serializing_if = "Option::is_none")]
-    pub expiration: Option<String>,
+    #[serde(rename = "token")]
+    pub token: String,
+    #[serde(rename = "expiration")]
+    pub expiration: String,
 }
 
 impl TokenInfo {
-    pub fn new() -> TokenInfo {
+    pub fn new(token: String, expiration: String) -> TokenInfo {
         TokenInfo {
-            token: None,
-            expiration: None,
+            token,
+            expiration,
         }
     }
 }
