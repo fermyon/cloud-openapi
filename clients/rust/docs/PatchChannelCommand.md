@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **channel_id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **environment_variables** | Option<[**Vec<crate::models::UpdateEnvironmentVariableDto>**](UpdateEnvironmentVariableDto.md)> |  | [optional]
 **name** | Option<[**crate::models::StringField**](StringField.md)> |  | [optional]
+**domain** | Option<[**crate::models::StringField**](StringField.md)> |  | [optional]
 **revision_selection_strategy** | Option<[**crate::models::ChannelRevisionSelectionStrategyField**](ChannelRevisionSelectionStrategyField.md)> |  | [optional]
 **range_rule** | Option<[**crate::models::StringField**](StringField.md)> |  | [optional]
 **active_revision_id** | Option<[**crate::models::GuidNullableField**](GuidNullableField.md)> |  | [optional]

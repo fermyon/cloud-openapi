@@ -12,21 +12,18 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct TokenInfo {
+pub struct RefreshTokenCommand {
     #[serde(rename = "token")]
     pub token: String,
     #[serde(rename = "refreshToken")]
     pub refresh_token: String,
-    #[serde(rename = "expiration")]
-    pub expiration: String,
 }
 
-impl TokenInfo {
-    pub fn new(token: String, refresh_token: String, expiration: String) -> TokenInfo {
-        TokenInfo {
+impl RefreshTokenCommand {
+    pub fn new(token: String, refresh_token: String) -> RefreshTokenCommand {
+        RefreshTokenCommand {
             token,
             refresh_token,
-            expiration,
         }
     }
 }

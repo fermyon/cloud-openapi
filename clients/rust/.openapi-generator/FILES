@@ -36,11 +36,13 @@ docs/GetChannelLogsVm.md
 docs/GuidNullableField.md
 docs/JobStatus.md
 docs/KeyValuePairsApi.md
+docs/OciApi.md
 docs/PatchChannelCommand.md
 docs/PersonalAccessTokenItem.md
 docs/PersonalAccessTokenItemPage.md
 docs/PersonalAccessTokenValue.md
 docs/PersonalAccessTokensApi.md
+docs/RefreshTokenCommand.md
 docs/RegisterRevisionCommand.md
 docs/RegistryApi.md
 docs/RevisionComponentDto.md
@@ -66,6 +68,7 @@ src/apis/configuration.rs
 src/apis/device_codes_api.rs
 src/apis/key_value_pairs_api.rs
 src/apis/mod.rs
+src/apis/oci_api.rs
 src/apis/personal_access_tokens_api.rs
 src/apis/registry_api.rs
 src/apis/revisions_api.rs
@@ -103,6 +106,7 @@ src/models/patch_channel_command.rs
 src/models/personal_access_token_item.rs
 src/models/personal_access_token_item_page.rs
 src/models/personal_access_token_value.rs
+src/models/refresh_token_command.rs
 src/models/register_revision_command.rs
 src/models/revision_component_dto.rs
 src/models/revision_item.rs

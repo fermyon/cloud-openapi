@@ -16,7 +16,7 @@ pub struct AppRequestPoint {
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<i64>,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<f32>,
+    pub value: Option<i64>,
 }
 
 impl AppRequestPoint {

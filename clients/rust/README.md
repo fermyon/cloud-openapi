@@ -33,6 +33,7 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**api_apps_id_request_count_get**](docs/AppsApi.md#api_apps_id_request_count_get) | **GET** /api/apps/{id}/request-count | 
 *AppsApi* | [**api_apps_post**](docs/AppsApi.md#api_apps_post) | **POST** /api/apps | 
 *AuthTokensApi* | [**api_auth_tokens_post**](docs/AuthTokensApi.md#api_auth_tokens_post) | **POST** /api/auth-tokens | 
+*AuthTokensApi* | [**api_auth_tokens_refresh_post**](docs/AuthTokensApi.md#api_auth_tokens_refresh_post) | **POST** /api/auth-tokens/refresh | 
 *ChannelStatusesApi* | [**api_channel_statuses_get**](docs/ChannelStatusesApi.md#api_channel_statuses_get) | **GET** /api/channel-statuses | 
 *ChannelsApi* | [**api_channels_channel_id_desired_status_put**](docs/ChannelsApi.md#api_channels_channel_id_desired_status_put) | **PUT** /api/channels/{channelId}/desired-status | 
 *ChannelsApi* | [**api_channels_get**](docs/ChannelsApi.md#api_channels_get) | **GET** /api/channels | 
@@ -46,6 +47,14 @@ Class | Method | HTTP request | Description
 *DeviceCodesApi* | [**api_device_codes_post**](docs/DeviceCodesApi.md#api_device_codes_post) | **POST** /api/device-codes | 
 *DeviceCodesApi* | [**api_device_codes_user_code_get**](docs/DeviceCodesApi.md#api_device_codes_user_code_get) | **GET** /api/device-codes/{userCode} | 
 *KeyValuePairsApi* | [**api_key_value_pairs_post**](docs/KeyValuePairsApi.md#api_key_value_pairs_post) | **POST** /api/key-value-pairs | 
+*OciApi* | [**v2_get**](docs/OciApi.md#v2_get) | **GET** /v2 | 
+*OciApi* | [**v2_name_blobs_uploads_digest_delete**](docs/OciApi.md#v2_name_blobs_uploads_digest_delete) | **DELETE** /v2/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**v2_name_blobs_uploads_digest_get**](docs/OciApi.md#v2_name_blobs_uploads_digest_get) | **GET** /v2/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**v2_name_blobs_uploads_digest_patch**](docs/OciApi.md#v2_name_blobs_uploads_digest_patch) | **PATCH** /v2/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**v2_name_blobs_uploads_digest_put**](docs/OciApi.md#v2_name_blobs_uploads_digest_put) | **PUT** /v2/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**v2_name_blobs_uploads_post**](docs/OciApi.md#v2_name_blobs_uploads_post) | **POST** /v2/{name}/blobs/uploads | 
+*OciApi* | [**v2_name_manifests_reference_head**](docs/OciApi.md#v2_name_manifests_reference_head) | **HEAD** /v2/{name}/manifests/{reference} | 
+*OciApi* | [**v2_name_manifests_reference_put**](docs/OciApi.md#v2_name_manifests_reference_put) | **PUT** /v2/{name}/manifests/{reference} | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_get**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_get) | **GET** /api/personal-access-tokens | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_id_delete**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_id_delete) | **DELETE** /api/personal-access-tokens/{id} | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_post**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_post) | **POST** /api/personal-access-tokens | 
@@ -90,6 +99,7 @@ Class | Method | HTTP request | Description
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
  - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
  - [PersonalAccessTokenValue](docs/PersonalAccessTokenValue.md)
+ - [RefreshTokenCommand](docs/RefreshTokenCommand.md)
  - [RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [RevisionComponentDto](docs/RevisionComponentDto.md)
  - [RevisionItem](docs/RevisionItem.md)

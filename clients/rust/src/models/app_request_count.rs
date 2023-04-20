@@ -20,15 +20,15 @@ pub struct AppRequestCount {
     #[serde(rename = "interval")]
     pub interval: i32,
     #[serde(rename = "total")]
-    pub total: f32,
+    pub total: i64,
     #[serde(rename = "averagePerSecond")]
-    pub average_per_second: f32,
+    pub average_per_second: f64,
     #[serde(rename = "points")]
     pub points: Vec<crate::models::AppRequestPoint>,
 }
 
 impl AppRequestCount {
-    pub fn new(start: i64, end: i64, interval: i32, total: f32, average_per_second: f32, points: Vec<crate::models::AppRequestPoint>) -> AppRequestCount {
+    pub fn new(start: i64, end: i64, interval: i32, total: i64, average_per_second: f64, points: Vec<crate::models::AppRequestPoint>) -> AppRequestCount {
         AppRequestCount {
             start,
             end,

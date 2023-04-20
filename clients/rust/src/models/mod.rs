@@ -60,6 +60,8 @@ pub mod personal_access_token_item_page;
 pub use self::personal_access_token_item_page::PersonalAccessTokenItemPage;
 pub mod personal_access_token_value;
 pub use self::personal_access_token_value::PersonalAccessTokenValue;
+pub mod refresh_token_command;
+pub use self::refresh_token_command::RefreshTokenCommand;
 pub mod register_revision_command;
 pub use self::register_revision_command::RegisterRevisionCommand;
 pub mod revision_component_dto;

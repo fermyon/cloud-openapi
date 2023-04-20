@@ -97,6 +97,7 @@ pub mod channel_statuses_api;
 pub mod channels_api;
 pub mod device_codes_api;
 pub mod key_value_pairs_api;
+pub mod oci_api;
 pub mod personal_access_tokens_api;
 pub mod registry_api;
 pub mod revisions_api;
