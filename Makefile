@@ -1,4 +1,4 @@
-DOCKER_IMAGE="openapitools/openapi-generator-cli"
+DOCKER_IMAGE="openapitools/openapi-generator-cli:v6.6.0"
 PACKAGE_NAME="cloud-openapi"
 
 clients: swagger.json
@@ -12,7 +12,7 @@ clients: swagger.json
 	done
 
 swagger.json:
-	curl -sSLko swagger.json https://cloud.fermyon.com/swagger/v1/swagger.json
+	curl -sSLko swagger.json http://localhost:5309/swagger/v1/swagger.json
 
 clean:
 	rm -rf clients

@@ -1,16 +1,16 @@
-# \ChannelStatusesApi
+# \VariablePairsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_channel_statuses_get**](ChannelStatusesApi.md#api_channel_statuses_get) | **GET** /api/channel-statuses | 
+[**api_variable_pairs_post**](VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
 
 
 
-## api_channel_statuses_get
+## api_variable_pairs_post
 
-> crate::models::ChannelJobStatusItemPage api_channel_statuses_get(page_index, page_size, channel_id, api_version)
+> api_variable_pairs_post(create_variable_pair_command, api_version)
 
 
 ### Parameters
@@ -18,14 +18,12 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page_index** | Option<**i32**> |  |  |[default to 0]
-**page_size** | Option<**i32**> |  |  |[default to 2147483647]
-**channel_id** | Option<**uuid::Uuid**> |  |  |
+**create_variable_pair_command** | [**CreateVariablePairCommand**](CreateVariablePairCommand.md) |  | [required] |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
-[**crate::models::ChannelJobStatusItemPage**](ChannelJobStatusItemPage.md)
+ (empty response body)
 
 ### Authorization
 
@@ -33,8 +31,8 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

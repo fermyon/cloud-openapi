@@ -23,6 +23,8 @@ pub struct AppChannelListItem {
     pub domain: Option<String>,
     #[serde(rename = "created")]
     pub created: String,
+    #[serde(rename = "healthStatus", skip_serializing_if = "Option::is_none")]
+    pub health_status: Option<crate::models::ApiHealthStatus>,
 }
 
 impl AppChannelListItem {
@@ -33,6 +35,7 @@ impl AppChannelListItem {
             active_revision_number: None,
             domain: None,
             created,
+            health_status: None,
         }
     }
 }

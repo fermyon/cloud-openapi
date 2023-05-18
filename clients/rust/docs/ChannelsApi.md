@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**api_channels_get**](ChannelsApi.md#api_channels_get) | **GET** /api/channels | 
 [**api_channels_id_delete**](ChannelsApi.md#api_channels_id_delete) | **DELETE** /api/channels/{id} | 
 [**api_channels_id_get**](ChannelsApi.md#api_channels_id_get) | **GET** /api/channels/{id} | 
+[**api_channels_id_healthz_get**](ChannelsApi.md#api_channels_id_healthz_get) | **GET** /api/channels/{id}/healthz | 
 [**api_channels_id_logs_get**](ChannelsApi.md#api_channels_id_logs_get) | **GET** /api/channels/{id}/logs | 
 [**api_channels_id_patch**](ChannelsApi.md#api_channels_id_patch) | **PATCH** /api/channels/{id} | 
 [**api_channels_id_put**](ChannelsApi.md#api_channels_id_put) | **PUT** /api/channels/{id} | 
@@ -123,6 +124,35 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::ChannelItem**](ChannelItem.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_channels_id_healthz_get
+
+> crate::models::HealthCheckResult api_channels_id_healthz_get(id, api_version)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
+
+### Return type
+
+[**crate::models::HealthCheckResult**](HealthCheckResult.md)
 
 ### Authorization
 

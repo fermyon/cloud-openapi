@@ -15,31 +15,22 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`api_channel_statuses_get`]
+/// struct for typed errors of method [`api_variable_pairs_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiChannelStatusesGetError {
+pub enum ApiVariablePairsPostError {
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn api_channel_statuses_get(configuration: &configuration::Configuration, page_index: Option<i32>, page_size: Option<i32>, channel_id: Option<&str>, api_version: Option<&str>) -> Result<crate::models::ChannelJobStatusItemPage, Error<ApiChannelStatusesGetError>> {
+pub async fn api_variable_pairs_post(configuration: &configuration::Configuration, create_variable_pair_command: crate::models::CreateVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/channel-statuses", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/api/variable-pairs", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = page_index {
-        local_var_req_builder = local_var_req_builder.query(&[("pageIndex", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = page_size {
-        local_var_req_builder = local_var_req_builder.query(&[("pageSize", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_str) = channel_id {
-        local_var_req_builder = local_var_req_builder.query(&[("channelId", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -54,6 +45,7 @@ pub async fn api_channel_statuses_get(configuration: &configuration::Configurati
         };
         local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
     };
+    local_var_req_builder = local_var_req_builder.json(&create_variable_pair_command);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -62,9 +54,9 @@ pub async fn api_channel_statuses_get(configuration: &configuration::Configurati
     let local_var_content = local_var_resp.text().await?;
 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
+        Ok(())
     } else {
-        let local_var_entity: Option<ApiChannelStatusesGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiVariablePairsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
