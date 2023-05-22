@@ -1,4 +1,4 @@
-DOCKER_IMAGE="openapitools/openapi-generator-cli"
+DOCKER_IMAGE="openapitools/openapi-generator-cli:v6.6.0"
 PACKAGE_NAME="cloud-openapi"
 
 clients: swagger.json

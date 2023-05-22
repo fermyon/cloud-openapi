@@ -26,6 +26,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountsApi* | [**api_accounts_id_delete**](docs/AccountsApi.md#api_accounts_id_delete) | **DELETE** /api/accounts/{id} | 
+*AccountsApi* | [**api_accounts_id_get**](docs/AccountsApi.md#api_accounts_id_get) | **GET** /api/accounts/{id} | 
 *AppsApi* | [**api_apps_get**](docs/AppsApi.md#api_apps_get) | **GET** /api/apps | 
 *AppsApi* | [**api_apps_id_delete**](docs/AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_get**](docs/AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
@@ -34,11 +35,11 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**api_apps_post**](docs/AppsApi.md#api_apps_post) | **POST** /api/apps | 
 *AuthTokensApi* | [**api_auth_tokens_post**](docs/AuthTokensApi.md#api_auth_tokens_post) | **POST** /api/auth-tokens | 
 *AuthTokensApi* | [**api_auth_tokens_refresh_post**](docs/AuthTokensApi.md#api_auth_tokens_refresh_post) | **POST** /api/auth-tokens/refresh | 
-*ChannelStatusesApi* | [**api_channel_statuses_get**](docs/ChannelStatusesApi.md#api_channel_statuses_get) | **GET** /api/channel-statuses | 
 *ChannelsApi* | [**api_channels_channel_id_desired_status_put**](docs/ChannelsApi.md#api_channels_channel_id_desired_status_put) | **PUT** /api/channels/{channelId}/desired-status | 
 *ChannelsApi* | [**api_channels_get**](docs/ChannelsApi.md#api_channels_get) | **GET** /api/channels | 
 *ChannelsApi* | [**api_channels_id_delete**](docs/ChannelsApi.md#api_channels_id_delete) | **DELETE** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_get**](docs/ChannelsApi.md#api_channels_id_get) | **GET** /api/channels/{id} | 
+*ChannelsApi* | [**api_channels_id_healthz_get**](docs/ChannelsApi.md#api_channels_id_healthz_get) | **GET** /api/channels/{id}/healthz | 
 *ChannelsApi* | [**api_channels_id_logs_get**](docs/ChannelsApi.md#api_channels_id_logs_get) | **GET** /api/channels/{id}/logs | 
 *ChannelsApi* | [**api_channels_id_patch**](docs/ChannelsApi.md#api_channels_id_patch) | **PATCH** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_put**](docs/ChannelsApi.md#api_channels_id_put) | **PUT** /api/channels/{id} | 
@@ -47,14 +48,14 @@ Class | Method | HTTP request | Description
 *DeviceCodesApi* | [**api_device_codes_post**](docs/DeviceCodesApi.md#api_device_codes_post) | **POST** /api/device-codes | 
 *DeviceCodesApi* | [**api_device_codes_user_code_get**](docs/DeviceCodesApi.md#api_device_codes_user_code_get) | **GET** /api/device-codes/{userCode} | 
 *KeyValuePairsApi* | [**api_key_value_pairs_post**](docs/KeyValuePairsApi.md#api_key_value_pairs_post) | **POST** /api/key-value-pairs | 
-*OciApi* | [**v2_get**](docs/OciApi.md#v2_get) | **GET** /v2 | 
-*OciApi* | [**v2_name_blobs_uploads_digest_delete**](docs/OciApi.md#v2_name_blobs_uploads_digest_delete) | **DELETE** /v2/{name}/blobs/uploads/{digest} | 
-*OciApi* | [**v2_name_blobs_uploads_digest_get**](docs/OciApi.md#v2_name_blobs_uploads_digest_get) | **GET** /v2/{name}/blobs/uploads/{digest} | 
-*OciApi* | [**v2_name_blobs_uploads_digest_patch**](docs/OciApi.md#v2_name_blobs_uploads_digest_patch) | **PATCH** /v2/{name}/blobs/uploads/{digest} | 
-*OciApi* | [**v2_name_blobs_uploads_digest_put**](docs/OciApi.md#v2_name_blobs_uploads_digest_put) | **PUT** /v2/{name}/blobs/uploads/{digest} | 
-*OciApi* | [**v2_name_blobs_uploads_post**](docs/OciApi.md#v2_name_blobs_uploads_post) | **POST** /v2/{name}/blobs/uploads | 
-*OciApi* | [**v2_name_manifests_reference_head**](docs/OciApi.md#v2_name_manifests_reference_head) | **HEAD** /v2/{name}/manifests/{reference} | 
-*OciApi* | [**v2_name_manifests_reference_put**](docs/OciApi.md#v2_name_manifests_reference_put) | **PUT** /v2/{name}/manifests/{reference} | 
+*OciApi* | [**api_oci_get**](docs/OciApi.md#api_oci_get) | **GET** /api/oci | 
+*OciApi* | [**api_oci_name_blobs_uploads_digest_delete**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_delete) | **DELETE** /api/oci/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**api_oci_name_blobs_uploads_digest_get**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_get) | **GET** /api/oci/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**api_oci_name_blobs_uploads_digest_patch**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_patch) | **PATCH** /api/oci/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**api_oci_name_blobs_uploads_digest_put**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_put) | **PUT** /api/oci/{name}/blobs/uploads/{digest} | 
+*OciApi* | [**api_oci_name_blobs_uploads_post**](docs/OciApi.md#api_oci_name_blobs_uploads_post) | **POST** /api/oci/{name}/blobs/uploads | 
+*OciApi* | [**api_oci_name_manifests_reference_head**](docs/OciApi.md#api_oci_name_manifests_reference_head) | **HEAD** /api/oci/{name}/manifests/{reference} | 
+*OciApi* | [**api_oci_name_manifests_reference_put**](docs/OciApi.md#api_oci_name_manifests_reference_put) | **PUT** /api/oci/{name}/manifests/{reference} | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_get**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_get) | **GET** /api/personal-access-tokens | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_id_delete**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_id_delete) | **DELETE** /api/personal-access-tokens/{id} | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_post**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_post) | **POST** /api/personal-access-tokens | 
@@ -64,12 +65,16 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
+*VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
 
 
 ## Documentation For Models
 
+ - [AccountDetails](docs/AccountDetails.md)
+ - [AccountPlanType](docs/AccountPlanType.md)
  - [AccountProvider](docs/AccountProvider.md)
  - [ActivateDeviceCodeCommand](docs/ActivateDeviceCodeCommand.md)
+ - [ApiHealthStatus](docs/ApiHealthStatus.md)
  - [AppChannelListItem](docs/AppChannelListItem.md)
  - [AppItem](docs/AppItem.md)
  - [AppItemPage](docs/AppItemPage.md)
@@ -78,8 +83,6 @@ Class | Method | HTTP request | Description
  - [AppSummaryDto](docs/AppSummaryDto.md)
  - [ChannelItem](docs/ChannelItem.md)
  - [ChannelItemPage](docs/ChannelItemPage.md)
- - [ChannelJobStatusItem](docs/ChannelJobStatusItem.md)
- - [ChannelJobStatusItemPage](docs/ChannelJobStatusItemPage.md)
  - [ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
  - [ChannelRevisionSelectionStrategyField](docs/ChannelRevisionSelectionStrategyField.md)
  - [CreateAppCommand](docs/CreateAppCommand.md)
@@ -88,13 +91,14 @@ Class | Method | HTTP request | Description
  - [CreateKeyValuePairCommand](docs/CreateKeyValuePairCommand.md)
  - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
+ - [CreateVariablePairCommand](docs/CreateVariablePairCommand.md)
  - [DesiredStatus](docs/DesiredStatus.md)
  - [DeviceCodeDetails](docs/DeviceCodeDetails.md)
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [GuidNullableField](docs/GuidNullableField.md)
- - [JobStatus](docs/JobStatus.md)
+ - [HealthCheckResult](docs/HealthCheckResult.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
  - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
