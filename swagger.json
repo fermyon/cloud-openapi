@@ -6,6 +6,52 @@
   },
   "paths": {
     "/api/accounts/{id}": {
+      "get": {
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "tags": [
           "accounts"
@@ -514,73 +560,6 @@
         }
       }
     },
-    "/api/channel-statuses": {
-      "get": {
-        "tags": [
-          "channel-statuses"
-        ],
-        "parameters": [
-          {
-            "name": "pageIndex",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 2147483647
-            }
-          },
-          {
-            "name": "channelId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "Api-Version",
-            "in": "header",
-            "description": "The requested API version",
-            "schema": {
-              "type": "string",
-              "default": "1.0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true
-      }
-    },
     "/api/channels": {
       "get": {
         "tags": [
@@ -1032,6 +1011,55 @@
         }
       }
     },
+    "/api/channels/{id}/healthz": {
+      "get": {
+        "tags": [
+          "channels"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthCheckResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthCheckResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthCheckResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/device-codes": {
       "post": {
         "tags": [
@@ -1241,7 +1269,7 @@
         }
       }
     },
-    "/v2": {
+    "/api/oci": {
       "get": {
         "tags": [
           "oci"
@@ -1264,7 +1292,7 @@
         }
       }
     },
-    "/v2/{name}/manifests/{reference}": {
+    "/api/oci/{name}/manifests/{reference}": {
       "head": {
         "tags": [
           "oci"
@@ -1340,7 +1368,7 @@
         }
       }
     },
-    "/v2/{name}/blobs/uploads": {
+    "/api/oci/{name}/blobs/uploads": {
       "post": {
         "tags": [
           "oci"
@@ -1371,7 +1399,7 @@
         }
       }
     },
-    "/v2/{name}/blobs/uploads/{digest}": {
+    "/api/oci/{name}/blobs/uploads/{digest}": {
       "get": {
         "tags": [
           "oci"
@@ -1958,10 +1986,79 @@
           }
         }
       }
+    },
+    "/api/variable-pairs": {
+      "post": {
+        "tags": [
+          "variable-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVariablePairCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVariablePairCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVariablePairCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVariablePairCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AccountDetails": {
+        "type": "object",
+        "properties": {
+          "accountType": {
+            "$ref": "#/components/schemas/AccountPlanType"
+          },
+          "cancelAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountPlanType": {
+        "enum": [
+          "Free",
+          "Developer"
+        ],
+        "type": "string"
+      },
       "AccountProvider": {
         "enum": [
           "GitHub",
@@ -1981,6 +2078,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "ApiHealthStatus": {
+        "enum": [
+          "Healthy",
+          "Unhealthy",
+          "Degraded"
+        ],
+        "type": "string"
       },
       "AppChannelListItem": {
         "required": [
@@ -2007,6 +2112,9 @@
           "created": {
             "type": "string",
             "format": "date-time"
+          },
+          "healthStatus": {
+            "$ref": "#/components/schemas/ApiHealthStatus"
           }
         },
         "additionalProperties": false
@@ -2257,58 +2365,6 @@
         },
         "additionalProperties": false
       },
-      "ChannelJobStatusItem": {
-        "required": [
-          "channelId",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "channelId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "status": {
-            "$ref": "#/components/schemas/JobStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChannelJobStatusItemPage": {
-        "required": [
-          "isLastPage",
-          "items",
-          "pageIndex",
-          "pageSize",
-          "totalItems"
-        ],
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChannelJobStatusItem"
-            }
-          },
-          "totalItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isLastPage": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ChannelRevisionSelectionStrategy": {
         "enum": [
           "UseRangeRule",
@@ -2443,6 +2499,29 @@
         },
         "additionalProperties": false
       },
+      "CreateVariablePairCommand": {
+        "required": [
+          "appId",
+          "value",
+          "variable"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "variable": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "DesiredStatus": {
         "enum": [
           "Running",
@@ -2541,14 +2620,14 @@
         },
         "additionalProperties": false
       },
-      "JobStatus": {
-        "enum": [
-          "Unknown",
-          "Pending",
-          "Running",
-          "Dead"
-        ],
-        "type": "string"
+      "HealthCheckResult": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ApiHealthStatus"
+          }
+        },
+        "additionalProperties": false
       },
       "PatchChannelCommand": {
         "type": "object",

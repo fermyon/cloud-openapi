@@ -15,69 +15,69 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`v2_get`]
+/// struct for typed errors of method [`api_oci_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2GetError {
+pub enum ApiOciGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v2_name_blobs_uploads_digest_delete`]
+/// struct for typed errors of method [`api_oci_name_blobs_uploads_digest_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2NameBlobsUploadsDigestDeleteError {
+pub enum ApiOciNameBlobsUploadsDigestDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v2_name_blobs_uploads_digest_get`]
+/// struct for typed errors of method [`api_oci_name_blobs_uploads_digest_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2NameBlobsUploadsDigestGetError {
+pub enum ApiOciNameBlobsUploadsDigestGetError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v2_name_blobs_uploads_digest_patch`]
+/// struct for typed errors of method [`api_oci_name_blobs_uploads_digest_patch`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2NameBlobsUploadsDigestPatchError {
+pub enum ApiOciNameBlobsUploadsDigestPatchError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v2_name_blobs_uploads_digest_put`]
+/// struct for typed errors of method [`api_oci_name_blobs_uploads_digest_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2NameBlobsUploadsDigestPutError {
+pub enum ApiOciNameBlobsUploadsDigestPutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v2_name_blobs_uploads_post`]
+/// struct for typed errors of method [`api_oci_name_blobs_uploads_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2NameBlobsUploadsPostError {
+pub enum ApiOciNameBlobsUploadsPostError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v2_name_manifests_reference_head`]
+/// struct for typed errors of method [`api_oci_name_manifests_reference_head`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2NameManifestsReferenceHeadError {
+pub enum ApiOciNameManifestsReferenceHeadError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`v2_name_manifests_reference_put`]
+/// struct for typed errors of method [`api_oci_name_manifests_reference_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum V2NameManifestsReferencePutError {
+pub enum ApiOciNameManifestsReferencePutError {
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn v2_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<(), Error<V2GetError>> {
+pub async fn api_oci_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<(), Error<ApiOciGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/api/oci", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -104,18 +104,18 @@ pub async fn v2_get(configuration: &configuration::Configuration, api_version: O
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2GetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-pub async fn v2_name_blobs_uploads_digest_delete(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<V2NameBlobsUploadsDigestDeleteError>> {
+pub async fn api_oci_name_blobs_uploads_digest_delete(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<ApiOciNameBlobsUploadsDigestDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/api/oci/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -142,18 +142,18 @@ pub async fn v2_name_blobs_uploads_digest_delete(configuration: &configuration::
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2NameBlobsUploadsDigestDeleteError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciNameBlobsUploadsDigestDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-pub async fn v2_name_blobs_uploads_digest_get(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<V2NameBlobsUploadsDigestGetError>> {
+pub async fn api_oci_name_blobs_uploads_digest_get(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<ApiOciNameBlobsUploadsDigestGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/api/oci/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -180,18 +180,18 @@ pub async fn v2_name_blobs_uploads_digest_get(configuration: &configuration::Con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2NameBlobsUploadsDigestGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciNameBlobsUploadsDigestGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-pub async fn v2_name_blobs_uploads_digest_patch(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<V2NameBlobsUploadsDigestPatchError>> {
+pub async fn api_oci_name_blobs_uploads_digest_patch(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<ApiOciNameBlobsUploadsDigestPatchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/api/oci/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -218,18 +218,18 @@ pub async fn v2_name_blobs_uploads_digest_patch(configuration: &configuration::C
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2NameBlobsUploadsDigestPatchError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciNameBlobsUploadsDigestPatchError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-pub async fn v2_name_blobs_uploads_digest_put(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<V2NameBlobsUploadsDigestPutError>> {
+pub async fn api_oci_name_blobs_uploads_digest_put(configuration: &configuration::Configuration, digest: &str, name: &str, api_version: Option<&str>) -> Result<(), Error<ApiOciNameBlobsUploadsDigestPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/api/oci/{name}/blobs/uploads/{digest}", local_var_configuration.base_path, digest=crate::apis::urlencode(digest), name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -256,18 +256,18 @@ pub async fn v2_name_blobs_uploads_digest_put(configuration: &configuration::Con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2NameBlobsUploadsDigestPutError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciNameBlobsUploadsDigestPutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-pub async fn v2_name_blobs_uploads_post(configuration: &configuration::Configuration, name: &str, api_version: Option<&str>) -> Result<(), Error<V2NameBlobsUploadsPostError>> {
+pub async fn api_oci_name_blobs_uploads_post(configuration: &configuration::Configuration, name: &str, api_version: Option<&str>) -> Result<(), Error<ApiOciNameBlobsUploadsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2/{name}/blobs/uploads", local_var_configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/api/oci/{name}/blobs/uploads", local_var_configuration.base_path, name=crate::apis::urlencode(name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -294,18 +294,18 @@ pub async fn v2_name_blobs_uploads_post(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2NameBlobsUploadsPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciNameBlobsUploadsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-pub async fn v2_name_manifests_reference_head(configuration: &configuration::Configuration, name: &str, reference: &str, api_version: Option<&str>) -> Result<(), Error<V2NameManifestsReferenceHeadError>> {
+pub async fn api_oci_name_manifests_reference_head(configuration: &configuration::Configuration, name: &str, reference: &str, api_version: Option<&str>) -> Result<(), Error<ApiOciNameManifestsReferenceHeadError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2/{name}/manifests/{reference}", local_var_configuration.base_path, name=crate::apis::urlencode(name), reference=crate::apis::urlencode(reference));
+    let local_var_uri_str = format!("{}/api/oci/{name}/manifests/{reference}", local_var_configuration.base_path, name=crate::apis::urlencode(name), reference=crate::apis::urlencode(reference));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::HEAD, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -332,18 +332,18 @@ pub async fn v2_name_manifests_reference_head(configuration: &configuration::Con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2NameManifestsReferenceHeadError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciNameManifestsReferenceHeadError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-pub async fn v2_name_manifests_reference_put(configuration: &configuration::Configuration, name: &str, reference: &str, api_version: Option<&str>) -> Result<(), Error<V2NameManifestsReferencePutError>> {
+pub async fn api_oci_name_manifests_reference_put(configuration: &configuration::Configuration, name: &str, reference: &str, api_version: Option<&str>) -> Result<(), Error<ApiOciNameManifestsReferencePutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/v2/{name}/manifests/{reference}", local_var_configuration.base_path, name=crate::apis::urlencode(name), reference=crate::apis::urlencode(reference));
+    let local_var_uri_str = format!("{}/api/oci/{name}/manifests/{reference}", local_var_configuration.base_path, name=crate::apis::urlencode(name), reference=crate::apis::urlencode(reference));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -370,7 +370,7 @@ pub async fn v2_name_manifests_reference_put(configuration: &configuration::Conf
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<V2NameManifestsReferencePutError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiOciNameManifestsReferencePutError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
