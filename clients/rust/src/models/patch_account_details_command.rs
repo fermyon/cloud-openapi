@@ -12,17 +12,14 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct AccountDetails {
-    #[serde(rename = "plan", skip_serializing_if = "Option::is_none")]
-    pub plan: Option<Box<crate::models::AccountPlan>>,
+pub struct PatchAccountDetailsCommand {
     #[serde(rename = "isMarketingEmailOn", skip_serializing_if = "Option::is_none")]
-    pub is_marketing_email_on: Option<bool>,
+    pub is_marketing_email_on: Option<Box<crate::models::BooleanField>>,
 }
 
-impl AccountDetails {
-    pub fn new() -> AccountDetails {
-        AccountDetails {
-            plan: None,
+impl PatchAccountDetailsCommand {
+    pub fn new() -> PatchAccountDetailsCommand {
+        PatchAccountDetailsCommand {
             is_marketing_email_on: None,
         }
     }

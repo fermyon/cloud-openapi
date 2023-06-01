@@ -27,6 +27,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountsApi* | [**api_accounts_id_delete**](docs/AccountsApi.md#api_accounts_id_delete) | **DELETE** /api/accounts/{id} | 
 *AccountsApi* | [**api_accounts_id_get**](docs/AccountsApi.md#api_accounts_id_get) | **GET** /api/accounts/{id} | 
+*AccountsApi* | [**api_accounts_id_patch**](docs/AccountsApi.md#api_accounts_id_patch) | **PATCH** /api/accounts/{id} | 
 *AppsApi* | [**api_apps_get**](docs/AppsApi.md#api_apps_get) | **GET** /api/apps | 
 *AppsApi* | [**api_apps_id_delete**](docs/AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_get**](docs/AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
@@ -65,12 +66,15 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
-*VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
+*VariablePairsApi* | [**api_variable_pairs_create_post**](docs/VariablePairsApi.md#api_variable_pairs_create_post) | **POST** /api/variable-pairs/create | 
+*VariablePairsApi* | [**api_variable_pairs_delete**](docs/VariablePairsApi.md#api_variable_pairs_delete) | **DELETE** /api/variable-pairs | 
+*VariablePairsApi* | [**api_variable_pairs_list_get**](docs/VariablePairsApi.md#api_variable_pairs_list_get) | **GET** /api/variable-pairs/list | 
 
 
 ## Documentation For Models
 
  - [AccountDetails](docs/AccountDetails.md)
+ - [AccountPlan](docs/AccountPlan.md)
  - [AccountPlanType](docs/AccountPlanType.md)
  - [AccountProvider](docs/AccountProvider.md)
  - [ActivateDeviceCodeCommand](docs/ActivateDeviceCodeCommand.md)
@@ -81,6 +85,7 @@ Class | Method | HTTP request | Description
  - [AppRequestCount](docs/AppRequestCount.md)
  - [AppRequestPoint](docs/AppRequestPoint.md)
  - [AppSummaryDto](docs/AppSummaryDto.md)
+ - [BooleanField](docs/BooleanField.md)
  - [ChannelItem](docs/ChannelItem.md)
  - [ChannelItemPage](docs/ChannelItemPage.md)
  - [ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
@@ -92,6 +97,7 @@ Class | Method | HTTP request | Description
  - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
  - [CreateVariablePairCommand](docs/CreateVariablePairCommand.md)
+ - [DeleteVariablePairCommand](docs/DeleteVariablePairCommand.md)
  - [DesiredStatus](docs/DesiredStatus.md)
  - [DeviceCodeDetails](docs/DeviceCodeDetails.md)
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
@@ -99,6 +105,8 @@ Class | Method | HTTP request | Description
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [GuidNullableField](docs/GuidNullableField.md)
  - [HealthCheckResult](docs/HealthCheckResult.md)
+ - [ListVariablesQuery](docs/ListVariablesQuery.md)
+ - [PatchAccountDetailsCommand](docs/PatchAccountDetailsCommand.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
  - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
@@ -116,6 +124,7 @@ Class | Method | HTTP request | Description
  - [UpdateDesiredStatusCommand](docs/UpdateDesiredStatusCommand.md)
  - [UpdateEnvironmentVariableDto](docs/UpdateEnvironmentVariableDto.md)
  - [UpdateEnvironmentVariableDtoListField](docs/UpdateEnvironmentVariableDtoListField.md)
+ - [VariablesList](docs/VariablesList.md)
 
 
 To get access to the crate's generated documentation, use:

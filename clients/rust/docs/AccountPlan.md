@@ -1,11 +1,11 @@
-# AccountDetails
+# AccountPlan
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plan** | Option<[**crate::models::AccountPlan**](AccountPlan.md)> |  | [optional]
-**is_marketing_email_on** | Option<**bool**> |  | [optional]
+**account_type** | Option<[**crate::models::AccountPlanType**](AccountPlanType.md)> |  | [optional]
+**cancel_at** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
