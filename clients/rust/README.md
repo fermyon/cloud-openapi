@@ -66,9 +66,9 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
-*VariablePairsApi* | [**api_variable_pairs_create_post**](docs/VariablePairsApi.md#api_variable_pairs_create_post) | **POST** /api/variable-pairs/create | 
 *VariablePairsApi* | [**api_variable_pairs_delete**](docs/VariablePairsApi.md#api_variable_pairs_delete) | **DELETE** /api/variable-pairs | 
-*VariablePairsApi* | [**api_variable_pairs_list_get**](docs/VariablePairsApi.md#api_variable_pairs_list_get) | **GET** /api/variable-pairs/list | 
+*VariablePairsApi* | [**api_variable_pairs_get**](docs/VariablePairsApi.md#api_variable_pairs_get) | **GET** /api/variable-pairs | 
+*VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
 
 
 ## Documentation For Models
@@ -103,9 +103,9 @@ Class | Method | HTTP request | Description
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
+ - [GetVariablesQuery](docs/GetVariablesQuery.md)
  - [GuidNullableField](docs/GuidNullableField.md)
  - [HealthCheckResult](docs/HealthCheckResult.md)
- - [ListVariablesQuery](docs/ListVariablesQuery.md)
  - [PatchAccountDetailsCommand](docs/PatchAccountDetailsCommand.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)

@@ -2049,7 +2049,7 @@
         }
       }
     },
-    "/api/variable-pairs/create": {
+    "/api/variable-pairs": {
       "post": {
         "tags": [
           "variable-pairs"
@@ -2095,9 +2095,7 @@
             "description": "Success"
           }
         }
-      }
-    },
-    "/api/variable-pairs": {
+      },
       "delete": {
         "tags": [
           "variable-pairs"
@@ -2143,9 +2141,7 @@
             "description": "Success"
           }
         }
-      }
-    },
-    "/api/variable-pairs/list": {
+      },
       "get": {
         "tags": [
           "variable-pairs"
@@ -2165,22 +2161,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/ListVariablesQuery"
+                "$ref": "#/components/schemas/GetVariablesQuery"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ListVariablesQuery"
+                "$ref": "#/components/schemas/GetVariablesQuery"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ListVariablesQuery"
+                "$ref": "#/components/schemas/GetVariablesQuery"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ListVariablesQuery"
+                "$ref": "#/components/schemas/GetVariablesQuery"
               }
             }
           },
@@ -2826,6 +2822,19 @@
         },
         "additionalProperties": false
       },
+      "GetVariablesQuery": {
+        "required": [
+          "appId"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "GuidNullableField": {
         "type": "string",
         "properties": {
@@ -2842,19 +2851,6 @@
         "properties": {
           "status": {
             "$ref": "#/components/schemas/ApiHealthStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ListVariablesQuery": {
-        "required": [
-          "appId"
-        ],
-        "type": "object",
-        "properties": {
-          "appId": {
-            "type": "string",
-            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -3299,7 +3295,7 @@
   },
   "security": [
     {
-      "Bearer": []
+      "Bearer": [ ]
     }
   ]
 }

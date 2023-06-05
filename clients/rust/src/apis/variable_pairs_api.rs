@@ -15,13 +15,6 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`api_variable_pairs_create_post`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiVariablePairsCreatePostError {
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`api_variable_pairs_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -29,52 +22,20 @@ pub enum ApiVariablePairsDeleteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_variable_pairs_list_get`]
+/// struct for typed errors of method [`api_variable_pairs_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiVariablePairsListGetError {
+pub enum ApiVariablePairsGetError {
     UnknownValue(serde_json::Value),
 }
 
-
-pub async fn api_variable_pairs_create_post(configuration: &configuration::Configuration, create_variable_pair_command: crate::models::CreateVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsCreatePostError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/variable-pairs/create", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = api_version {
-        local_var_req_builder = local_var_req_builder.header("Api-Version", local_var_param_value.to_string());
-    }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
-    };
-    local_var_req_builder = local_var_req_builder.json(&create_variable_pair_command);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
-    } else {
-        let local_var_entity: Option<ApiVariablePairsCreatePostError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
+/// struct for typed errors of method [`api_variable_pairs_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiVariablePairsPostError {
+    UnknownValue(serde_json::Value),
 }
+
 
 pub async fn api_variable_pairs_delete(configuration: &configuration::Configuration, delete_variable_pair_command: crate::models::DeleteVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsDeleteError>> {
     let local_var_configuration = configuration;
@@ -115,12 +76,12 @@ pub async fn api_variable_pairs_delete(configuration: &configuration::Configurat
     }
 }
 
-pub async fn api_variable_pairs_list_get(configuration: &configuration::Configuration, list_variables_query: crate::models::ListVariablesQuery, api_version: Option<&str>) -> Result<crate::models::VariablesList, Error<ApiVariablePairsListGetError>> {
+pub async fn api_variable_pairs_get(configuration: &configuration::Configuration, get_variables_query: crate::models::GetVariablesQuery, api_version: Option<&str>) -> Result<crate::models::VariablesList, Error<ApiVariablePairsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/variable-pairs/list", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/api/variable-pairs", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -137,7 +98,7 @@ pub async fn api_variable_pairs_list_get(configuration: &configuration::Configur
         };
         local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&list_variables_query);
+    local_var_req_builder = local_var_req_builder.json(&get_variables_query);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -148,7 +109,46 @@ pub async fn api_variable_pairs_list_get(configuration: &configuration::Configur
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ApiVariablePairsListGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiVariablePairsGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn api_variable_pairs_post(configuration: &configuration::Configuration, create_variable_pair_command: crate::models::CreateVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsPostError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/variable-pairs", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = api_version {
+        local_var_req_builder = local_var_req_builder.header("Api-Version", local_var_param_value.to_string());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
+    };
+    local_var_req_builder = local_var_req_builder.json(&create_variable_pair_command);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<ApiVariablePairsPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
