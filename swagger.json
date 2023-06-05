@@ -52,6 +52,60 @@
           }
         }
       },
+      "patch": {
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAccountDetailsCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAccountDetailsCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAccountDetailsCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAccountDetailsCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "accounts"
@@ -1834,6 +1888,14 @@
             }
           },
           {
+            "name": "searchText",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
             "name": "Api-Version",
             "in": "header",
             "description": "The requested API version",
@@ -2033,12 +2095,133 @@
             "description": "Success"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "variable-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "variable-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
   "components": {
     "schemas": {
       "AccountDetails": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "$ref": "#/components/schemas/AccountPlan"
+          },
+          "isMarketingEmailOn": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountPlan": {
         "type": "object",
         "properties": {
           "accountType": {
@@ -2271,6 +2454,15 @@
         },
         "additionalProperties": false
       },
+      "BooleanField": {
+        "type": "string",
+        "properties": {
+          "value": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "ChannelItem": {
         "required": [
           "appId",
@@ -2495,6 +2687,9 @@
           },
           "provider": {
             "$ref": "#/components/schemas/AccountProvider"
+          },
+          "isMarketingEmailOn": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2516,6 +2711,24 @@
             "type": "string"
           },
           "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteVariablePairCommand": {
+        "required": [
+          "appId",
+          "variable"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "variable": {
             "minLength": 1,
             "type": "string"
           }
@@ -2609,6 +2822,19 @@
         },
         "additionalProperties": false
       },
+      "GetVariablesQuery": {
+        "required": [
+          "appId"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "GuidNullableField": {
         "type": "string",
         "properties": {
@@ -2625,6 +2851,15 @@
         "properties": {
           "status": {
             "$ref": "#/components/schemas/ApiHealthStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchAccountDetailsCommand": {
+        "type": "object",
+        "properties": {
+          "isMarketingEmailOn": {
+            "$ref": "#/components/schemas/BooleanField"
           }
         },
         "additionalProperties": false
@@ -3028,6 +3263,21 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "VariablesList": {
+        "required": [
+          "vars"
+        ],
+        "type": "object",
+        "properties": {
+          "vars": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           }
         },

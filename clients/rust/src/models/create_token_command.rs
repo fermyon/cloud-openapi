@@ -19,6 +19,8 @@ pub struct CreateTokenCommand {
     pub client_id: Option<String>,
     #[serde(rename = "provider", skip_serializing_if = "Option::is_none")]
     pub provider: Option<crate::models::AccountProvider>,
+    #[serde(rename = "isMarketingEmailOn", skip_serializing_if = "Option::is_none")]
+    pub is_marketing_email_on: Option<bool>,
 }
 
 impl CreateTokenCommand {
@@ -27,6 +29,7 @@ impl CreateTokenCommand {
             provider_code: None,
             client_id: None,
             provider: None,
+            is_marketing_email_on: None,
         }
     }
 }
