@@ -14,8 +14,8 @@
 pub enum AccountPlanType {
     #[serde(rename = "Free")]
     Free,
-    #[serde(rename = "Developer")]
-    Developer,
+    #[serde(rename = "Growth")]
+    Growth,
 
 }
 
@@ -23,7 +23,7 @@ impl ToString for AccountPlanType {
     fn to_string(&self) -> String {
         match self {
             Self::Free => String::from("Free"),
-            Self::Developer => String::from("Developer"),
+            Self::Growth => String::from("Growth"),
         }
     }
 }
