@@ -94,6 +94,7 @@ pub mod accounts_api;
 pub mod apps_api;
 pub mod auth_tokens_api;
 pub mod channels_api;
+pub mod custom_domains_api;
 pub mod device_codes_api;
 pub mod key_value_pairs_api;
 pub mod oci_api;
