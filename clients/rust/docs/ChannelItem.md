@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **active_revision** | Option<[**crate::models::RevisionItem**](RevisionItem.md)> |  | [optional]
 **last_publish_at** | Option<**String**> |  | [optional]
 **range_rule** | Option<**String**> |  | [optional]
-**environment_variables** | [**Vec<crate::models::EnvironmentVariableItem>**](EnvironmentVariableItem.md) |  | 
 **app_summary** | Option<[**crate::models::AppSummaryDto**](AppSummaryDto.md)> |  | [optional]
+**environment_variables** | [**Vec<crate::models::EnvironmentVariableItem>**](EnvironmentVariableItem.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
