@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**api_apps_get**](AppsApi.md#api_apps_get) | **GET** /api/apps | 
 [**api_apps_id_delete**](AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 [**api_apps_id_get**](AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
+[**api_apps_id_patch**](AppsApi.md#api_apps_id_patch) | **PATCH** /api/apps/{id} | 
 [**api_apps_id_put**](AppsApi.md#api_apps_id_put) | **PUT** /api/apps/{id} | 
 [**api_apps_id_request_count_get**](AppsApi.md#api_apps_id_request_count_get) | **GET** /api/apps/{id}/request-count | 
 [**api_apps_post**](AppsApi.md#api_apps_post) | **POST** /api/apps | 
@@ -100,6 +101,36 @@ Name | Type | Description  | Required | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_apps_id_patch
+
+> api_apps_id_patch(id, patch_app_command, api_version)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **uuid::Uuid** |  | [required] |
+**patch_app_command** | [**PatchAppCommand**](PatchAppCommand.md) |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

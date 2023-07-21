@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Fermyon.Cloud.Web",
+    "title": "Fermyon Cloud API",
     "version": "1.0"
   },
   "paths": {
@@ -377,6 +377,61 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateAppCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "apps"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
               }
             }
           },
@@ -1603,6 +1658,135 @@
         }
       }
     },
+    "/api/payments/setup-checkout": {
+      "post": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/customer-portal": {
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/plans": {
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/personal-access-tokens": {
       "post": {
         "tags": [
@@ -1975,6 +2159,163 @@
         }
       }
     },
+    "/api/sql-databases": {
+      "post": {
+        "tags": [
+          "sql-databases"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSqlDatabaseCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSqlDatabaseCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSqlDatabaseCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSqlDatabaseCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "sql-databases"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSqlDatabaseCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSqlDatabaseCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSqlDatabaseCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSqlDatabaseCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "sql-databases"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetSqlDatabasesQuery"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetSqlDatabasesQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetSqlDatabasesQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetSqlDatabasesQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatabasesList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatabasesList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DatabasesList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/storages": {
       "get": {
         "tags": [
@@ -2045,6 +2386,54 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/support": {
+      "post": {
+        "tags": [
+          "support"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -2213,21 +2602,36 @@
         "type": "object",
         "properties": {
           "plan": {
-            "$ref": "#/components/schemas/AccountPlan"
+            "$ref": "#/components/schemas/AccountPlanRecord"
           },
           "isMarketingEmailOn": {
             "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "AccountPlan": {
+      "AccountPlanRecord": {
         "type": "object",
         "properties": {
           "accountType": {
             "$ref": "#/components/schemas/AccountPlanType"
           },
           "cancelAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cycleStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cycleEndDate": {
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -2238,14 +2642,16 @@
       "AccountPlanType": {
         "enum": [
           "Free",
-          "Growth"
+          "Growth",
+          "Enterprise"
         ],
         "type": "string"
       },
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow"
+          "DeviceFlow",
+          "GitHubPersonalToken"
         ],
         "type": "string"
       },
@@ -2331,6 +2737,10 @@
             "items": {
               "$ref": "#/components/schemas/AppChannelListItem"
             }
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2510,14 +2920,14 @@
             "type": "string",
             "nullable": true
           },
+          "appSummary": {
+            "$ref": "#/components/schemas/AppSummaryDto"
+          },
           "environmentVariables": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EnvironmentVariableItem"
             }
-          },
-          "appSummary": {
-            "$ref": "#/components/schemas/AppSummaryDto"
           }
         },
         "additionalProperties": false
@@ -2587,6 +2997,9 @@
           "storageId": {
             "minLength": 1,
             "type": "string"
+          },
+          "createDefaultDatabase": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2676,6 +3089,39 @@
         },
         "additionalProperties": false
       },
+      "CreateSqlDatabaseCommand": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "appId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSupportTicketCommand": {
+        "required": [
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/TicketCategory"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateTokenCommand": {
         "type": "object",
         "properties": {
@@ -2711,6 +3157,51 @@
             "type": "string"
           },
           "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Database": {
+        "required": [
+          "default",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "default": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DatabasesList": {
+        "required": [
+          "databases"
+        ],
+        "type": "object",
+        "properties": {
+          "databases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Database"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteSqlDatabaseCommand": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
             "minLength": 1,
             "type": "string"
           }
@@ -2822,6 +3313,17 @@
         },
         "additionalProperties": false
       },
+      "GetSqlDatabasesQuery": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "GetVariablesQuery": {
         "required": [
           "appId"
@@ -2864,15 +3366,28 @@
         },
         "additionalProperties": false
       },
+      "PatchAppCommand": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "domain": {
+            "$ref": "#/components/schemas/StringField"
+          }
+        },
+        "additionalProperties": false
+      },
       "PatchChannelCommand": {
         "type": "object",
         "properties": {
           "channelId": {
             "type": "string",
             "format": "uuid"
-          },
-          "environmentVariables": {
-            "$ref": "#/components/schemas/UpdateEnvironmentVariableDtoListField"
           },
           "name": {
             "$ref": "#/components/schemas/StringField"
@@ -2888,6 +3403,15 @@
           },
           "activeRevisionId": {
             "$ref": "#/components/schemas/GuidNullableField"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentIntegrationUrl": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -2956,6 +3480,20 @@
           "id": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Plan": {
+        "type": "object",
+        "properties": {
+          "accountPlanType": {
+            "$ref": "#/components/schemas/AccountPlanType"
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3145,6 +3683,14 @@
         },
         "additionalProperties": false
       },
+      "TicketCategory": {
+        "enum": [
+          "TechnicalHelp",
+          "BillingHelp",
+          "SomethingElse"
+        ],
+        "type": "string"
+      },
       "TokenInfo": {
         "required": [
           "expiration",
@@ -3231,39 +3777,6 @@
           },
           "desiredStatus": {
             "$ref": "#/components/schemas/DesiredStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateEnvironmentVariableDto": {
-        "required": [
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "value": {
-            "minLength": 1,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateEnvironmentVariableDtoListField": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
-        },
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
-            }
           }
         },
         "additionalProperties": false

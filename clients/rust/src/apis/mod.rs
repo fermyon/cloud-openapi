@@ -97,10 +97,13 @@ pub mod channels_api;
 pub mod device_codes_api;
 pub mod key_value_pairs_api;
 pub mod oci_api;
+pub mod payments_api;
 pub mod personal_access_tokens_api;
 pub mod registry_api;
 pub mod revisions_api;
+pub mod sql_databases_api;
 pub mod storages_api;
+pub mod support_api;
 pub mod variable_pairs_api;
 
 pub mod configuration;
