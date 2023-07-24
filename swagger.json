@@ -1169,6 +1169,61 @@
         }
       }
     },
+    "/api/custom-domains/{name}": {
+      "get": {
+        "tags": [
+          "custom-domains"
+        ],
+        "parameters": [
+          {
+            "name": "domainName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/device-codes": {
       "post": {
         "tags": [
@@ -2159,7 +2214,7 @@
         }
       }
     },
-    "/api/sql-databases": {
+    "/api/sql-databases/create": {
       "post": {
         "tags": [
           "sql-databases"
@@ -2205,7 +2260,57 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/sql-databases/execute": {
+      "post": {
+        "tags": [
+          "sql-databases"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteSqlStatementCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteSqlStatementCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteSqlStatementCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExecuteSqlStatementCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/sql-databases": {
       "delete": {
         "tags": [
           "sql-databases"
@@ -2650,8 +2755,7 @@
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow",
-          "GitHubPersonalToken"
+          "DeviceFlow"
         ],
         "type": "string"
       },
@@ -2708,6 +2812,23 @@
         },
         "additionalProperties": false
       },
+      "AppDomainItem": {
+        "required": [
+          "name",
+          "validationStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "validationStatus": {
+            "$ref": "#/components/schemas/DomainValidationStatus"
+          }
+        },
+        "additionalProperties": false
+      },
       "AppItem": {
         "required": [
           "channels",
@@ -2739,8 +2860,7 @@
             }
           },
           "domain": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/AppDomainItem"
           }
         },
         "additionalProperties": false
@@ -3275,6 +3395,71 @@
         },
         "additionalProperties": false
       },
+      "DnsRecord": {
+        "required": [
+          "name",
+          "ttl",
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ttl": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomainItem": {
+        "required": [
+          "dnsRecords",
+          "name",
+          "validationStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "validationStatus": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "validatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dnsRecords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DnsRecord"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomainValidationStatus": {
+        "enum": [
+          "InProgress",
+          "Ready"
+        ],
+        "type": "string"
+      },
       "EnvironmentVariableItem": {
         "required": [
           "channelId",
@@ -3292,6 +3477,28 @@
             "type": "string"
           },
           "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExecuteSqlStatementCommand": {
+        "required": [
+          "database",
+          "default",
+          "statement"
+        ],
+        "type": "object",
+        "properties": {
+          "database": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "statement": {
             "minLength": 1,
             "type": "string"
           }

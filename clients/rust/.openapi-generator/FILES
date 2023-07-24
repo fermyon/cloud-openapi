@@ -10,6 +10,7 @@ docs/AccountsApi.md
 docs/ActivateDeviceCodeCommand.md
 docs/ApiHealthStatus.md
 docs/AppChannelListItem.md
+docs/AppDomainItem.md
 docs/AppItem.md
 docs/AppItemPage.md
 docs/AppRequestCount.md
@@ -32,6 +33,7 @@ docs/CreateSqlDatabaseCommand.md
 docs/CreateSupportTicketCommand.md
 docs/CreateTokenCommand.md
 docs/CreateVariablePairCommand.md
+docs/CustomDomainsApi.md
 docs/Database.md
 docs/DatabasesList.md
 docs/DeleteSqlDatabaseCommand.md
@@ -40,7 +42,11 @@ docs/DesiredStatus.md
 docs/DeviceCodeDetails.md
 docs/DeviceCodeItem.md
 docs/DeviceCodesApi.md
+docs/DnsRecord.md
+docs/DomainItem.md
+docs/DomainValidationStatus.md
 docs/EnvironmentVariableItem.md
+docs/ExecuteSqlStatementCommand.md
 docs/GetChannelLogsVm.md
 docs/GetSqlDatabasesQuery.md
 docs/GetVariablesQuery.md
@@ -83,6 +89,7 @@ src/apis/apps_api.rs
 src/apis/auth_tokens_api.rs
 src/apis/channels_api.rs
 src/apis/configuration.rs
+src/apis/custom_domains_api.rs
 src/apis/device_codes_api.rs
 src/apis/key_value_pairs_api.rs
 src/apis/mod.rs
@@ -103,6 +110,7 @@ src/models/account_provider.rs
 src/models/activate_device_code_command.rs
 src/models/api_health_status.rs
 src/models/app_channel_list_item.rs
+src/models/app_domain_item.rs
 src/models/app_item.rs
 src/models/app_item_page.rs
 src/models/app_request_count.rs
@@ -129,7 +137,11 @@ src/models/delete_variable_pair_command.rs
 src/models/desired_status.rs
 src/models/device_code_details.rs
 src/models/device_code_item.rs
+src/models/dns_record.rs
+src/models/domain_item.rs
+src/models/domain_validation_status.rs
 src/models/environment_variable_item.rs
+src/models/execute_sql_statement_command.rs
 src/models/get_channel_logs_vm.rs
 src/models/get_sql_databases_query.rs
 src/models/get_variables_query.rs

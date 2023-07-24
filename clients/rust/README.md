@@ -46,6 +46,7 @@ Class | Method | HTTP request | Description
 *ChannelsApi* | [**api_channels_id_patch**](docs/ChannelsApi.md#api_channels_id_patch) | **PATCH** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_put**](docs/ChannelsApi.md#api_channels_id_put) | **PUT** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_post**](docs/ChannelsApi.md#api_channels_post) | **POST** /api/channels | 
+*CustomDomainsApi* | [**api_custom_domains_name_get**](docs/CustomDomainsApi.md#api_custom_domains_name_get) | **GET** /api/custom-domains/{name} | 
 *DeviceCodesApi* | [**api_device_codes_activate_post**](docs/DeviceCodesApi.md#api_device_codes_activate_post) | **POST** /api/device-codes/activate | 
 *DeviceCodesApi* | [**api_device_codes_post**](docs/DeviceCodesApi.md#api_device_codes_post) | **POST** /api/device-codes | 
 *DeviceCodesApi* | [**api_device_codes_user_code_get**](docs/DeviceCodesApi.md#api_device_codes_user_code_get) | **GET** /api/device-codes/{userCode} | 
@@ -69,9 +70,10 @@ Class | Method | HTTP request | Description
 *RegistryApi* | [**api_registry_i_post**](docs/RegistryApi.md#api_registry_i_post) | **POST** /api/registry/_i | 
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
+*SqlDatabasesApi* | [**api_sql_databases_create_post**](docs/SqlDatabasesApi.md#api_sql_databases_create_post) | **POST** /api/sql-databases/create | 
 *SqlDatabasesApi* | [**api_sql_databases_delete**](docs/SqlDatabasesApi.md#api_sql_databases_delete) | **DELETE** /api/sql-databases | 
+*SqlDatabasesApi* | [**api_sql_databases_execute_post**](docs/SqlDatabasesApi.md#api_sql_databases_execute_post) | **POST** /api/sql-databases/execute | 
 *SqlDatabasesApi* | [**api_sql_databases_get**](docs/SqlDatabasesApi.md#api_sql_databases_get) | **GET** /api/sql-databases | 
-*SqlDatabasesApi* | [**api_sql_databases_post**](docs/SqlDatabasesApi.md#api_sql_databases_post) | **POST** /api/sql-databases | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
 *SupportApi* | [**api_support_post**](docs/SupportApi.md#api_support_post) | **POST** /api/support | 
 *VariablePairsApi* | [**api_variable_pairs_delete**](docs/VariablePairsApi.md#api_variable_pairs_delete) | **DELETE** /api/variable-pairs | 
@@ -88,6 +90,7 @@ Class | Method | HTTP request | Description
  - [ActivateDeviceCodeCommand](docs/ActivateDeviceCodeCommand.md)
  - [ApiHealthStatus](docs/ApiHealthStatus.md)
  - [AppChannelListItem](docs/AppChannelListItem.md)
+ - [AppDomainItem](docs/AppDomainItem.md)
  - [AppItem](docs/AppItem.md)
  - [AppItemPage](docs/AppItemPage.md)
  - [AppRequestCount](docs/AppRequestCount.md)
@@ -114,7 +117,11 @@ Class | Method | HTTP request | Description
  - [DesiredStatus](docs/DesiredStatus.md)
  - [DeviceCodeDetails](docs/DeviceCodeDetails.md)
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
+ - [DnsRecord](docs/DnsRecord.md)
+ - [DomainItem](docs/DomainItem.md)
+ - [DomainValidationStatus](docs/DomainValidationStatus.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
+ - [ExecuteSqlStatementCommand](docs/ExecuteSqlStatementCommand.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [GetSqlDatabasesQuery](docs/GetSqlDatabasesQuery.md)
  - [GetVariablesQuery](docs/GetVariablesQuery.md)
