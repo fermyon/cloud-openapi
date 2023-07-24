@@ -13,8 +13,6 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ExecuteSqlStatementCommand {
-    #[serde(rename = "appId")]
-    pub app_id: uuid::Uuid,
     #[serde(rename = "database")]
     pub database: String,
     #[serde(rename = "default")]
@@ -24,9 +22,8 @@ pub struct ExecuteSqlStatementCommand {
 }
 
 impl ExecuteSqlStatementCommand {
-    pub fn new(app_id: uuid::Uuid, database: String, default: bool, statement: String) -> ExecuteSqlStatementCommand {
+    pub fn new(database: String, default: bool, statement: String) -> ExecuteSqlStatementCommand {
         ExecuteSqlStatementCommand {
-            app_id,
             database,
             default,
             statement,

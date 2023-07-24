@@ -10,6 +10,7 @@ docs/AccountsApi.md
 docs/ActivateDeviceCodeCommand.md
 docs/ApiHealthStatus.md
 docs/AppChannelListItem.md
+docs/AppDomainItem.md
 docs/AppItem.md
 docs/AppItemPage.md
 docs/AppRequestCount.md
@@ -43,6 +44,7 @@ docs/DeviceCodeItem.md
 docs/DeviceCodesApi.md
 docs/DnsRecord.md
 docs/DomainItem.md
+docs/DomainValidationStatus.md
 docs/EnvironmentVariableItem.md
 docs/ExecuteSqlStatementCommand.md
 docs/GetChannelLogsVm.md
@@ -108,6 +110,7 @@ src/models/account_provider.rs
 src/models/activate_device_code_command.rs
 src/models/api_health_status.rs
 src/models/app_channel_list_item.rs
+src/models/app_domain_item.rs
 src/models/app_item.rs
 src/models/app_item_page.rs
 src/models/app_request_count.rs
@@ -136,6 +139,7 @@ src/models/device_code_details.rs
 src/models/device_code_item.rs
 src/models/dns_record.rs
 src/models/domain_item.rs
+src/models/domain_validation_status.rs
 src/models/environment_variable_item.rs
 src/models/execute_sql_statement_command.rs
 src/models/get_channel_logs_vm.rs

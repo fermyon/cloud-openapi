@@ -23,8 +23,8 @@ pub struct AppItem {
     pub description: Option<String>,
     #[serde(rename = "channels")]
     pub channels: Vec<crate::models::AppChannelListItem>,
-    #[serde(rename = "domain", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub domain: Option<Option<String>>,
+    #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
+    pub domain: Option<Box<crate::models::AppDomainItem>>,
 }
 
 impl AppItem {

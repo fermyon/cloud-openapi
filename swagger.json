@@ -2755,8 +2755,7 @@
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow",
-          "GitHubPersonalToken"
+          "DeviceFlow"
         ],
         "type": "string"
       },
@@ -2813,6 +2812,23 @@
         },
         "additionalProperties": false
       },
+      "AppDomainItem": {
+        "required": [
+          "name",
+          "validationStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "validationStatus": {
+            "$ref": "#/components/schemas/DomainValidationStatus"
+          }
+        },
+        "additionalProperties": false
+      },
       "AppItem": {
         "required": [
           "channels",
@@ -2844,8 +2860,7 @@
             }
           },
           "domain": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/AppDomainItem"
           }
         },
         "additionalProperties": false
@@ -3438,6 +3453,13 @@
         },
         "additionalProperties": false
       },
+      "DomainValidationStatus": {
+        "enum": [
+          "InProgress",
+          "Ready"
+        ],
+        "type": "string"
+      },
       "EnvironmentVariableItem": {
         "required": [
           "channelId",
@@ -3463,17 +3485,12 @@
       },
       "ExecuteSqlStatementCommand": {
         "required": [
-          "appId",
           "database",
           "default",
           "statement"
         ],
         "type": "object",
         "properties": {
-          "appId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "database": {
             "minLength": 1,
             "type": "string"

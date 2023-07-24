@@ -11,26 +11,26 @@
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AccountProvider {
-    #[serde(rename = "GitHub")]
-    GitHub,
-    #[serde(rename = "DeviceFlow")]
-    DeviceFlow,
+pub enum DomainValidationStatus {
+    #[serde(rename = "InProgress")]
+    InProgress,
+    #[serde(rename = "Ready")]
+    Ready,
 
 }
 
-impl ToString for AccountProvider {
+impl ToString for DomainValidationStatus {
     fn to_string(&self) -> String {
         match self {
-            Self::GitHub => String::from("GitHub"),
-            Self::DeviceFlow => String::from("DeviceFlow"),
+            Self::InProgress => String::from("InProgress"),
+            Self::Ready => String::from("Ready"),
         }
     }
 }
 
-impl Default for AccountProvider {
-    fn default() -> AccountProvider {
-        Self::GitHub
+impl Default for DomainValidationStatus {
+    fn default() -> DomainValidationStatus {
+        Self::InProgress
     }
 }
 
