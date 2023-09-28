@@ -19,6 +19,8 @@ pub struct DomainItem {
     pub validation_status: String,
     #[serde(rename = "validatedAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub validated_at: Option<Option<String>>,
+    #[serde(rename = "lastModified", skip_serializing_if = "Option::is_none")]
+    pub last_modified: Option<String>,
     #[serde(rename = "dnsRecords")]
     pub dns_records: Vec<crate::models::DnsRecord>,
 }
@@ -29,6 +31,7 @@ impl DomainItem {
             name,
             validation_status,
             validated_at: None,
+            last_modified: None,
             dns_records,
         }
     }

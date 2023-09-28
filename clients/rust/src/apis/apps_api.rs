@@ -272,7 +272,7 @@ pub async fn api_apps_id_put(configuration: &configuration::Configuration, id: &
     }
 }
 
-pub async fn api_apps_id_request_count_get(configuration: &configuration::Configuration, id: &str, from: Option<String>, to: Option<String>, api_version: Option<&str>) -> Result<crate::models::AppRequestCount, Error<ApiAppsIdRequestCountGetError>> {
+pub async fn api_apps_id_request_count_get(configuration: &configuration::Configuration, id: &str, from: Option<String>, to: Option<String>, api_version: Option<&str>) -> Result<crate::models::AppRequestCountItem, Error<ApiAppsIdRequestCountGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

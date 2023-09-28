@@ -521,17 +521,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppRequestCount"
+                  "$ref": "#/components/schemas/AppRequestCountItem"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppRequestCount"
+                  "$ref": "#/components/schemas/AppRequestCountItem"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppRequestCount"
+                  "$ref": "#/components/schemas/AppRequestCountItem"
                 }
               }
             }
@@ -1169,7 +1169,7 @@
         }
       }
     },
-    "/api/custom-domains/{name}": {
+    "/api/custom-domains/{domainName}": {
       "get": {
         "tags": [
           "custom-domains"
@@ -1177,13 +1177,6 @@
         "parameters": [
           {
             "name": "domainName",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "name",
             "in": "path",
             "required": true,
             "schema": {
@@ -1817,7 +1810,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plan"
+                    "$ref": "#/components/schemas/PlanItem"
                   }
                 }
               },
@@ -1825,7 +1818,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plan"
+                    "$ref": "#/components/schemas/PlanItem"
                   }
                 }
               },
@@ -1833,7 +1826,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plan"
+                    "$ref": "#/components/schemas/PlanItem"
                   }
                 }
               }
@@ -2421,6 +2414,116 @@
         }
       }
     },
+    "/api/sql-databases/{database}/links": {
+      "post": {
+        "tags": [
+          "sql-databases"
+        ],
+        "parameters": [
+          {
+            "name": "database",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "sql-databases"
+        ],
+        "parameters": [
+          {
+            "name": "database",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/storages": {
       "get": {
         "tags": [
@@ -2740,6 +2843,11 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2808,6 +2916,10 @@
           },
           "healthStatus": {
             "$ref": "#/components/schemas/ApiHealthStatus"
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -2824,7 +2936,11 @@
             "type": "string"
           },
           "validationStatus": {
-            "$ref": "#/components/schemas/DomainValidationStatus"
+            "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -2861,6 +2977,10 @@
           },
           "domain": {
             "$ref": "#/components/schemas/AppDomainItem"
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -2900,7 +3020,7 @@
         },
         "additionalProperties": false
       },
-      "AppRequestCount": {
+      "AppRequestCountItem": {
         "required": [
           "averagePerSecond",
           "end",
@@ -2934,13 +3054,17 @@
           "points": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AppRequestPoint"
+              "$ref": "#/components/schemas/AppRequestPointItem"
             }
           }
         },
         "additionalProperties": false
       },
-      "AppRequestPoint": {
+      "AppRequestPointItem": {
+        "required": [
+          "timestamp",
+          "value"
+        ],
         "type": "object",
         "properties": {
           "timestamp": {
@@ -2980,6 +3104,10 @@
             "items": {
               "$ref": "#/components/schemas/AppChannelListItem"
             }
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -3039,6 +3167,10 @@
           "rangeRule": {
             "type": "string",
             "nullable": true
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
           },
           "appSummary": {
             "$ref": "#/components/schemas/AppSummaryDto"
@@ -3223,6 +3355,10 @@
             "type": "string",
             "format": "uuid",
             "nullable": true
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3285,7 +3421,7 @@
       },
       "Database": {
         "required": [
-          "default",
+          "links",
           "name"
         ],
         "type": "object",
@@ -3296,6 +3432,12 @@
           },
           "default": {
             "type": "boolean"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceLabel"
+            }
           }
         },
         "additionalProperties": false
@@ -3444,6 +3586,10 @@
             "format": "date-time",
             "nullable": true
           },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
+          },
           "dnsRecords": {
             "type": "array",
             "items": {
@@ -3452,13 +3598,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "DomainValidationStatus": {
-        "enum": [
-          "InProgress",
-          "Ready"
-        ],
-        "type": "string"
       },
       "EnvironmentVariableItem": {
         "required": [
@@ -3691,16 +3830,20 @@
         },
         "additionalProperties": false
       },
-      "Plan": {
+      "PlanItem": {
+        "required": [
+          "accountPlanType",
+          "price"
+        ],
         "type": "object",
         "properties": {
           "accountPlanType": {
-            "$ref": "#/components/schemas/AccountPlanType"
+            "minLength": 1,
+            "type": "string"
           },
           "price": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -3736,6 +3879,27 @@
           },
           "revisionNumber": {
             "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResourceLabel": {
+        "required": [
+          "appId",
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "appName": {
             "type": "string"
           }
         },
@@ -3803,6 +3967,10 @@
               "$ref": "#/components/schemas/RevisionComponentDto"
             },
             "readOnly": true
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
           },
           "type": {
             "type": "string",
@@ -3987,6 +4155,15 @@
           }
         },
         "additionalProperties": false
+      },
+      "ValidationStatus": {
+        "enum": [
+          "InProgress",
+          "Error",
+          "Ready",
+          "Provisioning"
+        ],
+        "type": "string"
       },
       "VariablesList": {
         "required": [

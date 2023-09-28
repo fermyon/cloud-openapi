@@ -15,15 +15,18 @@
 pub struct Database {
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "default")]
-    pub default: bool,
+    #[serde(rename = "default", skip_serializing_if = "Option::is_none")]
+    pub default: Option<bool>,
+    #[serde(rename = "links")]
+    pub links: Vec<crate::models::ResourceLabel>,
 }
 
 impl Database {
-    pub fn new(name: String, default: bool) -> Database {
+    pub fn new(name: String, links: Vec<crate::models::ResourceLabel>) -> Database {
         Database {
             name,
-            default,
+            default: None,
+            links,
         }
     }
 }

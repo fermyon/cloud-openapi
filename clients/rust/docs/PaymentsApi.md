@@ -40,7 +40,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_payments_plans_get
 
-> Vec<crate::models::Plan> api_payments_plans_get(api_version)
+> Vec<crate::models::PlanItem> api_payments_plans_get(api_version)
 
 
 ### Parameters
@@ -52,7 +52,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::Plan>**](Plan.md)
+[**Vec<crate::models::PlanItem>**](PlanItem.md)
 
 ### Authorization
 

@@ -46,7 +46,7 @@ Class | Method | HTTP request | Description
 *ChannelsApi* | [**api_channels_id_patch**](docs/ChannelsApi.md#api_channels_id_patch) | **PATCH** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_put**](docs/ChannelsApi.md#api_channels_id_put) | **PUT** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_post**](docs/ChannelsApi.md#api_channels_post) | **POST** /api/channels | 
-*CustomDomainsApi* | [**api_custom_domains_name_get**](docs/CustomDomainsApi.md#api_custom_domains_name_get) | **GET** /api/custom-domains/{name} | 
+*CustomDomainsApi* | [**api_custom_domains_domain_name_get**](docs/CustomDomainsApi.md#api_custom_domains_domain_name_get) | **GET** /api/custom-domains/{domainName} | 
 *DeviceCodesApi* | [**api_device_codes_activate_post**](docs/DeviceCodesApi.md#api_device_codes_activate_post) | **POST** /api/device-codes/activate | 
 *DeviceCodesApi* | [**api_device_codes_post**](docs/DeviceCodesApi.md#api_device_codes_post) | **POST** /api/device-codes | 
 *DeviceCodesApi* | [**api_device_codes_user_code_get**](docs/DeviceCodesApi.md#api_device_codes_user_code_get) | **GET** /api/device-codes/{userCode} | 
@@ -71,6 +71,8 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *SqlDatabasesApi* | [**api_sql_databases_create_post**](docs/SqlDatabasesApi.md#api_sql_databases_create_post) | **POST** /api/sql-databases/create | 
+*SqlDatabasesApi* | [**api_sql_databases_database_links_delete**](docs/SqlDatabasesApi.md#api_sql_databases_database_links_delete) | **DELETE** /api/sql-databases/{database}/links | 
+*SqlDatabasesApi* | [**api_sql_databases_database_links_post**](docs/SqlDatabasesApi.md#api_sql_databases_database_links_post) | **POST** /api/sql-databases/{database}/links | 
 *SqlDatabasesApi* | [**api_sql_databases_delete**](docs/SqlDatabasesApi.md#api_sql_databases_delete) | **DELETE** /api/sql-databases | 
 *SqlDatabasesApi* | [**api_sql_databases_execute_post**](docs/SqlDatabasesApi.md#api_sql_databases_execute_post) | **POST** /api/sql-databases/execute | 
 *SqlDatabasesApi* | [**api_sql_databases_get**](docs/SqlDatabasesApi.md#api_sql_databases_get) | **GET** /api/sql-databases | 
@@ -93,8 +95,8 @@ Class | Method | HTTP request | Description
  - [AppDomainItem](docs/AppDomainItem.md)
  - [AppItem](docs/AppItem.md)
  - [AppItemPage](docs/AppItemPage.md)
- - [AppRequestCount](docs/AppRequestCount.md)
- - [AppRequestPoint](docs/AppRequestPoint.md)
+ - [AppRequestCountItem](docs/AppRequestCountItem.md)
+ - [AppRequestPointItem](docs/AppRequestPointItem.md)
  - [AppSummaryDto](docs/AppSummaryDto.md)
  - [BooleanField](docs/BooleanField.md)
  - [ChannelItem](docs/ChannelItem.md)
@@ -119,7 +121,6 @@ Class | Method | HTTP request | Description
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
  - [DnsRecord](docs/DnsRecord.md)
  - [DomainItem](docs/DomainItem.md)
- - [DomainValidationStatus](docs/DomainValidationStatus.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
  - [ExecuteSqlStatementCommand](docs/ExecuteSqlStatementCommand.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
@@ -134,9 +135,10 @@ Class | Method | HTTP request | Description
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
  - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
  - [PersonalAccessTokenValue](docs/PersonalAccessTokenValue.md)
- - [Plan](docs/Plan.md)
+ - [PlanItem](docs/PlanItem.md)
  - [RefreshTokenCommand](docs/RefreshTokenCommand.md)
  - [RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
+ - [ResourceLabel](docs/ResourceLabel.md)
  - [RevisionComponentDto](docs/RevisionComponentDto.md)
  - [RevisionItem](docs/RevisionItem.md)
  - [RevisionItemPage](docs/RevisionItemPage.md)
@@ -147,6 +149,7 @@ Class | Method | HTTP request | Description
  - [UpdateAppCommand](docs/UpdateAppCommand.md)
  - [UpdateChannelCommand](docs/UpdateChannelCommand.md)
  - [UpdateDesiredStatusCommand](docs/UpdateDesiredStatusCommand.md)
+ - [ValidationStatus](docs/ValidationStatus.md)
  - [VariablesList](docs/VariablesList.md)
 
 

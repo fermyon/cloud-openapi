@@ -167,7 +167,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_request_count_get
 
-> crate::models::AppRequestCount api_apps_id_request_count_get(id, from, to, api_version)
+> crate::models::AppRequestCountItem api_apps_id_request_count_get(id, from, to, api_version)
 
 
 ### Parameters
@@ -182,7 +182,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AppRequestCount**](AppRequestCount.md)
+[**crate::models::AppRequestCountItem**](AppRequestCountItem.md)
 
 ### Authorization
 

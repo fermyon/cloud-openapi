@@ -25,6 +25,8 @@ pub struct AppItem {
     pub channels: Vec<crate::models::AppChannelListItem>,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
     pub domain: Option<Box<crate::models::AppDomainItem>>,
+    #[serde(rename = "lastModified", skip_serializing_if = "Option::is_none")]
+    pub last_modified: Option<String>,
 }
 
 impl AppItem {
@@ -36,6 +38,7 @@ impl AppItem {
             description: None,
             channels,
             domain: None,
+            last_modified: None,
         }
     }
 }

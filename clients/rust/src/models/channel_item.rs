@@ -31,6 +31,8 @@ pub struct ChannelItem {
     pub last_publish_at: Option<Option<String>>,
     #[serde(rename = "rangeRule", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<Option<String>>,
+    #[serde(rename = "lastModified", skip_serializing_if = "Option::is_none")]
+    pub last_modified: Option<String>,
     #[serde(rename = "appSummary", skip_serializing_if = "Option::is_none")]
     pub app_summary: Option<Box<crate::models::AppSummaryDto>>,
     #[serde(rename = "environmentVariables")]
@@ -49,6 +51,7 @@ impl ChannelItem {
             active_revision: None,
             last_publish_at: None,
             range_rule: None,
+            last_modified: None,
             app_summary: None,
             environment_variables,
         }

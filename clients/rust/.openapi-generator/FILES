@@ -13,8 +13,8 @@ docs/AppChannelListItem.md
 docs/AppDomainItem.md
 docs/AppItem.md
 docs/AppItemPage.md
-docs/AppRequestCount.md
-docs/AppRequestPoint.md
+docs/AppRequestCountItem.md
+docs/AppRequestPointItem.md
 docs/AppSummaryDto.md
 docs/AppsApi.md
 docs/AuthTokensApi.md
@@ -44,7 +44,6 @@ docs/DeviceCodeItem.md
 docs/DeviceCodesApi.md
 docs/DnsRecord.md
 docs/DomainItem.md
-docs/DomainValidationStatus.md
 docs/EnvironmentVariableItem.md
 docs/ExecuteSqlStatementCommand.md
 docs/GetChannelLogsVm.md
@@ -63,10 +62,11 @@ docs/PersonalAccessTokenItem.md
 docs/PersonalAccessTokenItemPage.md
 docs/PersonalAccessTokenValue.md
 docs/PersonalAccessTokensApi.md
-docs/Plan.md
+docs/PlanItem.md
 docs/RefreshTokenCommand.md
 docs/RegisterRevisionCommand.md
 docs/RegistryApi.md
+docs/ResourceLabel.md
 docs/RevisionComponentDto.md
 docs/RevisionItem.md
 docs/RevisionItemPage.md
@@ -81,6 +81,7 @@ docs/TokenInfo.md
 docs/UpdateAppCommand.md
 docs/UpdateChannelCommand.md
 docs/UpdateDesiredStatusCommand.md
+docs/ValidationStatus.md
 docs/VariablePairsApi.md
 docs/VariablesList.md
 git_push.sh
@@ -113,8 +114,8 @@ src/models/app_channel_list_item.rs
 src/models/app_domain_item.rs
 src/models/app_item.rs
 src/models/app_item_page.rs
-src/models/app_request_count.rs
-src/models/app_request_point.rs
+src/models/app_request_count_item.rs
+src/models/app_request_point_item.rs
 src/models/app_summary_dto.rs
 src/models/boolean_field.rs
 src/models/channel_item.rs
@@ -139,7 +140,6 @@ src/models/device_code_details.rs
 src/models/device_code_item.rs
 src/models/dns_record.rs
 src/models/domain_item.rs
-src/models/domain_validation_status.rs
 src/models/environment_variable_item.rs
 src/models/execute_sql_statement_command.rs
 src/models/get_channel_logs_vm.rs
@@ -155,9 +155,10 @@ src/models/payment_integration_url.rs
 src/models/personal_access_token_item.rs
 src/models/personal_access_token_item_page.rs
 src/models/personal_access_token_value.rs
-src/models/plan.rs
+src/models/plan_item.rs
 src/models/refresh_token_command.rs
 src/models/register_revision_command.rs
+src/models/resource_label.rs
 src/models/revision_component_dto.rs
 src/models/revision_item.rs
 src/models/revision_item_page.rs
@@ -168,4 +169,5 @@ src/models/token_info.rs
 src/models/update_app_command.rs
 src/models/update_channel_command.rs
 src/models/update_desired_status_command.rs
+src/models/validation_status.rs
 src/models/variables_list.rs

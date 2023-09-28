@@ -21,6 +21,8 @@ pub struct AccountPlanRecord {
     pub cycle_start_date: Option<Option<String>>,
     #[serde(rename = "cycleEndDate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cycle_end_date: Option<Option<String>>,
+    #[serde(rename = "lastModified", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub last_modified: Option<Option<String>>,
 }
 
 impl AccountPlanRecord {
@@ -30,6 +32,7 @@ impl AccountPlanRecord {
             cancel_at: None,
             cycle_start_date: None,
             cycle_end_date: None,
+            last_modified: None,
         }
     }
 }

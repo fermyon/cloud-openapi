@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_custom_domains_name_get**](CustomDomainsApi.md#api_custom_domains_name_get) | **GET** /api/custom-domains/{name} | 
+[**api_custom_domains_domain_name_get**](CustomDomainsApi.md#api_custom_domains_domain_name_get) | **GET** /api/custom-domains/{domainName} | 
 
 
 
-## api_custom_domains_name_get
+## api_custom_domains_domain_name_get
 
-> crate::models::DomainItem api_custom_domains_name_get(name, domain_name, api_version)
+> crate::models::DomainItem api_custom_domains_domain_name_get(domain_name, api_version)
 
 
 ### Parameters
@@ -18,8 +18,7 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**name** | **String** |  | [required] |
-**domain_name** | Option<**String**> |  |  |
+**domain_name** | **String** |  | [required] |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
