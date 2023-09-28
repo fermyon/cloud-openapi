@@ -21,6 +21,8 @@ pub struct AppSummaryDto {
     pub storage_id: String,
     #[serde(rename = "channels")]
     pub channels: Vec<crate::models::AppChannelListItem>,
+    #[serde(rename = "lastModified", skip_serializing_if = "Option::is_none")]
+    pub last_modified: Option<String>,
 }
 
 impl AppSummaryDto {
@@ -30,6 +32,7 @@ impl AppSummaryDto {
             name,
             storage_id,
             channels,
+            last_modified: None,
         }
     }
 }

@@ -17,6 +17,8 @@ pub struct CreateSqlDatabaseCommand {
     pub name: String,
     #[serde(rename = "appId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub app_id: Option<Option<uuid::Uuid>>,
+    #[serde(rename = "label", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub label: Option<Option<String>>,
 }
 
 impl CreateSqlDatabaseCommand {
@@ -24,6 +26,7 @@ impl CreateSqlDatabaseCommand {
         CreateSqlDatabaseCommand {
             name,
             app_id: None,
+            label: None,
         }
     }
 }

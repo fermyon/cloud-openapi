@@ -15,25 +15,22 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`api_custom_domains_name_get`]
+/// struct for typed errors of method [`api_custom_domains_domain_name_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiCustomDomainsNameGetError {
+pub enum ApiCustomDomainsDomainNameGetError {
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn api_custom_domains_name_get(configuration: &configuration::Configuration, name: &str, domain_name: Option<&str>, api_version: Option<&str>) -> Result<crate::models::DomainItem, Error<ApiCustomDomainsNameGetError>> {
+pub async fn api_custom_domains_domain_name_get(configuration: &configuration::Configuration, domain_name: &str, api_version: Option<&str>) -> Result<crate::models::DomainItem, Error<ApiCustomDomainsDomainNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/custom-domains/{name}", local_var_configuration.base_path, name=crate::apis::urlencode(name));
+    let local_var_uri_str = format!("{}/api/custom-domains/{domainName}", local_var_configuration.base_path, domainName=crate::apis::urlencode(domain_name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = domain_name {
-        local_var_req_builder = local_var_req_builder.query(&[("domainName", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -58,7 +55,7 @@ pub async fn api_custom_domains_name_get(configuration: &configuration::Configur
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ApiCustomDomainsNameGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiCustomDomainsDomainNameGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

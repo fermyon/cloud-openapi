@@ -75,7 +75,7 @@ pub async fn api_payments_customer_portal_get(configuration: &configuration::Con
     }
 }
 
-pub async fn api_payments_plans_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<Vec<crate::models::Plan>, Error<ApiPaymentsPlansGetError>> {
+pub async fn api_payments_plans_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<Vec<crate::models::PlanItem>, Error<ApiPaymentsPlansGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

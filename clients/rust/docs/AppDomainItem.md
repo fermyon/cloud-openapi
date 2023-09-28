@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
-**validation_status** | [**crate::models::DomainValidationStatus**](DomainValidationStatus.md) |  | 
+**validation_status** | [**crate::models::ValidationStatus**](ValidationStatus.md) |  | 
+**last_modified** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
