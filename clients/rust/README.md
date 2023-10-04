@@ -73,6 +73,7 @@ Class | Method | HTTP request | Description
 *SqlDatabasesApi* | [**api_sql_databases_create_post**](docs/SqlDatabasesApi.md#api_sql_databases_create_post) | **POST** /api/sql-databases/create | 
 *SqlDatabasesApi* | [**api_sql_databases_database_links_delete**](docs/SqlDatabasesApi.md#api_sql_databases_database_links_delete) | **DELETE** /api/sql-databases/{database}/links | 
 *SqlDatabasesApi* | [**api_sql_databases_database_links_post**](docs/SqlDatabasesApi.md#api_sql_databases_database_links_post) | **POST** /api/sql-databases/{database}/links | 
+*SqlDatabasesApi* | [**api_sql_databases_database_rename_patch**](docs/SqlDatabasesApi.md#api_sql_databases_database_rename_patch) | **PATCH** /api/sql-databases/{database}/rename | 
 *SqlDatabasesApi* | [**api_sql_databases_delete**](docs/SqlDatabasesApi.md#api_sql_databases_delete) | **DELETE** /api/sql-databases | 
 *SqlDatabasesApi* | [**api_sql_databases_execute_post**](docs/SqlDatabasesApi.md#api_sql_databases_execute_post) | **POST** /api/sql-databases/execute | 
 *SqlDatabasesApi* | [**api_sql_databases_get**](docs/SqlDatabasesApi.md#api_sql_databases_get) | **GET** /api/sql-databases | 
