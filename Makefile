@@ -1,5 +1,6 @@
 DOCKER_IMAGE="openapitools/openapi-generator-cli:v6.6.0"
 PACKAGE_NAME="cloud-openapi"
+SWAGGER_ENDPOINT?=https://cloud.fermyon.com/swagger/v1/swagger.json"
 
 clients: swagger.json
 	@echo "==> Building OpenAPI clients..."
@@ -12,7 +13,7 @@ clients: swagger.json
 	done
 
 swagger.json:
-	curl -sSLko swagger.json https://cloud.fermyon.com/swagger/v1/swagger.json
+	curl -sSLko swagger.json $(SWAGGER_ENDPOINT)
 
 clean:
 	rm -rf clients

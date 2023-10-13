@@ -24,10 +24,16 @@ cloud-openapi = { git = "https://github.com/fermyon/cloud-openapi" }
 This repository uses the OpenAPI Generator project to generate clients that is
 then used to validate the generated specification.
 
-Fetching a new swagger.json can be done by running the Fermyon Cloud in development mode
-and running the following commands:
+A `swagger.json`` can be fetched from Fermyon Cloud by running the following commands:
 
-```
+```sh
 rm swagger.json
 make swagger.json
+```
+
+To fetch the swagger of a locally running instance of Fermyon Cloud, configure the `SWAGGER_ENDPOINT`:
+
+```sh
+rm swagger.json
+SWAGGER_ENDPOINT=http://localhost:5309/swagger/v1/swagger.json make swagger.json
 ```
