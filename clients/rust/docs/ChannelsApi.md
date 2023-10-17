@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**api_channels_id_get**](ChannelsApi.md#api_channels_id_get) | **GET** /api/channels/{id} | 
 [**api_channels_id_healthz_get**](ChannelsApi.md#api_channels_id_healthz_get) | **GET** /api/channels/{id}/healthz | 
 [**api_channels_id_logs_get**](ChannelsApi.md#api_channels_id_logs_get) | **GET** /api/channels/{id}/logs | 
+[**api_channels_id_logs_raw_get**](ChannelsApi.md#api_channels_id_logs_raw_get) | **GET** /api/channels/{id}/logs/raw | 
 [**api_channels_id_patch**](ChannelsApi.md#api_channels_id_patch) | **PATCH** /api/channels/{id} | 
 [**api_channels_id_put**](ChannelsApi.md#api_channels_id_put) | **PUT** /api/channels/{id} | 
 [**api_channels_post**](ChannelsApi.md#api_channels_post) | **POST** /api/channels | 
@@ -168,7 +169,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_logs_get
 
-> crate::models::GetChannelLogsVm api_channels_id_logs_get(id, max, api_version)
+> crate::models::GetChannelLogsVm api_channels_id_logs_get(id, max, since, api_version)
 
 
 ### Parameters
@@ -178,11 +179,43 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id** | **uuid::Uuid** |  | [required] |
 **max** | Option<**i32**> |  |  |
+**since** | Option<**String**> |  |  |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
 [**crate::models::GetChannelLogsVm**](GetChannelLogsVm.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_channels_id_logs_raw_get
+
+> crate::models::GetChannelRawLogsVm api_channels_id_logs_raw_get(id, max, since, api_version)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **uuid::Uuid** |  | [required] |
+**max** | Option<**i32**> |  |  |
+**since** | Option<**String**> |  |  |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
+
+### Return type
+
+[**crate::models::GetChannelRawLogsVm**](GetChannelRawLogsVm.md)
 
 ### Authorization
 

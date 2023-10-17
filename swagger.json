@@ -1087,6 +1087,13 @@
             }
           },
           {
+            "name": "since",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "Api-Version",
             "in": "header",
             "description": "The requested API version",
@@ -1113,6 +1120,70 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetChannelLogsVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/channels/{id}/logs/raw": {
+      "get": {
+        "tags": [
+          "channels"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "since",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelRawLogsVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelRawLogsVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelRawLogsVm"
                 }
               }
             }
@@ -2524,6 +2595,62 @@
         }
       }
     },
+    "/api/sql-databases/{database}/rename": {
+      "patch": {
+        "tags": [
+          "sql-databases"
+        ],
+        "parameters": [
+          {
+            "name": "database",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/storages": {
       "get": {
         "tags": [
@@ -3599,6 +3726,21 @@
         },
         "additionalProperties": false
       },
+      "Entry": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "logLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LogLine"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "EnvironmentVariableItem": {
         "required": [
           "channelId",
@@ -3659,6 +3801,21 @@
         },
         "additionalProperties": false
       },
+      "GetChannelRawLogsVm": {
+        "required": [
+          "entries"
+        ],
+        "type": "object",
+        "properties": {
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Entry"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "GetSqlDatabasesQuery": {
         "type": "object",
         "properties": {
@@ -3699,6 +3856,45 @@
         "properties": {
           "status": {
             "$ref": "#/components/schemas/ApiHealthStatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LogLine": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "line": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "deploymentId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "triggerId": {
+            "type": "string"
+          },
+          "componentId": {
+            "type": "string"
           }
         },
         "additionalProperties": false

@@ -43,6 +43,7 @@ Class | Method | HTTP request | Description
 *ChannelsApi* | [**api_channels_id_get**](docs/ChannelsApi.md#api_channels_id_get) | **GET** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_healthz_get**](docs/ChannelsApi.md#api_channels_id_healthz_get) | **GET** /api/channels/{id}/healthz | 
 *ChannelsApi* | [**api_channels_id_logs_get**](docs/ChannelsApi.md#api_channels_id_logs_get) | **GET** /api/channels/{id}/logs | 
+*ChannelsApi* | [**api_channels_id_logs_raw_get**](docs/ChannelsApi.md#api_channels_id_logs_raw_get) | **GET** /api/channels/{id}/logs/raw | 
 *ChannelsApi* | [**api_channels_id_patch**](docs/ChannelsApi.md#api_channels_id_patch) | **PATCH** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_put**](docs/ChannelsApi.md#api_channels_id_put) | **PUT** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_post**](docs/ChannelsApi.md#api_channels_post) | **POST** /api/channels | 
@@ -122,13 +123,17 @@ Class | Method | HTTP request | Description
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
  - [DnsRecord](docs/DnsRecord.md)
  - [DomainItem](docs/DomainItem.md)
+ - [Entry](docs/Entry.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
  - [ExecuteSqlStatementCommand](docs/ExecuteSqlStatementCommand.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
+ - [GetChannelRawLogsVm](docs/GetChannelRawLogsVm.md)
  - [GetSqlDatabasesQuery](docs/GetSqlDatabasesQuery.md)
  - [GetVariablesQuery](docs/GetVariablesQuery.md)
  - [GuidNullableField](docs/GuidNullableField.md)
  - [HealthCheckResult](docs/HealthCheckResult.md)
+ - [LogLine](docs/LogLine.md)
+ - [Meta](docs/Meta.md)
  - [PatchAccountDetailsCommand](docs/PatchAccountDetailsCommand.md)
  - [PatchAppCommand](docs/PatchAppCommand.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
