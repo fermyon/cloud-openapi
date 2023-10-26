@@ -21,6 +21,8 @@ pub struct AppItem {
     pub storage_id: String,
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
+    #[serde(rename = "subdomain")]
+    pub subdomain: String,
     #[serde(rename = "channels")]
     pub channels: Vec<crate::models::AppChannelListItem>,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
@@ -30,12 +32,13 @@ pub struct AppItem {
 }
 
 impl AppItem {
-    pub fn new(id: uuid::Uuid, name: String, storage_id: String, channels: Vec<crate::models::AppChannelListItem>) -> AppItem {
+    pub fn new(id: uuid::Uuid, name: String, storage_id: String, subdomain: String, channels: Vec<crate::models::AppChannelListItem>) -> AppItem {
         AppItem {
             id,
             name,
             storage_id,
             description: None,
+            subdomain,
             channels,
             domain: None,
             last_modified: None,

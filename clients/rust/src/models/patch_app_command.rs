@@ -17,6 +17,8 @@ pub struct PatchAppCommand {
     pub id: uuid::Uuid,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
     pub domain: Option<Box<crate::models::StringField>>,
+    #[serde(rename = "hostname", skip_serializing_if = "Option::is_none")]
+    pub hostname: Option<Box<crate::models::StringField>>,
 }
 
 impl PatchAppCommand {
@@ -24,6 +26,7 @@ impl PatchAppCommand {
         PatchAppCommand {
             id,
             domain: None,
+            hostname: None,
         }
     }
 }

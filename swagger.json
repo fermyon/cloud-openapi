@@ -186,6 +186,14 @@
             }
           },
           {
+            "name": "exactMatch",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "Api-Version",
             "in": "header",
             "description": "The requested API version",
@@ -3077,7 +3085,8 @@
           "channels",
           "id",
           "name",
-          "storageId"
+          "storageId",
+          "subdomain"
         ],
         "type": "object",
         "properties": {
@@ -3094,6 +3103,10 @@
             "type": "string"
           },
           "description": {
+            "type": "string"
+          },
+          "subdomain": {
+            "minLength": 1,
             "type": "string"
           },
           "channels": {
@@ -3919,6 +3932,9 @@
             "format": "uuid"
           },
           "domain": {
+            "$ref": "#/components/schemas/StringField"
+          },
+          "hostname": {
             "$ref": "#/components/schemas/StringField"
           }
         },

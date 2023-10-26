@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## api_apps_get
 
-> crate::models::AppItemPage api_apps_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, api_version)
+> crate::models::AppItemPage api_apps_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, exact_match, api_version)
 
 
 ### Parameters
@@ -29,6 +29,7 @@ Name | Type | Description  | Required | Notes
 **page_size** | Option<**i32**> |  |  |[default to 50]
 **sort_by** | Option<**String**> |  |  |[default to Name]
 **is_sorted_ascending** | Option<**bool**> |  |  |[default to true]
+**exact_match** | Option<**bool**> |  |  |[default to false]
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type

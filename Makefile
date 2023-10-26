@@ -1,6 +1,6 @@
 DOCKER_IMAGE="openapitools/openapi-generator-cli:v6.6.0"
 PACKAGE_NAME="cloud-openapi"
-SWAGGER_ENDPOINT?=https://cloud.fermyon.com/swagger/v1/swagger.json"
+SWAGGER_ENDPOINT?="https://cloud.fermyon.com/swagger/v1/swagger.json"
 
 clients: swagger.json
 	@echo "==> Building OpenAPI clients..."
