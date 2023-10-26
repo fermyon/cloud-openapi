@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **storage_id** | **String** |  | 
 **description** | Option<**String**> |  | [optional]
+**subdomain** | **String** |  | 
 **channels** | [**Vec<crate::models::AppChannelListItem>**](AppChannelListItem.md) |  | 
 **domain** | Option<[**crate::models::AppDomainItem**](AppDomainItem.md)> |  | [optional]
 **last_modified** | Option<**String**> |  | [optional]

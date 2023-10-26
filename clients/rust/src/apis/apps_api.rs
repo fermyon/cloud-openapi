@@ -65,7 +65,7 @@ pub enum ApiAppsPostError {
 }
 
 
-pub async fn api_apps_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, api_version: Option<&str>) -> Result<crate::models::AppItemPage, Error<ApiAppsGetError>> {
+pub async fn api_apps_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, exact_match: Option<bool>, api_version: Option<&str>) -> Result<crate::models::AppItemPage, Error<ApiAppsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -87,6 +87,9 @@ pub async fn api_apps_get(configuration: &configuration::Configuration, search_t
     }
     if let Some(ref local_var_str) = is_sorted_ascending {
         local_var_req_builder = local_var_req_builder.query(&[("IsSortedAscending", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = exact_match {
+        local_var_req_builder = local_var_req_builder.query(&[("exactMatch", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
