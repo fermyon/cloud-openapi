@@ -23,6 +23,8 @@ pub struct AppItem {
     pub description: Option<String>,
     #[serde(rename = "subdomain")]
     pub subdomain: String,
+    #[serde(rename = "healthStatus", skip_serializing_if = "Option::is_none")]
+    pub health_status: Option<crate::models::ApiHealthStatus>,
     #[serde(rename = "channels")]
     pub channels: Vec<crate::models::AppChannelListItem>,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
@@ -39,6 +41,7 @@ impl AppItem {
             storage_id,
             description: None,
             subdomain,
+            health_status: None,
             channels,
             domain: None,
             last_modified: None,

@@ -31,6 +31,8 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**api_apps_get**](docs/AppsApi.md#api_apps_get) | **GET** /api/apps | 
 *AppsApi* | [**api_apps_id_delete**](docs/AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_get**](docs/AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
+*AppsApi* | [**api_apps_id_logs_get**](docs/AppsApi.md#api_apps_id_logs_get) | **GET** /api/apps/{id}/logs | 
+*AppsApi* | [**api_apps_id_logs_raw_get**](docs/AppsApi.md#api_apps_id_logs_raw_get) | **GET** /api/apps/{id}/logs/raw | 
 *AppsApi* | [**api_apps_id_patch**](docs/AppsApi.md#api_apps_id_patch) | **PATCH** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_put**](docs/AppsApi.md#api_apps_id_put) | **PUT** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_request_count_get**](docs/AppsApi.md#api_apps_id_request_count_get) | **GET** /api/apps/{id}/request-count | 
@@ -126,6 +128,8 @@ Class | Method | HTTP request | Description
  - [Entry](docs/Entry.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
  - [ExecuteSqlStatementCommand](docs/ExecuteSqlStatementCommand.md)
+ - [GetAppLogsVm](docs/GetAppLogsVm.md)
+ - [GetAppRawLogsVm](docs/GetAppRawLogsVm.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [GetChannelRawLogsVm](docs/GetChannelRawLogsVm.md)
  - [GetSqlDatabasesQuery](docs/GetSqlDatabasesQuery.md)

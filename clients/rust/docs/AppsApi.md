@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**api_apps_get**](AppsApi.md#api_apps_get) | **GET** /api/apps | 
 [**api_apps_id_delete**](AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 [**api_apps_id_get**](AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
+[**api_apps_id_logs_get**](AppsApi.md#api_apps_id_logs_get) | **GET** /api/apps/{id}/logs | 
+[**api_apps_id_logs_raw_get**](AppsApi.md#api_apps_id_logs_raw_get) | **GET** /api/apps/{id}/logs/raw | 
 [**api_apps_id_patch**](AppsApi.md#api_apps_id_patch) | **PATCH** /api/apps/{id} | 
 [**api_apps_id_put**](AppsApi.md#api_apps_id_put) | **PUT** /api/apps/{id} | 
 [**api_apps_id_request_count_get**](AppsApi.md#api_apps_id_request_count_get) | **GET** /api/apps/{id}/request-count | 
@@ -93,6 +95,68 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**crate::models::AppItem**](AppItem.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_apps_id_logs_get
+
+> crate::models::GetAppLogsVm api_apps_id_logs_get(id, max, since, api_version)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **uuid::Uuid** |  | [required] |
+**max** | Option<**i32**> |  |  |
+**since** | Option<**String**> |  |  |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
+
+### Return type
+
+[**crate::models::GetAppLogsVm**](GetAppLogsVm.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_apps_id_logs_raw_get
+
+> crate::models::GetAppRawLogsVm api_apps_id_logs_raw_get(id, max, since, api_version)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **uuid::Uuid** |  | [required] |
+**max** | Option<**i32**> |  |  |
+**since** | Option<**String**> |  |  |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
+
+### Return type
+
+[**crate::models::GetAppRawLogsVm**](GetAppRawLogsVm.md)
 
 ### Authorization
 
