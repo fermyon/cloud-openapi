@@ -47,6 +47,8 @@ docs/DomainItem.md
 docs/Entry.md
 docs/EnvironmentVariableItem.md
 docs/ExecuteSqlStatementCommand.md
+docs/GetAppLogsVm.md
+docs/GetAppRawLogsVm.md
 docs/GetChannelLogsVm.md
 docs/GetChannelRawLogsVm.md
 docs/GetSqlDatabasesQuery.md
@@ -147,6 +149,8 @@ src/models/domain_item.rs
 src/models/entry.rs
 src/models/environment_variable_item.rs
 src/models/execute_sql_statement_command.rs
+src/models/get_app_logs_vm.rs
+src/models/get_app_raw_logs_vm.rs
 src/models/get_channel_logs_vm.rs
 src/models/get_channel_raw_logs_vm.rs
 src/models/get_sql_databases_query.rs

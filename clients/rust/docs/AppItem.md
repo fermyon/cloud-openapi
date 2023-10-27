@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **storage_id** | **String** |  | 
 **description** | Option<**String**> |  | [optional]
 **subdomain** | **String** |  | 
+**health_status** | Option<[**crate::models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
 **channels** | [**Vec<crate::models::AppChannelListItem>**](AppChannelListItem.md) |  | 
 **domain** | Option<[**crate::models::AppDomainItem**](AppDomainItem.md)> |  | [optional]
 **last_modified** | Option<**String**> |  | [optional]
