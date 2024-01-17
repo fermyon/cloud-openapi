@@ -11,6 +11,8 @@ docs/ActivateDeviceCodeCommand.md
 docs/ApiHealthStatus.md
 docs/AppChannelListItem.md
 docs/AppDomainItem.md
+docs/AppEventItem.md
+docs/AppEventType.md
 docs/AppItem.md
 docs/AppItemPage.md
 docs/AppRequestCountItem.md
@@ -56,6 +58,9 @@ docs/GetVariablesQuery.md
 docs/GuidNullableField.md
 docs/HealthCheckResult.md
 docs/KeyValuePairsApi.md
+docs/KeyValueStoreItem.md
+docs/KeyValueStoresApi.md
+docs/KeyValueStoresList.md
 docs/LogLine.md
 docs/Meta.md
 docs/OciApi.md
@@ -71,16 +76,13 @@ docs/PersonalAccessTokensApi.md
 docs/PlanItem.md
 docs/RefreshTokenCommand.md
 docs/RegisterRevisionCommand.md
-docs/RegistryApi.md
 docs/ResourceLabel.md
 docs/RevisionComponentDto.md
 docs/RevisionItem.md
 docs/RevisionItemPage.md
 docs/RevisionsApi.md
 docs/SqlDatabasesApi.md
-docs/StoragesApi.md
 docs/StringField.md
-docs/StringPage.md
 docs/SupportApi.md
 docs/TicketCategory.md
 docs/TokenInfo.md
@@ -99,14 +101,13 @@ src/apis/configuration.rs
 src/apis/custom_domains_api.rs
 src/apis/device_codes_api.rs
 src/apis/key_value_pairs_api.rs
+src/apis/key_value_stores_api.rs
 src/apis/mod.rs
 src/apis/oci_api.rs
 src/apis/payments_api.rs
 src/apis/personal_access_tokens_api.rs
-src/apis/registry_api.rs
 src/apis/revisions_api.rs
 src/apis/sql_databases_api.rs
-src/apis/storages_api.rs
 src/apis/support_api.rs
 src/apis/variable_pairs_api.rs
 src/lib.rs
@@ -118,6 +119,8 @@ src/models/activate_device_code_command.rs
 src/models/api_health_status.rs
 src/models/app_channel_list_item.rs
 src/models/app_domain_item.rs
+src/models/app_event_item.rs
+src/models/app_event_type.rs
 src/models/app_item.rs
 src/models/app_item_page.rs
 src/models/app_request_count_item.rs
@@ -157,6 +160,8 @@ src/models/get_sql_databases_query.rs
 src/models/get_variables_query.rs
 src/models/guid_nullable_field.rs
 src/models/health_check_result.rs
+src/models/key_value_store_item.rs
+src/models/key_value_stores_list.rs
 src/models/log_line.rs
 src/models/meta.rs
 src/models/mod.rs
@@ -175,7 +180,6 @@ src/models/revision_component_dto.rs
 src/models/revision_item.rs
 src/models/revision_item_page.rs
 src/models/string_field.rs
-src/models/string_page.rs
 src/models/ticket_category.rs
 src/models/token_info.rs
 src/models/update_app_command.rs

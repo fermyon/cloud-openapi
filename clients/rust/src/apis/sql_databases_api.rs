@@ -299,7 +299,7 @@ pub async fn api_sql_databases_execute_post(configuration: &configuration::Confi
     }
 }
 
-pub async fn api_sql_databases_get(configuration: &configuration::Configuration, get_sql_databases_query: crate::models::GetSqlDatabasesQuery, api_version: Option<&str>) -> Result<crate::models::DatabasesList, Error<ApiSqlDatabasesGetError>> {
+pub async fn api_sql_databases_get(configuration: &configuration::Configuration, app_id: Option<&str>, api_version: Option<&str>, get_sql_databases_query: Option<crate::models::GetSqlDatabasesQuery>) -> Result<crate::models::DatabasesList, Error<ApiSqlDatabasesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -307,6 +307,9 @@ pub async fn api_sql_databases_get(configuration: &configuration::Configuration,
     let local_var_uri_str = format!("{}/api/sql-databases", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = app_id {
+        local_var_req_builder = local_var_req_builder.query(&[("appId", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }

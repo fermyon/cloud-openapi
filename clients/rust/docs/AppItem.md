@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **health_status** | Option<[**crate::models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
 **channels** | [**Vec<crate::models::AppChannelListItem>**](AppChannelListItem.md) |  | 
 **domain** | Option<[**crate::models::AppDomainItem**](AppDomainItem.md)> |  | [optional]
-**last_modified** | Option<**String**> |  | [optional]
+**last_modified** | **String** |  | 
+**created** | **String** |  | 
+**latest_revision** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

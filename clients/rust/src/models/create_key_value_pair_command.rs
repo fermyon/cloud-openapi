@@ -13,23 +13,26 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateKeyValuePairCommand {
-    #[serde(rename = "appId")]
-    pub app_id: uuid::Uuid,
-    #[serde(rename = "storeName")]
-    pub store_name: String,
+    #[serde(rename = "appId", skip_serializing_if = "Option::is_none")]
+    pub app_id: Option<uuid::Uuid>,
+    #[serde(rename = "storeName", skip_serializing_if = "Option::is_none")]
+    pub store_name: Option<String>,
     #[serde(rename = "key")]
     pub key: String,
     #[serde(rename = "value")]
     pub value: String,
+    #[serde(rename = "label", skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
 }
 
 impl CreateKeyValuePairCommand {
-    pub fn new(app_id: uuid::Uuid, store_name: String, key: String, value: String) -> CreateKeyValuePairCommand {
+    pub fn new(key: String, value: String) -> CreateKeyValuePairCommand {
         CreateKeyValuePairCommand {
-            app_id,
-            store_name,
+            app_id: None,
+            store_name: None,
             key,
             value,
+            label: None,
         }
     }
 }
