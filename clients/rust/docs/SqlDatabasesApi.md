@@ -193,7 +193,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_sql_databases_get
 
-> crate::models::DatabasesList api_sql_databases_get(get_sql_databases_query, api_version)
+> crate::models::DatabasesList api_sql_databases_get(app_id, api_version, get_sql_databases_query)
 
 
 ### Parameters
@@ -201,8 +201,9 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**get_sql_databases_query** | [**GetSqlDatabasesQuery**](GetSqlDatabasesQuery.md) |  | [required] |
+**app_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
+**get_sql_databases_query** | Option<[**GetSqlDatabasesQuery**](GetSqlDatabasesQuery.md)> |  |  |
 
 ### Return type
 

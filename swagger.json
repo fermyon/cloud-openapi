@@ -675,6 +675,80 @@
         }
       }
     },
+    "/api/apps/{id}/events": {
+      "get": {
+        "tags": [
+          "apps"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppEventItem"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppEventItem"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppEventItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/auth-tokens": {
       "post": {
         "tags": [
@@ -1633,6 +1707,248 @@
         }
       }
     },
+    "/api/key-value-stores/{store}": {
+      "post": {
+        "tags": [
+          "key-value-stores"
+        ],
+        "parameters": [
+          {
+            "name": "store",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "key-value-stores"
+        ],
+        "parameters": [
+          {
+            "name": "store",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/key-value-stores": {
+      "get": {
+        "tags": [
+          "key-value-stores"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyValueStoresList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyValueStoresList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyValueStoresList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/key-value-stores/{store}/links": {
+      "post": {
+        "tags": [
+          "key-value-stores"
+        ],
+        "parameters": [
+          {
+            "name": "store",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "key-value-stores"
+        ],
+        "parameters": [
+          {
+            "name": "store",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceLabel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/oci": {
       "get": {
         "tags": [
@@ -2219,89 +2535,6 @@
         }
       }
     },
-    "/api/registry/_i": {
-      "post": {
-        "tags": [
-          "registry"
-        ],
-        "parameters": [
-          {
-            "name": "Api-Version",
-            "in": "header",
-            "description": "The requested API version",
-            "schema": {
-              "type": "string",
-              "default": "1.0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/registry/_i/{bindleName}": {
-      "get": {
-        "tags": [
-          "registry"
-        ],
-        "parameters": [
-          {
-            "name": "bindleName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Api-Version",
-            "in": "header",
-            "description": "The requested API version",
-            "schema": {
-              "type": "string",
-              "default": "1.0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "registry"
-        ],
-        "parameters": [
-          {
-            "name": "bindleName",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Api-Version",
-            "in": "header",
-            "description": "The requested API version",
-            "schema": {
-              "type": "string",
-              "default": "1.0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/revisions": {
       "get": {
         "tags": [
@@ -2563,6 +2796,14 @@
         ],
         "parameters": [
           {
+            "name": "appId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
             "name": "Api-Version",
             "in": "header",
             "description": "The requested API version",
@@ -2594,8 +2835,7 @@
                 "$ref": "#/components/schemas/GetSqlDatabasesQuery"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -2783,80 +3023,6 @@
         "responses": {
           "200": {
             "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/storages": {
-      "get": {
-        "tags": [
-          "storages"
-        ],
-        "parameters": [
-          {
-            "name": "searchText",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "default": ""
-            }
-          },
-          {
-            "name": "pageIndex",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 50
-            }
-          },
-          {
-            "name": "IsSortedAscending",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "default": true
-            }
-          },
-          {
-            "name": "Api-Version",
-            "in": "header",
-            "description": "The requested API version",
-            "schema": {
-              "type": "string",
-              "default": "1.0"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/StringPage"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StringPage"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StringPage"
-                }
-              }
-            }
           }
         }
       }
@@ -3126,7 +3292,8 @@
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow"
+          "DeviceFlow",
+          "GitHubPersonalToken"
         ],
         "type": "string"
       },
@@ -3208,10 +3375,44 @@
         },
         "additionalProperties": false
       },
+      "AppEventItem": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AppEventType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppEventType": {
+        "enum": [
+          "Unknown",
+          "Create",
+          "Update",
+          "Delete"
+        ],
+        "type": "string"
+      },
       "AppItem": {
         "required": [
           "channels",
+          "created",
           "id",
+          "lastModified",
           "name",
           "storageId",
           "subdomain"
@@ -3252,6 +3453,14 @@
           "lastModified": {
             "type": "string",
             "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "latestRevision": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3573,9 +3782,7 @@
       },
       "CreateKeyValuePairCommand": {
         "required": [
-          "appId",
           "key",
-          "storeName",
           "value"
         ],
         "type": "object",
@@ -3585,7 +3792,6 @@
             "format": "uuid"
           },
           "storeName": {
-            "minLength": 1,
             "type": "string"
           },
           "key": {
@@ -3594,6 +3800,9 @@
           },
           "value": {
             "minLength": 1,
+            "type": "string"
+          },
+          "label": {
             "type": "string"
           }
         },
@@ -4034,6 +4243,41 @@
         },
         "additionalProperties": false
       },
+      "KeyValueStoreItem": {
+        "required": [
+          "links",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceLabel"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeyValueStoresList": {
+        "required": [
+          "keyValueStores"
+        ],
+        "type": "object",
+        "properties": {
+          "keyValueStores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueStoreItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "LogLine": {
         "type": "object",
         "properties": {
@@ -4392,41 +4636,6 @@
         "properties": {
           "value": {
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "StringPage": {
-        "required": [
-          "isLastPage",
-          "items",
-          "pageIndex",
-          "pageSize",
-          "totalItems"
-        ],
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "totalItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isLastPage": {
-            "type": "boolean",
-            "readOnly": true
           }
         },
         "additionalProperties": false

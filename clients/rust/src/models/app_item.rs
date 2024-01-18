@@ -29,12 +29,16 @@ pub struct AppItem {
     pub channels: Vec<crate::models::AppChannelListItem>,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
     pub domain: Option<Box<crate::models::AppDomainItem>>,
-    #[serde(rename = "lastModified", skip_serializing_if = "Option::is_none")]
-    pub last_modified: Option<String>,
+    #[serde(rename = "lastModified")]
+    pub last_modified: String,
+    #[serde(rename = "created")]
+    pub created: String,
+    #[serde(rename = "latestRevision", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub latest_revision: Option<Option<String>>,
 }
 
 impl AppItem {
-    pub fn new(id: uuid::Uuid, name: String, storage_id: String, subdomain: String, channels: Vec<crate::models::AppChannelListItem>) -> AppItem {
+    pub fn new(id: uuid::Uuid, name: String, storage_id: String, subdomain: String, channels: Vec<crate::models::AppChannelListItem>, last_modified: String, created: String) -> AppItem {
         AppItem {
             id,
             name,
@@ -44,7 +48,9 @@ impl AppItem {
             health_status: None,
             channels,
             domain: None,
-            last_modified: None,
+            last_modified,
+            created,
+            latest_revision: None,
         }
     }
 }

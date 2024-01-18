@@ -30,6 +30,7 @@ Class | Method | HTTP request | Description
 *AccountsApi* | [**api_accounts_id_patch**](docs/AccountsApi.md#api_accounts_id_patch) | **PATCH** /api/accounts/{id} | 
 *AppsApi* | [**api_apps_get**](docs/AppsApi.md#api_apps_get) | **GET** /api/apps | 
 *AppsApi* | [**api_apps_id_delete**](docs/AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
+*AppsApi* | [**api_apps_id_events_get**](docs/AppsApi.md#api_apps_id_events_get) | **GET** /api/apps/{id}/events | 
 *AppsApi* | [**api_apps_id_get**](docs/AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_logs_get**](docs/AppsApi.md#api_apps_id_logs_get) | **GET** /api/apps/{id}/logs | 
 *AppsApi* | [**api_apps_id_logs_raw_get**](docs/AppsApi.md#api_apps_id_logs_raw_get) | **GET** /api/apps/{id}/logs/raw | 
@@ -54,6 +55,11 @@ Class | Method | HTTP request | Description
 *DeviceCodesApi* | [**api_device_codes_post**](docs/DeviceCodesApi.md#api_device_codes_post) | **POST** /api/device-codes | 
 *DeviceCodesApi* | [**api_device_codes_user_code_get**](docs/DeviceCodesApi.md#api_device_codes_user_code_get) | **GET** /api/device-codes/{userCode} | 
 *KeyValuePairsApi* | [**api_key_value_pairs_post**](docs/KeyValuePairsApi.md#api_key_value_pairs_post) | **POST** /api/key-value-pairs | 
+*KeyValueStoresApi* | [**api_key_value_stores_get**](docs/KeyValueStoresApi.md#api_key_value_stores_get) | **GET** /api/key-value-stores | 
+*KeyValueStoresApi* | [**api_key_value_stores_store_delete**](docs/KeyValueStoresApi.md#api_key_value_stores_store_delete) | **DELETE** /api/key-value-stores/{store} | 
+*KeyValueStoresApi* | [**api_key_value_stores_store_links_delete**](docs/KeyValueStoresApi.md#api_key_value_stores_store_links_delete) | **DELETE** /api/key-value-stores/{store}/links | 
+*KeyValueStoresApi* | [**api_key_value_stores_store_links_post**](docs/KeyValueStoresApi.md#api_key_value_stores_store_links_post) | **POST** /api/key-value-stores/{store}/links | 
+*KeyValueStoresApi* | [**api_key_value_stores_store_post**](docs/KeyValueStoresApi.md#api_key_value_stores_store_post) | **POST** /api/key-value-stores/{store} | 
 *OciApi* | [**api_oci_get**](docs/OciApi.md#api_oci_get) | **GET** /api/oci | 
 *OciApi* | [**api_oci_name_blobs_uploads_digest_delete**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_delete) | **DELETE** /api/oci/{name}/blobs/uploads/{digest} | 
 *OciApi* | [**api_oci_name_blobs_uploads_digest_get**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_get) | **GET** /api/oci/{name}/blobs/uploads/{digest} | 
@@ -68,9 +74,6 @@ Class | Method | HTTP request | Description
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_get**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_get) | **GET** /api/personal-access-tokens | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_id_delete**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_id_delete) | **DELETE** /api/personal-access-tokens/{id} | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_post**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_post) | **POST** /api/personal-access-tokens | 
-*RegistryApi* | [**api_registry_i_bindle_name_get**](docs/RegistryApi.md#api_registry_i_bindle_name_get) | **GET** /api/registry/_i/{bindleName} | 
-*RegistryApi* | [**api_registry_i_bindle_name_post**](docs/RegistryApi.md#api_registry_i_bindle_name_post) | **POST** /api/registry/_i/{bindleName} | 
-*RegistryApi* | [**api_registry_i_post**](docs/RegistryApi.md#api_registry_i_post) | **POST** /api/registry/_i | 
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *SqlDatabasesApi* | [**api_sql_databases_create_post**](docs/SqlDatabasesApi.md#api_sql_databases_create_post) | **POST** /api/sql-databases/create | 
@@ -80,7 +83,6 @@ Class | Method | HTTP request | Description
 *SqlDatabasesApi* | [**api_sql_databases_delete**](docs/SqlDatabasesApi.md#api_sql_databases_delete) | **DELETE** /api/sql-databases | 
 *SqlDatabasesApi* | [**api_sql_databases_execute_post**](docs/SqlDatabasesApi.md#api_sql_databases_execute_post) | **POST** /api/sql-databases/execute | 
 *SqlDatabasesApi* | [**api_sql_databases_get**](docs/SqlDatabasesApi.md#api_sql_databases_get) | **GET** /api/sql-databases | 
-*StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
 *SupportApi* | [**api_support_post**](docs/SupportApi.md#api_support_post) | **POST** /api/support | 
 *VariablePairsApi* | [**api_variable_pairs_delete**](docs/VariablePairsApi.md#api_variable_pairs_delete) | **DELETE** /api/variable-pairs | 
 *VariablePairsApi* | [**api_variable_pairs_get**](docs/VariablePairsApi.md#api_variable_pairs_get) | **GET** /api/variable-pairs | 
@@ -97,6 +99,8 @@ Class | Method | HTTP request | Description
  - [ApiHealthStatus](docs/ApiHealthStatus.md)
  - [AppChannelListItem](docs/AppChannelListItem.md)
  - [AppDomainItem](docs/AppDomainItem.md)
+ - [AppEventItem](docs/AppEventItem.md)
+ - [AppEventType](docs/AppEventType.md)
  - [AppItem](docs/AppItem.md)
  - [AppItemPage](docs/AppItemPage.md)
  - [AppRequestCountItem](docs/AppRequestCountItem.md)
@@ -136,6 +140,8 @@ Class | Method | HTTP request | Description
  - [GetVariablesQuery](docs/GetVariablesQuery.md)
  - [GuidNullableField](docs/GuidNullableField.md)
  - [HealthCheckResult](docs/HealthCheckResult.md)
+ - [KeyValueStoreItem](docs/KeyValueStoreItem.md)
+ - [KeyValueStoresList](docs/KeyValueStoresList.md)
  - [LogLine](docs/LogLine.md)
  - [Meta](docs/Meta.md)
  - [PatchAccountDetailsCommand](docs/PatchAccountDetailsCommand.md)
@@ -153,7 +159,6 @@ Class | Method | HTTP request | Description
  - [RevisionItem](docs/RevisionItem.md)
  - [RevisionItemPage](docs/RevisionItemPage.md)
  - [StringField](docs/StringField.md)
- - [StringPage](docs/StringPage.md)
  - [TicketCategory](docs/TicketCategory.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [UpdateAppCommand](docs/UpdateAppCommand.md)
