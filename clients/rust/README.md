@@ -60,6 +60,7 @@ Class | Method | HTTP request | Description
 *KeyValueStoresApi* | [**api_key_value_stores_store_links_delete**](docs/KeyValueStoresApi.md#api_key_value_stores_store_links_delete) | **DELETE** /api/key-value-stores/{store}/links | 
 *KeyValueStoresApi* | [**api_key_value_stores_store_links_post**](docs/KeyValueStoresApi.md#api_key_value_stores_store_links_post) | **POST** /api/key-value-stores/{store}/links | 
 *KeyValueStoresApi* | [**api_key_value_stores_store_post**](docs/KeyValueStoresApi.md#api_key_value_stores_store_post) | **POST** /api/key-value-stores/{store} | 
+*KeyValueStoresApi* | [**api_key_value_stores_store_rename_patch**](docs/KeyValueStoresApi.md#api_key_value_stores_store_rename_patch) | **PATCH** /api/key-value-stores/{store}/rename | 
 *OciApi* | [**api_oci_get**](docs/OciApi.md#api_oci_get) | **GET** /api/oci | 
 *OciApi* | [**api_oci_name_blobs_uploads_digest_delete**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_delete) | **DELETE** /api/oci/{name}/blobs/uploads/{digest} | 
 *OciApi* | [**api_oci_name_blobs_uploads_digest_get**](docs/OciApi.md#api_oci_name_blobs_uploads_digest_get) | **GET** /api/oci/{name}/blobs/uploads/{digest} | 
