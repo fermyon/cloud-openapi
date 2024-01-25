@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**api_key_value_stores_store_links_delete**](KeyValueStoresApi.md#api_key_value_stores_store_links_delete) | **DELETE** /api/key-value-stores/{store}/links | 
 [**api_key_value_stores_store_links_post**](KeyValueStoresApi.md#api_key_value_stores_store_links_post) | **POST** /api/key-value-stores/{store}/links | 
 [**api_key_value_stores_store_post**](KeyValueStoresApi.md#api_key_value_stores_store_post) | **POST** /api/key-value-stores/{store} | 
+[**api_key_value_stores_store_rename_patch**](KeyValueStoresApi.md#api_key_value_stores_store_rename_patch) | **PATCH** /api/key-value-stores/{store}/rename | 
 
 
 
@@ -143,6 +144,36 @@ Name | Type | Description  | Required | Notes
 **store** | **String** |  | [required] |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 **resource_label** | Option<[**ResourceLabel**](ResourceLabel.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_key_value_stores_store_rename_patch
+
+> api_key_value_stores_store_rename_patch(store, body, api_version)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**store** | **String** |  | [required] |
+**body** | **String** |  | [required] |
+**api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 

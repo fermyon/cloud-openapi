@@ -50,6 +50,13 @@ pub enum ApiKeyValueStoresStorePostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_key_value_stores_store_rename_patch`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiKeyValueStoresStoreRenamePatchError {
+    UnknownValue(serde_json::Value),
+}
+
 
 pub async fn api_key_value_stores_get(configuration: &configuration::Configuration, app_id: Option<&str>, api_version: Option<&str>) -> Result<crate::models::KeyValueStoresList, Error<ApiKeyValueStoresGetError>> {
     let local_var_configuration = configuration;
@@ -242,6 +249,45 @@ pub async fn api_key_value_stores_store_post(configuration: &configuration::Conf
         Ok(())
     } else {
         let local_var_entity: Option<ApiKeyValueStoresStorePostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn api_key_value_stores_store_rename_patch(configuration: &configuration::Configuration, store: &str, body: &str, api_version: Option<&str>) -> Result<(), Error<ApiKeyValueStoresStoreRenamePatchError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/key-value-stores/{store}/rename", local_var_configuration.base_path, store=crate::apis::urlencode(store));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = api_version {
+        local_var_req_builder = local_var_req_builder.header("Api-Version", local_var_param_value.to_string());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<ApiKeyValueStoresStoreRenamePatchError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
