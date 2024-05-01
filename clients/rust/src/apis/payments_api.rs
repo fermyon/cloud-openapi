@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -37,7 +37,7 @@ pub enum ApiPaymentsSetupCheckoutPostError {
 }
 
 
-pub async fn api_payments_customer_portal_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<crate::models::PaymentIntegrationUrl, Error<ApiPaymentsCustomerPortalGetError>> {
+pub async fn api_payments_customer_portal_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<models::PaymentIntegrationUrl, Error<ApiPaymentsCustomerPortalGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -75,7 +75,7 @@ pub async fn api_payments_customer_portal_get(configuration: &configuration::Con
     }
 }
 
-pub async fn api_payments_plans_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<Vec<crate::models::PlanItem>, Error<ApiPaymentsPlansGetError>> {
+pub async fn api_payments_plans_get(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<Vec<models::PlanItem>, Error<ApiPaymentsPlansGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -113,7 +113,7 @@ pub async fn api_payments_plans_get(configuration: &configuration::Configuration
     }
 }
 
-pub async fn api_payments_setup_checkout_post(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<crate::models::PaymentIntegrationUrl, Error<ApiPaymentsSetupCheckoutPostError>> {
+pub async fn api_payments_setup_checkout_post(configuration: &configuration::Configuration, api_version: Option<&str>) -> Result<models::PaymentIntegrationUrl, Error<ApiPaymentsSetupCheckoutPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

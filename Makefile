@@ -1,4 +1,4 @@
-DOCKER_IMAGE="openapitools/openapi-generator-cli:v6.6.0"
+DOCKER_IMAGE="openapitools/openapi-generator-cli:v7.5.0"
 PACKAGE_NAME="cloud-openapi"
 SWAGGER_ENDPOINT?="https://cloud.fermyon.com/swagger/v1/swagger.json"
 

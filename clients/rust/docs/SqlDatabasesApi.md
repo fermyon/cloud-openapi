@@ -193,7 +193,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_sql_databases_get
 
-> crate::models::DatabasesList api_sql_databases_get(app_id, api_version, get_sql_databases_query)
+> models::DatabasesList api_sql_databases_get(app_id, api_version, get_sql_databases_query)
 
 
 ### Parameters
@@ -207,7 +207,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DatabasesList**](DatabasesList.md)
+[**models::DatabasesList**](DatabasesList.md)
 
 ### Authorization
 

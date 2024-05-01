@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -58,7 +58,7 @@ pub enum ApiKeyValueStoresStoreRenamePatchError {
 }
 
 
-pub async fn api_key_value_stores_get(configuration: &configuration::Configuration, app_id: Option<&str>, api_version: Option<&str>) -> Result<crate::models::KeyValueStoresList, Error<ApiKeyValueStoresGetError>> {
+pub async fn api_key_value_stores_get(configuration: &configuration::Configuration, app_id: Option<&str>, api_version: Option<&str>) -> Result<models::KeyValueStoresList, Error<ApiKeyValueStoresGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -137,7 +137,7 @@ pub async fn api_key_value_stores_store_delete(configuration: &configuration::Co
     }
 }
 
-pub async fn api_key_value_stores_store_links_delete(configuration: &configuration::Configuration, store: &str, resource_label: crate::models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiKeyValueStoresStoreLinksDeleteError>> {
+pub async fn api_key_value_stores_store_links_delete(configuration: &configuration::Configuration, store: &str, resource_label: models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiKeyValueStoresStoreLinksDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -176,7 +176,7 @@ pub async fn api_key_value_stores_store_links_delete(configuration: &configurati
     }
 }
 
-pub async fn api_key_value_stores_store_links_post(configuration: &configuration::Configuration, store: &str, resource_label: crate::models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiKeyValueStoresStoreLinksPostError>> {
+pub async fn api_key_value_stores_store_links_post(configuration: &configuration::Configuration, store: &str, resource_label: models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiKeyValueStoresStoreLinksPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -215,7 +215,7 @@ pub async fn api_key_value_stores_store_links_post(configuration: &configuration
     }
 }
 
-pub async fn api_key_value_stores_store_post(configuration: &configuration::Configuration, store: &str, api_version: Option<&str>, resource_label: Option<crate::models::ResourceLabel>) -> Result<(), Error<ApiKeyValueStoresStorePostError>> {
+pub async fn api_key_value_stores_store_post(configuration: &configuration::Configuration, store: &str, api_version: Option<&str>, resource_label: Option<models::ResourceLabel>) -> Result<(), Error<ApiKeyValueStoresStorePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -37,7 +37,7 @@ pub enum ApiVariablePairsPostError {
 }
 
 
-pub async fn api_variable_pairs_delete(configuration: &configuration::Configuration, delete_variable_pair_command: crate::models::DeleteVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsDeleteError>> {
+pub async fn api_variable_pairs_delete(configuration: &configuration::Configuration, delete_variable_pair_command: models::DeleteVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -76,7 +76,7 @@ pub async fn api_variable_pairs_delete(configuration: &configuration::Configurat
     }
 }
 
-pub async fn api_variable_pairs_get(configuration: &configuration::Configuration, get_variables_query: crate::models::GetVariablesQuery, api_version: Option<&str>) -> Result<crate::models::VariablesList, Error<ApiVariablePairsGetError>> {
+pub async fn api_variable_pairs_get(configuration: &configuration::Configuration, get_variables_query: models::GetVariablesQuery, api_version: Option<&str>) -> Result<models::VariablesList, Error<ApiVariablePairsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -115,7 +115,7 @@ pub async fn api_variable_pairs_get(configuration: &configuration::Configuration
     }
 }
 
-pub async fn api_variable_pairs_post(configuration: &configuration::Configuration, create_variable_pair_command: crate::models::CreateVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsPostError>> {
+pub async fn api_variable_pairs_post(configuration: &configuration::Configuration, create_variable_pair_command: models::CreateVariablePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiVariablePairsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

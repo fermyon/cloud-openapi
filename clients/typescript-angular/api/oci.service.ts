@@ -73,7 +73,7 @@ export class OciService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -94,10 +94,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciGet(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciGet(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciGet(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciGet(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciGet(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciGet(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciGet(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciGet(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
         if (apiVersion !== undefined && apiVersion !== null) {
@@ -127,6 +127,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -147,6 +152,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -159,10 +165,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciNameBlobsUploadsDigestDelete(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (digest === null || digest === undefined) {
             throw new Error('Required parameter digest was null or undefined when calling apiOciNameBlobsUploadsDigestDelete.');
         }
@@ -198,6 +204,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -218,6 +229,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -230,10 +242,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciNameBlobsUploadsDigestGet(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (digest === null || digest === undefined) {
             throw new Error('Required parameter digest was null or undefined when calling apiOciNameBlobsUploadsDigestGet.');
         }
@@ -269,6 +281,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -289,6 +306,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -301,10 +319,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciNameBlobsUploadsDigestPatch(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (digest === null || digest === undefined) {
             throw new Error('Required parameter digest was null or undefined when calling apiOciNameBlobsUploadsDigestPatch.');
         }
@@ -340,6 +358,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -360,6 +383,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -372,10 +396,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciNameBlobsUploadsDigestPut(digest: string, name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (digest === null || digest === undefined) {
             throw new Error('Required parameter digest was null or undefined when calling apiOciNameBlobsUploadsDigestPut.');
         }
@@ -411,6 +435,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -431,6 +460,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -442,10 +472,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciNameBlobsUploadsPost(name: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (name === null || name === undefined) {
             throw new Error('Required parameter name was null or undefined when calling apiOciNameBlobsUploadsPost.');
         }
@@ -478,6 +508,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -498,6 +533,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -510,10 +546,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciNameManifestsReferenceHead(name: string, reference: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (name === null || name === undefined) {
             throw new Error('Required parameter name was null or undefined when calling apiOciNameManifestsReferenceHead.');
         }
@@ -549,6 +585,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -569,6 +610,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -581,10 +623,10 @@ export class OciService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiOciNameManifestsReferencePut(name: string, reference: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (name === null || name === undefined) {
             throw new Error('Required parameter name was null or undefined when calling apiOciNameManifestsReferencePut.');
         }
@@ -620,6 +662,11 @@ export class OciService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -640,6 +687,7 @@ export class OciService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plan** | Option<[**crate::models::AccountPlanRecord**](AccountPlanRecord.md)> |  | [optional]
+**plan** | Option<[**models::AccountPlanRecord**](AccountPlanRecord.md)> |  | [optional]
 **is_marketing_email_on** | Option<**bool**> |  | [optional]
 **created_at** | Option<**String**> |  | [optional]
 

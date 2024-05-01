@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account_type** | Option<[**crate::models::AccountPlanType**](AccountPlanType.md)> |  | [optional]
+**account_type** | Option<[**models::AccountPlanType**](AccountPlanType.md)> |  | [optional]
 **cancel_at** | Option<**String**> |  | [optional]
 **cycle_start_date** | Option<**String**> |  | [optional]
 **cycle_end_date** | Option<**String**> |  | [optional]

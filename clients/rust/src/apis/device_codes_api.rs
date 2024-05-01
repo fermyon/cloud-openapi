@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -37,7 +37,7 @@ pub enum ApiDeviceCodesUserCodeGetError {
 }
 
 
-pub async fn api_device_codes_activate_post(configuration: &configuration::Configuration, activate_device_code_command: crate::models::ActivateDeviceCodeCommand, api_version: Option<&str>) -> Result<(), Error<ApiDeviceCodesActivatePostError>> {
+pub async fn api_device_codes_activate_post(configuration: &configuration::Configuration, activate_device_code_command: models::ActivateDeviceCodeCommand, api_version: Option<&str>) -> Result<(), Error<ApiDeviceCodesActivatePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -76,7 +76,7 @@ pub async fn api_device_codes_activate_post(configuration: &configuration::Confi
     }
 }
 
-pub async fn api_device_codes_post(configuration: &configuration::Configuration, create_device_code_command: crate::models::CreateDeviceCodeCommand, api_version: Option<&str>) -> Result<crate::models::DeviceCodeItem, Error<ApiDeviceCodesPostError>> {
+pub async fn api_device_codes_post(configuration: &configuration::Configuration, create_device_code_command: models::CreateDeviceCodeCommand, api_version: Option<&str>) -> Result<models::DeviceCodeItem, Error<ApiDeviceCodesPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -115,7 +115,7 @@ pub async fn api_device_codes_post(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn api_device_codes_user_code_get(configuration: &configuration::Configuration, user_code: &str, api_version: Option<&str>) -> Result<crate::models::DeviceCodeDetails, Error<ApiDeviceCodesUserCodeGetError>> {
+pub async fn api_device_codes_user_code_get(configuration: &configuration::Configuration, user_code: &str, api_version: Option<&str>) -> Result<models::DeviceCodeDetails, Error<ApiDeviceCodesUserCodeGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

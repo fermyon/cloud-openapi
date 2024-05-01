@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -30,7 +30,7 @@ pub enum ApiAuthTokensRefreshPostError {
 }
 
 
-pub async fn api_auth_tokens_post(configuration: &configuration::Configuration, create_token_command: crate::models::CreateTokenCommand, api_version: Option<&str>) -> Result<crate::models::TokenInfo, Error<ApiAuthTokensPostError>> {
+pub async fn api_auth_tokens_post(configuration: &configuration::Configuration, create_token_command: models::CreateTokenCommand, api_version: Option<&str>) -> Result<models::TokenInfo, Error<ApiAuthTokensPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -69,7 +69,7 @@ pub async fn api_auth_tokens_post(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn api_auth_tokens_refresh_post(configuration: &configuration::Configuration, refresh_token_command: crate::models::RefreshTokenCommand, api_version: Option<&str>) -> Result<crate::models::TokenInfo, Error<ApiAuthTokensRefreshPostError>> {
+pub async fn api_auth_tokens_refresh_post(configuration: &configuration::Configuration, refresh_token_command: models::RefreshTokenCommand, api_version: Option<&str>) -> Result<models::TokenInfo, Error<ApiAuthTokensRefreshPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

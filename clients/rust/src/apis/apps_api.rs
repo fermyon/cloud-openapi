@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -86,7 +86,7 @@ pub enum ApiAppsPostError {
 }
 
 
-pub async fn api_apps_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, exact_match: Option<bool>, api_version: Option<&str>) -> Result<crate::models::AppItemPage, Error<ApiAppsGetError>> {
+pub async fn api_apps_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, exact_match: Option<bool>, api_version: Option<&str>) -> Result<models::AppItemPage, Error<ApiAppsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -180,7 +180,7 @@ pub async fn api_apps_id_delete(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn api_apps_id_events_get(configuration: &configuration::Configuration, id: &str, from: Option<String>, to: Option<String>, api_version: Option<&str>) -> Result<Vec<crate::models::AppEventItem>, Error<ApiAppsIdEventsGetError>> {
+pub async fn api_apps_id_events_get(configuration: &configuration::Configuration, id: &str, from: Option<String>, to: Option<String>, api_version: Option<&str>) -> Result<Vec<models::AppEventItem>, Error<ApiAppsIdEventsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -224,7 +224,7 @@ pub async fn api_apps_id_events_get(configuration: &configuration::Configuration
     }
 }
 
-pub async fn api_apps_id_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<crate::models::AppItem, Error<ApiAppsIdGetError>> {
+pub async fn api_apps_id_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<models::AppItem, Error<ApiAppsIdGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -262,7 +262,7 @@ pub async fn api_apps_id_get(configuration: &configuration::Configuration, id: &
     }
 }
 
-pub async fn api_apps_id_logs_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<crate::models::GetAppLogsVm, Error<ApiAppsIdLogsGetError>> {
+pub async fn api_apps_id_logs_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<models::GetAppLogsVm, Error<ApiAppsIdLogsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -306,7 +306,7 @@ pub async fn api_apps_id_logs_get(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn api_apps_id_logs_raw_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<crate::models::GetAppRawLogsVm, Error<ApiAppsIdLogsRawGetError>> {
+pub async fn api_apps_id_logs_raw_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<models::GetAppRawLogsVm, Error<ApiAppsIdLogsRawGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -350,7 +350,7 @@ pub async fn api_apps_id_logs_raw_get(configuration: &configuration::Configurati
     }
 }
 
-pub async fn api_apps_id_patch(configuration: &configuration::Configuration, id: &str, patch_app_command: crate::models::PatchAppCommand, api_version: Option<&str>) -> Result<(), Error<ApiAppsIdPatchError>> {
+pub async fn api_apps_id_patch(configuration: &configuration::Configuration, id: &str, patch_app_command: models::PatchAppCommand, api_version: Option<&str>) -> Result<(), Error<ApiAppsIdPatchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -389,7 +389,7 @@ pub async fn api_apps_id_patch(configuration: &configuration::Configuration, id:
     }
 }
 
-pub async fn api_apps_id_put(configuration: &configuration::Configuration, id: &str, update_app_command: crate::models::UpdateAppCommand, api_version: Option<&str>) -> Result<(), Error<ApiAppsIdPutError>> {
+pub async fn api_apps_id_put(configuration: &configuration::Configuration, id: &str, update_app_command: models::UpdateAppCommand, api_version: Option<&str>) -> Result<(), Error<ApiAppsIdPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -428,7 +428,7 @@ pub async fn api_apps_id_put(configuration: &configuration::Configuration, id: &
     }
 }
 
-pub async fn api_apps_id_request_count_get(configuration: &configuration::Configuration, id: &str, from: Option<String>, to: Option<String>, api_version: Option<&str>) -> Result<crate::models::AppRequestCountItem, Error<ApiAppsIdRequestCountGetError>> {
+pub async fn api_apps_id_request_count_get(configuration: &configuration::Configuration, id: &str, from: Option<String>, to: Option<String>, api_version: Option<&str>) -> Result<models::AppRequestCountItem, Error<ApiAppsIdRequestCountGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -472,7 +472,7 @@ pub async fn api_apps_id_request_count_get(configuration: &configuration::Config
     }
 }
 
-pub async fn api_apps_post(configuration: &configuration::Configuration, create_app_command: crate::models::CreateAppCommand, api_version: Option<&str>) -> Result<uuid::Uuid, Error<ApiAppsPostError>> {
+pub async fn api_apps_post(configuration: &configuration::Configuration, create_app_command: models::CreateAppCommand, api_version: Option<&str>) -> Result<uuid::Uuid, Error<ApiAppsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

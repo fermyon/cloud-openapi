@@ -77,7 +77,7 @@ export class PaymentsService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -98,10 +98,10 @@ export class PaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<PaymentIntegrationUrl>;
-    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<PaymentIntegrationUrl>>;
-    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<PaymentIntegrationUrl>>;
-    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<PaymentIntegrationUrl>;
+    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentIntegrationUrl>>;
+    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentIntegrationUrl>>;
+    public apiPaymentsCustomerPortalGet(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
         if (apiVersion !== undefined && apiVersion !== null) {
@@ -132,6 +132,11 @@ export class PaymentsService {
         let localVarHttpContext: HttpContext | undefined = options && options.context;
         if (localVarHttpContext === undefined) {
             localVarHttpContext = new HttpContext();
+        }
+
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
         }
 
 
@@ -154,6 +159,7 @@ export class PaymentsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -164,10 +170,10 @@ export class PaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPaymentsPlansGet(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<Array<PlanItem>>;
-    public apiPaymentsPlansGet(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<Array<PlanItem>>>;
-    public apiPaymentsPlansGet(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<Array<PlanItem>>>;
-    public apiPaymentsPlansGet(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiPaymentsPlansGet(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<PlanItem>>;
+    public apiPaymentsPlansGet(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<PlanItem>>>;
+    public apiPaymentsPlansGet(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<PlanItem>>>;
+    public apiPaymentsPlansGet(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
         if (apiVersion !== undefined && apiVersion !== null) {
@@ -198,6 +204,11 @@ export class PaymentsService {
         let localVarHttpContext: HttpContext | undefined = options && options.context;
         if (localVarHttpContext === undefined) {
             localVarHttpContext = new HttpContext();
+        }
+
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
         }
 
 
@@ -220,6 +231,7 @@ export class PaymentsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -230,10 +242,10 @@ export class PaymentsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<PaymentIntegrationUrl>;
-    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<PaymentIntegrationUrl>>;
-    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<PaymentIntegrationUrl>>;
-    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<PaymentIntegrationUrl>;
+    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PaymentIntegrationUrl>>;
+    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PaymentIntegrationUrl>>;
+    public apiPaymentsSetupCheckoutPost(apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
         if (apiVersion !== undefined && apiVersion !== null) {
@@ -266,6 +278,11 @@ export class PaymentsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -286,6 +303,7 @@ export class PaymentsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

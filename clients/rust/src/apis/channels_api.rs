@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -86,7 +86,7 @@ pub enum ApiChannelsPostError {
 }
 
 
-pub async fn api_channels_channel_id_desired_status_put(configuration: &configuration::Configuration, channel_id: &str, update_desired_status_command: crate::models::UpdateDesiredStatusCommand, api_version: Option<&str>) -> Result<(), Error<ApiChannelsChannelIdDesiredStatusPutError>> {
+pub async fn api_channels_channel_id_desired_status_put(configuration: &configuration::Configuration, channel_id: &str, update_desired_status_command: models::UpdateDesiredStatusCommand, api_version: Option<&str>) -> Result<(), Error<ApiChannelsChannelIdDesiredStatusPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -125,7 +125,7 @@ pub async fn api_channels_channel_id_desired_status_put(configuration: &configur
     }
 }
 
-pub async fn api_channels_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, api_version: Option<&str>) -> Result<crate::models::ChannelItemPage, Error<ApiChannelsGetError>> {
+pub async fn api_channels_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, api_version: Option<&str>) -> Result<models::ChannelItemPage, Error<ApiChannelsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -216,7 +216,7 @@ pub async fn api_channels_id_delete(configuration: &configuration::Configuration
     }
 }
 
-pub async fn api_channels_id_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<crate::models::ChannelItem, Error<ApiChannelsIdGetError>> {
+pub async fn api_channels_id_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<models::ChannelItem, Error<ApiChannelsIdGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -254,7 +254,7 @@ pub async fn api_channels_id_get(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn api_channels_id_healthz_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<crate::models::HealthCheckResult, Error<ApiChannelsIdHealthzGetError>> {
+pub async fn api_channels_id_healthz_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<models::HealthCheckResult, Error<ApiChannelsIdHealthzGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -292,7 +292,7 @@ pub async fn api_channels_id_healthz_get(configuration: &configuration::Configur
     }
 }
 
-pub async fn api_channels_id_logs_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<crate::models::GetChannelLogsVm, Error<ApiChannelsIdLogsGetError>> {
+pub async fn api_channels_id_logs_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<models::GetChannelLogsVm, Error<ApiChannelsIdLogsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -336,7 +336,7 @@ pub async fn api_channels_id_logs_get(configuration: &configuration::Configurati
     }
 }
 
-pub async fn api_channels_id_logs_raw_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<crate::models::GetChannelRawLogsVm, Error<ApiChannelsIdLogsRawGetError>> {
+pub async fn api_channels_id_logs_raw_get(configuration: &configuration::Configuration, id: &str, max: Option<i32>, since: Option<&str>, api_version: Option<&str>) -> Result<models::GetChannelRawLogsVm, Error<ApiChannelsIdLogsRawGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -380,7 +380,7 @@ pub async fn api_channels_id_logs_raw_get(configuration: &configuration::Configu
     }
 }
 
-pub async fn api_channels_id_patch(configuration: &configuration::Configuration, id: &str, patch_channel_command: crate::models::PatchChannelCommand, api_version: Option<&str>) -> Result<(), Error<ApiChannelsIdPatchError>> {
+pub async fn api_channels_id_patch(configuration: &configuration::Configuration, id: &str, patch_channel_command: models::PatchChannelCommand, api_version: Option<&str>) -> Result<(), Error<ApiChannelsIdPatchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -419,7 +419,7 @@ pub async fn api_channels_id_patch(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn api_channels_id_put(configuration: &configuration::Configuration, id: &str, update_channel_command: crate::models::UpdateChannelCommand, api_version: Option<&str>) -> Result<(), Error<ApiChannelsIdPutError>> {
+pub async fn api_channels_id_put(configuration: &configuration::Configuration, id: &str, update_channel_command: models::UpdateChannelCommand, api_version: Option<&str>) -> Result<(), Error<ApiChannelsIdPutError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -458,7 +458,7 @@ pub async fn api_channels_id_put(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn api_channels_post(configuration: &configuration::Configuration, create_channel_command: crate::models::CreateChannelCommand, api_version: Option<&str>) -> Result<uuid::Uuid, Error<ApiChannelsPostError>> {
+pub async fn api_channels_post(configuration: &configuration::Configuration, create_channel_command: models::CreateChannelCommand, api_version: Option<&str>) -> Result<uuid::Uuid, Error<ApiChannelsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

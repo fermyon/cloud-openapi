@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## api_personal_access_tokens_get
 
-> crate::models::PersonalAccessTokenItemPage api_personal_access_tokens_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, api_version)
+> models::PersonalAccessTokenItemPage api_personal_access_tokens_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, api_version)
 
 
 ### Parameters
@@ -29,7 +29,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::PersonalAccessTokenItemPage**](PersonalAccessTokenItemPage.md)
+[**models::PersonalAccessTokenItemPage**](PersonalAccessTokenItemPage.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_personal_access_tokens_post
 
-> crate::models::PersonalAccessTokenValue api_personal_access_tokens_post(create_personal_access_token_command, api_version)
+> models::PersonalAccessTokenValue api_personal_access_tokens_post(create_personal_access_token_command, api_version)
 
 
 ### Parameters
@@ -87,7 +87,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::PersonalAccessTokenValue**](PersonalAccessTokenValue.md)
+[**models::PersonalAccessTokenValue**](PersonalAccessTokenValue.md)
 
 ### Authorization
 

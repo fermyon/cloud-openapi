@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Vec<crate::models::RevisionItem>**](RevisionItem.md) |  | 
+**items** | [**Vec<models::RevisionItem>**](RevisionItem.md) |  | 
 **total_items** | **i32** |  | 
 **page_index** | **i32** |  | 
 **page_size** | **i32** |  | 

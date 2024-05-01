@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -23,7 +23,7 @@ pub enum ApiCustomDomainsDomainNameGetError {
 }
 
 
-pub async fn api_custom_domains_domain_name_get(configuration: &configuration::Configuration, domain_name: &str, api_version: Option<&str>) -> Result<crate::models::DomainItem, Error<ApiCustomDomainsDomainNameGetError>> {
+pub async fn api_custom_domains_domain_name_get(configuration: &configuration::Configuration, domain_name: &str, api_version: Option<&str>) -> Result<models::DomainItem, Error<ApiCustomDomainsDomainNameGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

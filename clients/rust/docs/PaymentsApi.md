@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## api_payments_customer_portal_get
 
-> crate::models::PaymentIntegrationUrl api_payments_customer_portal_get(api_version)
+> models::PaymentIntegrationUrl api_payments_customer_portal_get(api_version)
 
 
 ### Parameters
@@ -24,7 +24,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::PaymentIntegrationUrl**](PaymentIntegrationUrl.md)
+[**models::PaymentIntegrationUrl**](PaymentIntegrationUrl.md)
 
 ### Authorization
 
@@ -40,7 +40,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_payments_plans_get
 
-> Vec<crate::models::PlanItem> api_payments_plans_get(api_version)
+> Vec<models::PlanItem> api_payments_plans_get(api_version)
 
 
 ### Parameters
@@ -52,7 +52,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::PlanItem>**](PlanItem.md)
+[**Vec<models::PlanItem>**](PlanItem.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_payments_setup_checkout_post
 
-> crate::models::PaymentIntegrationUrl api_payments_setup_checkout_post(api_version)
+> models::PaymentIntegrationUrl api_payments_setup_checkout_post(api_version)
 
 
 ### Parameters
@@ -80,7 +80,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::PaymentIntegrationUrl**](PaymentIntegrationUrl.md)
+[**models::PaymentIntegrationUrl**](PaymentIntegrationUrl.md)
 
 ### Authorization
 

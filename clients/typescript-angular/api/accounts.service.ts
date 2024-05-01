@@ -77,7 +77,7 @@ export class AccountsService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -99,10 +99,10 @@ export class AccountsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAccountsIdDelete(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiAccountsIdDelete(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiAccountsIdDelete(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiAccountsIdDelete(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiAccountsIdDelete(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiAccountsIdDelete(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiAccountsIdDelete(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiAccountsIdDelete(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAccountsIdDelete.');
         }
@@ -135,6 +135,11 @@ export class AccountsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -155,6 +160,7 @@ export class AccountsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -166,10 +172,10 @@ export class AccountsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAccountsIdGet(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<AccountDetails>;
-    public apiAccountsIdGet(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<AccountDetails>>;
-    public apiAccountsIdGet(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<AccountDetails>>;
-    public apiAccountsIdGet(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAccountsIdGet(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<AccountDetails>;
+    public apiAccountsIdGet(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AccountDetails>>;
+    public apiAccountsIdGet(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AccountDetails>>;
+    public apiAccountsIdGet(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAccountsIdGet.');
         }
@@ -205,6 +211,11 @@ export class AccountsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -225,6 +236,7 @@ export class AccountsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -237,10 +249,10 @@ export class AccountsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiAccountsIdPatch(id: string, patchAccountDetailsCommand: PatchAccountDetailsCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAccountsIdPatch.');
         }
@@ -276,6 +288,11 @@ export class AccountsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -309,6 +326,7 @@ export class AccountsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

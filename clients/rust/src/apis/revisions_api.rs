@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -30,7 +30,7 @@ pub enum ApiRevisionsPostError {
 }
 
 
-pub async fn api_revisions_get(configuration: &configuration::Configuration, page_index: Option<i32>, page_size: Option<i32>, search_text: Option<&str>, api_version: Option<&str>) -> Result<crate::models::RevisionItemPage, Error<ApiRevisionsGetError>> {
+pub async fn api_revisions_get(configuration: &configuration::Configuration, page_index: Option<i32>, page_size: Option<i32>, search_text: Option<&str>, api_version: Option<&str>) -> Result<models::RevisionItemPage, Error<ApiRevisionsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -77,7 +77,7 @@ pub async fn api_revisions_get(configuration: &configuration::Configuration, pag
     }
 }
 
-pub async fn api_revisions_post(configuration: &configuration::Configuration, register_revision_command: crate::models::RegisterRevisionCommand, api_version: Option<&str>) -> Result<(), Error<ApiRevisionsPostError>> {
+pub async fn api_revisions_post(configuration: &configuration::Configuration, register_revision_command: models::RegisterRevisionCommand, api_version: Option<&str>) -> Result<(), Error<ApiRevisionsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

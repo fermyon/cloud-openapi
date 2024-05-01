@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -75,7 +75,7 @@ pub async fn api_accounts_id_delete(configuration: &configuration::Configuration
     }
 }
 
-pub async fn api_accounts_id_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<crate::models::AccountDetails, Error<ApiAccountsIdGetError>> {
+pub async fn api_accounts_id_get(configuration: &configuration::Configuration, id: &str, api_version: Option<&str>) -> Result<models::AccountDetails, Error<ApiAccountsIdGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -113,7 +113,7 @@ pub async fn api_accounts_id_get(configuration: &configuration::Configuration, i
     }
 }
 
-pub async fn api_accounts_id_patch(configuration: &configuration::Configuration, id: &str, patch_account_details_command: crate::models::PatchAccountDetailsCommand, api_version: Option<&str>) -> Result<(), Error<ApiAccountsIdPatchError>> {
+pub async fn api_accounts_id_patch(configuration: &configuration::Configuration, id: &str, patch_account_details_command: models::PatchAccountDetailsCommand, api_version: Option<&str>) -> Result<(), Error<ApiAccountsIdPatchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

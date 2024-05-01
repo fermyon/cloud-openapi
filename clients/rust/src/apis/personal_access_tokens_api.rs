@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -37,7 +37,7 @@ pub enum ApiPersonalAccessTokensPostError {
 }
 
 
-pub async fn api_personal_access_tokens_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, api_version: Option<&str>) -> Result<crate::models::PersonalAccessTokenItemPage, Error<ApiPersonalAccessTokensGetError>> {
+pub async fn api_personal_access_tokens_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>, api_version: Option<&str>) -> Result<models::PersonalAccessTokenItemPage, Error<ApiPersonalAccessTokensGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -128,7 +128,7 @@ pub async fn api_personal_access_tokens_id_delete(configuration: &configuration:
     }
 }
 
-pub async fn api_personal_access_tokens_post(configuration: &configuration::Configuration, create_personal_access_token_command: crate::models::CreatePersonalAccessTokenCommand, api_version: Option<&str>) -> Result<crate::models::PersonalAccessTokenValue, Error<ApiPersonalAccessTokensPostError>> {
+pub async fn api_personal_access_tokens_post(configuration: &configuration::Configuration, create_personal_access_token_command: models::CreatePersonalAccessTokenCommand, api_version: Option<&str>) -> Result<models::PersonalAccessTokenValue, Error<ApiPersonalAccessTokensPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

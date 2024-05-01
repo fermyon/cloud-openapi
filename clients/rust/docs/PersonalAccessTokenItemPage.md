@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Vec<crate::models::PersonalAccessTokenItem>**](PersonalAccessTokenItem.md) |  | 
+**items** | [**Vec<models::PersonalAccessTokenItem>**](PersonalAccessTokenItem.md) |  | 
 **total_items** | **i32** |  | 
 **page_index** | **i32** |  | 
 **page_size** | **i32** |  | 

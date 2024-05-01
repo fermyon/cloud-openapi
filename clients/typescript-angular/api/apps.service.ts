@@ -91,7 +91,7 @@ export class AppsService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -118,10 +118,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<AppItemPage>;
-    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<AppItemPage>>;
-    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<AppItemPage>>;
-    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<AppItemPage>;
+    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AppItemPage>>;
+    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AppItemPage>>;
+    public apiAppsGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, exactMatch?: boolean, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (searchText !== undefined && searchText !== null) {
@@ -180,6 +180,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -201,6 +206,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -212,10 +218,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdDelete(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiAppsIdDelete(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiAppsIdDelete(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiAppsIdDelete(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiAppsIdDelete(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiAppsIdDelete(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiAppsIdDelete(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiAppsIdDelete(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdDelete.');
         }
@@ -248,6 +254,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -268,6 +279,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -281,10 +293,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<Array<AppEventItem>>;
-    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<Array<AppEventItem>>>;
-    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<Array<AppEventItem>>>;
-    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<AppEventItem>>;
+    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<AppEventItem>>>;
+    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<AppEventItem>>>;
+    public apiAppsIdEventsGet(id: string, from?: string, to?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdEventsGet.');
         }
@@ -330,6 +342,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -351,6 +368,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -362,10 +380,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdGet(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<AppItem>;
-    public apiAppsIdGet(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<AppItem>>;
-    public apiAppsIdGet(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<AppItem>>;
-    public apiAppsIdGet(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAppsIdGet(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<AppItem>;
+    public apiAppsIdGet(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AppItem>>;
+    public apiAppsIdGet(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AppItem>>;
+    public apiAppsIdGet(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdGet.');
         }
@@ -401,6 +419,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -421,6 +444,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -434,10 +458,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<GetAppLogsVm>;
-    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<GetAppLogsVm>>;
-    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<GetAppLogsVm>>;
-    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<GetAppLogsVm>;
+    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetAppLogsVm>>;
+    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetAppLogsVm>>;
+    public apiAppsIdLogsGet(id: string, max?: number, since?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdLogsGet.');
         }
@@ -483,6 +507,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -504,6 +533,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -517,10 +547,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<GetAppRawLogsVm>;
-    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<GetAppRawLogsVm>>;
-    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<GetAppRawLogsVm>>;
-    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<GetAppRawLogsVm>;
+    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetAppRawLogsVm>>;
+    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetAppRawLogsVm>>;
+    public apiAppsIdLogsRawGet(id: string, max?: number, since?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdLogsRawGet.');
         }
@@ -566,6 +596,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -587,6 +622,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -599,10 +635,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiAppsIdPatch(id: string, patchAppCommand: PatchAppCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdPatch.');
         }
@@ -638,6 +674,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -671,6 +712,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -683,10 +725,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiAppsIdPut(id: string, updateAppCommand: UpdateAppCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdPut.');
         }
@@ -722,6 +764,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -755,6 +802,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -768,10 +816,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<AppRequestCountItem>;
-    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<AppRequestCountItem>>;
-    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<AppRequestCountItem>>;
-    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<AppRequestCountItem>;
+    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<AppRequestCountItem>>;
+    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<AppRequestCountItem>>;
+    public apiAppsIdRequestCountGet(id: string, from?: string, to?: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiAppsIdRequestCountGet.');
         }
@@ -817,6 +865,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -838,6 +891,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -849,10 +903,10 @@ export class AppsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<string>;
-    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<string>>;
-    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<string>>;
-    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<string>;
+    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<string>>;
+    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<string>>;
+    public apiAppsPost(createAppCommand: CreateAppCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (createAppCommand === null || createAppCommand === undefined) {
             throw new Error('Required parameter createAppCommand was null or undefined when calling apiAppsPost.');
         }
@@ -888,6 +942,11 @@ export class AppsService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -921,6 +980,7 @@ export class AppsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

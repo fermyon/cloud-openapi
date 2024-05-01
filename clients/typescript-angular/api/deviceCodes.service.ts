@@ -81,7 +81,7 @@ export class DeviceCodesService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -103,10 +103,10 @@ export class DeviceCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiDeviceCodesActivatePost(activateDeviceCodeCommand: ActivateDeviceCodeCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (activateDeviceCodeCommand === null || activateDeviceCodeCommand === undefined) {
             throw new Error('Required parameter activateDeviceCodeCommand was null or undefined when calling apiDeviceCodesActivatePost.');
         }
@@ -137,6 +137,11 @@ export class DeviceCodesService {
         let localVarHttpContext: HttpContext | undefined = options && options.context;
         if (localVarHttpContext === undefined) {
             localVarHttpContext = new HttpContext();
+        }
+
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
         }
 
 
@@ -172,6 +177,7 @@ export class DeviceCodesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -183,10 +189,10 @@ export class DeviceCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<DeviceCodeItem>;
-    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<DeviceCodeItem>>;
-    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<DeviceCodeItem>>;
-    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<DeviceCodeItem>;
+    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DeviceCodeItem>>;
+    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DeviceCodeItem>>;
+    public apiDeviceCodesPost(createDeviceCodeCommand: CreateDeviceCodeCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (createDeviceCodeCommand === null || createDeviceCodeCommand === undefined) {
             throw new Error('Required parameter createDeviceCodeCommand was null or undefined when calling apiDeviceCodesPost.');
         }
@@ -222,6 +228,11 @@ export class DeviceCodesService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -255,6 +266,7 @@ export class DeviceCodesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -266,10 +278,10 @@ export class DeviceCodesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<DeviceCodeDetails>;
-    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<DeviceCodeDetails>>;
-    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<DeviceCodeDetails>>;
-    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<DeviceCodeDetails>;
+    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DeviceCodeDetails>>;
+    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DeviceCodeDetails>>;
+    public apiDeviceCodesUserCodeGet(userCode: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (userCode === null || userCode === undefined) {
             throw new Error('Required parameter userCode was null or undefined when calling apiDeviceCodesUserCodeGet.');
         }
@@ -305,6 +317,11 @@ export class DeviceCodesService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -325,6 +342,7 @@ export class DeviceCodesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

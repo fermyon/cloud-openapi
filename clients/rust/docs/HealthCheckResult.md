@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | Option<[**crate::models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
+**status** | Option<[**models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

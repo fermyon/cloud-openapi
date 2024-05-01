@@ -75,7 +75,7 @@ export class KeyValuePairsService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -97,10 +97,10 @@ export class KeyValuePairsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiKeyValuePairsPost(createKeyValuePairCommand: CreateKeyValuePairCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (createKeyValuePairCommand === null || createKeyValuePairCommand === undefined) {
             throw new Error('Required parameter createKeyValuePairCommand was null or undefined when calling apiKeyValuePairsPost.');
         }
@@ -131,6 +131,11 @@ export class KeyValuePairsService {
         let localVarHttpContext: HttpContext | undefined = options && options.context;
         if (localVarHttpContext === undefined) {
             localVarHttpContext = new HttpContext();
+        }
+
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
         }
 
 
@@ -166,6 +171,7 @@ export class KeyValuePairsService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Vec<crate::models::ChannelItem>**](ChannelItem.md) |  | 
+**items** | [**Vec<models::ChannelItem>**](ChannelItem.md) |  | 
 **total_items** | **i32** |  | 
 **page_index** | **i32** |  | 
 **page_size** | **i32** |  | 

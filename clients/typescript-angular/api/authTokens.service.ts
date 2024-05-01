@@ -79,7 +79,7 @@ export class AuthTokensService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -101,10 +101,10 @@ export class AuthTokensService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<TokenInfo>;
-    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<TokenInfo>>;
-    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<TokenInfo>>;
-    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<TokenInfo>;
+    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TokenInfo>>;
+    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TokenInfo>>;
+    public apiAuthTokensPost(createTokenCommand: CreateTokenCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (createTokenCommand === null || createTokenCommand === undefined) {
             throw new Error('Required parameter createTokenCommand was null or undefined when calling apiAuthTokensPost.');
         }
@@ -140,6 +140,11 @@ export class AuthTokensService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -173,6 +178,7 @@ export class AuthTokensService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -184,10 +190,10 @@ export class AuthTokensService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<TokenInfo>;
-    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<TokenInfo>>;
-    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<TokenInfo>>;
-    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<TokenInfo>;
+    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TokenInfo>>;
+    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TokenInfo>>;
+    public apiAuthTokensRefreshPost(refreshTokenCommand: RefreshTokenCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (refreshTokenCommand === null || refreshTokenCommand === undefined) {
             throw new Error('Required parameter refreshTokenCommand was null or undefined when calling apiAuthTokensRefreshPost.');
         }
@@ -223,6 +229,11 @@ export class AuthTokensService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -256,6 +267,7 @@ export class AuthTokensService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

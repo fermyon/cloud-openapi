@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **interval** | **i32** |  | 
 **total** | **i64** |  | 
 **average_per_second** | **f64** |  | 
-**points** | [**Vec<crate::models::AppRequestPointItem>**](AppRequestPointItem.md) |  | 
+**points** | [**Vec<models::AppRequestPointItem>**](AppRequestPointItem.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

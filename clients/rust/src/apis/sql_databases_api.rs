@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -65,7 +65,7 @@ pub enum ApiSqlDatabasesGetError {
 }
 
 
-pub async fn api_sql_databases_create_post(configuration: &configuration::Configuration, create_sql_database_command: crate::models::CreateSqlDatabaseCommand, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesCreatePostError>> {
+pub async fn api_sql_databases_create_post(configuration: &configuration::Configuration, create_sql_database_command: models::CreateSqlDatabaseCommand, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesCreatePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -104,7 +104,7 @@ pub async fn api_sql_databases_create_post(configuration: &configuration::Config
     }
 }
 
-pub async fn api_sql_databases_database_links_delete(configuration: &configuration::Configuration, database: &str, resource_label: crate::models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesDatabaseLinksDeleteError>> {
+pub async fn api_sql_databases_database_links_delete(configuration: &configuration::Configuration, database: &str, resource_label: models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesDatabaseLinksDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -143,7 +143,7 @@ pub async fn api_sql_databases_database_links_delete(configuration: &configurati
     }
 }
 
-pub async fn api_sql_databases_database_links_post(configuration: &configuration::Configuration, database: &str, resource_label: crate::models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesDatabaseLinksPostError>> {
+pub async fn api_sql_databases_database_links_post(configuration: &configuration::Configuration, database: &str, resource_label: models::ResourceLabel, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesDatabaseLinksPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -221,7 +221,7 @@ pub async fn api_sql_databases_database_rename_patch(configuration: &configurati
     }
 }
 
-pub async fn api_sql_databases_delete(configuration: &configuration::Configuration, delete_sql_database_command: crate::models::DeleteSqlDatabaseCommand, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesDeleteError>> {
+pub async fn api_sql_databases_delete(configuration: &configuration::Configuration, delete_sql_database_command: models::DeleteSqlDatabaseCommand, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -260,7 +260,7 @@ pub async fn api_sql_databases_delete(configuration: &configuration::Configurati
     }
 }
 
-pub async fn api_sql_databases_execute_post(configuration: &configuration::Configuration, execute_sql_statement_command: crate::models::ExecuteSqlStatementCommand, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesExecutePostError>> {
+pub async fn api_sql_databases_execute_post(configuration: &configuration::Configuration, execute_sql_statement_command: models::ExecuteSqlStatementCommand, api_version: Option<&str>) -> Result<(), Error<ApiSqlDatabasesExecutePostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -299,7 +299,7 @@ pub async fn api_sql_databases_execute_post(configuration: &configuration::Confi
     }
 }
 
-pub async fn api_sql_databases_get(configuration: &configuration::Configuration, app_id: Option<&str>, api_version: Option<&str>, get_sql_databases_query: Option<crate::models::GetSqlDatabasesQuery>) -> Result<crate::models::DatabasesList, Error<ApiSqlDatabasesGetError>> {
+pub async fn api_sql_databases_get(configuration: &configuration::Configuration, app_id: Option<&str>, api_version: Option<&str>, get_sql_databases_query: Option<models::GetSqlDatabasesQuery>) -> Result<models::DatabasesList, Error<ApiSqlDatabasesGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

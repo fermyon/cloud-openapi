@@ -85,7 +85,7 @@ export class SqlDatabasesService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -107,10 +107,10 @@ export class SqlDatabasesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiSqlDatabasesCreatePost(createSqlDatabaseCommand: CreateSqlDatabaseCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (createSqlDatabaseCommand === null || createSqlDatabaseCommand === undefined) {
             throw new Error('Required parameter createSqlDatabaseCommand was null or undefined when calling apiSqlDatabasesCreatePost.');
         }
@@ -141,6 +141,11 @@ export class SqlDatabasesService {
         let localVarHttpContext: HttpContext | undefined = options && options.context;
         if (localVarHttpContext === undefined) {
             localVarHttpContext = new HttpContext();
+        }
+
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
         }
 
 
@@ -176,6 +181,7 @@ export class SqlDatabasesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -188,10 +194,10 @@ export class SqlDatabasesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiSqlDatabasesDatabaseLinksDelete(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (database === null || database === undefined) {
             throw new Error('Required parameter database was null or undefined when calling apiSqlDatabasesDatabaseLinksDelete.');
         }
@@ -227,6 +233,11 @@ export class SqlDatabasesService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -260,6 +271,7 @@ export class SqlDatabasesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -272,10 +284,10 @@ export class SqlDatabasesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiSqlDatabasesDatabaseLinksPost(database: string, resourceLabel: ResourceLabel, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (database === null || database === undefined) {
             throw new Error('Required parameter database was null or undefined when calling apiSqlDatabasesDatabaseLinksPost.');
         }
@@ -311,6 +323,11 @@ export class SqlDatabasesService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -344,6 +361,7 @@ export class SqlDatabasesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -356,10 +374,10 @@ export class SqlDatabasesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiSqlDatabasesDatabaseRenamePatch(database: string, body: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (database === null || database === undefined) {
             throw new Error('Required parameter database was null or undefined when calling apiSqlDatabasesDatabaseRenamePatch.');
         }
@@ -395,6 +413,11 @@ export class SqlDatabasesService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -428,6 +451,7 @@ export class SqlDatabasesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -439,10 +463,10 @@ export class SqlDatabasesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiSqlDatabasesDelete(deleteSqlDatabaseCommand: DeleteSqlDatabaseCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (deleteSqlDatabaseCommand === null || deleteSqlDatabaseCommand === undefined) {
             throw new Error('Required parameter deleteSqlDatabaseCommand was null or undefined when calling apiSqlDatabasesDelete.');
         }
@@ -473,6 +497,11 @@ export class SqlDatabasesService {
         let localVarHttpContext: HttpContext | undefined = options && options.context;
         if (localVarHttpContext === undefined) {
             localVarHttpContext = new HttpContext();
+        }
+
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
         }
 
 
@@ -508,6 +537,7 @@ export class SqlDatabasesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -519,10 +549,10 @@ export class SqlDatabasesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiSqlDatabasesExecutePost(executeSqlStatementCommand: ExecuteSqlStatementCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (executeSqlStatementCommand === null || executeSqlStatementCommand === undefined) {
             throw new Error('Required parameter executeSqlStatementCommand was null or undefined when calling apiSqlDatabasesExecutePost.');
         }
@@ -553,6 +583,11 @@ export class SqlDatabasesService {
         let localVarHttpContext: HttpContext | undefined = options && options.context;
         if (localVarHttpContext === undefined) {
             localVarHttpContext = new HttpContext();
+        }
+
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
         }
 
 
@@ -588,6 +623,7 @@ export class SqlDatabasesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -600,10 +636,10 @@ export class SqlDatabasesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<DatabasesList>;
-    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<DatabasesList>>;
-    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<DatabasesList>>;
-    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<DatabasesList>;
+    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<DatabasesList>>;
+    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<DatabasesList>>;
+    public apiSqlDatabasesGet(appId?: string, apiVersion?: string, getSqlDatabasesQuery?: GetSqlDatabasesQuery, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (appId !== undefined && appId !== null) {
@@ -642,6 +678,11 @@ export class SqlDatabasesService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -676,6 +717,7 @@ export class SqlDatabasesService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

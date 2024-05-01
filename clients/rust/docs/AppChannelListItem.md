@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **active_revision_number** | Option<**String**> |  | [optional]
 **domain** | Option<**String**> |  | [optional]
 **created** | **String** |  | 
-**health_status** | Option<[**crate::models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
+**health_status** | Option<[**models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
 **last_modified** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

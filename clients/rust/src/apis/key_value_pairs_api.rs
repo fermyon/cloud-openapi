@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -23,7 +23,7 @@ pub enum ApiKeyValuePairsPostError {
 }
 
 
-pub async fn api_key_value_pairs_post(configuration: &configuration::Configuration, create_key_value_pair_command: crate::models::CreateKeyValuePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiKeyValuePairsPostError>> {
+pub async fn api_key_value_pairs_post(configuration: &configuration::Configuration, create_key_value_pair_command: models::CreateKeyValuePairCommand, api_version: Option<&str>) -> Result<(), Error<ApiKeyValuePairsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

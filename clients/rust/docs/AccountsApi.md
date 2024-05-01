@@ -41,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_accounts_id_get
 
-> crate::models::AccountDetails api_accounts_id_get(id, api_version)
+> models::AccountDetails api_accounts_id_get(id, api_version)
 
 
 ### Parameters
@@ -54,7 +54,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AccountDetails**](AccountDetails.md)
+[**models::AccountDetails**](AccountDetails.md)
 
 ### Authorization
 

@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_get
 
-> crate::models::ChannelItemPage api_channels_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, api_version)
+> models::ChannelItemPage api_channels_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, api_version)
 
 
 ### Parameters
@@ -66,7 +66,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ChannelItemPage**](ChannelItemPage.md)
+[**models::ChannelItemPage**](ChannelItemPage.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_get
 
-> crate::models::ChannelItem api_channels_id_get(id, api_version)
+> models::ChannelItem api_channels_id_get(id, api_version)
 
 
 ### Parameters
@@ -124,7 +124,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ChannelItem**](ChannelItem.md)
+[**models::ChannelItem**](ChannelItem.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_healthz_get
 
-> crate::models::HealthCheckResult api_channels_id_healthz_get(id, api_version)
+> models::HealthCheckResult api_channels_id_healthz_get(id, api_version)
 
 
 ### Parameters
@@ -153,7 +153,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::HealthCheckResult**](HealthCheckResult.md)
+[**models::HealthCheckResult**](HealthCheckResult.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_logs_get
 
-> crate::models::GetChannelLogsVm api_channels_id_logs_get(id, max, since, api_version)
+> models::GetChannelLogsVm api_channels_id_logs_get(id, max, since, api_version)
 
 
 ### Parameters
@@ -184,7 +184,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetChannelLogsVm**](GetChannelLogsVm.md)
+[**models::GetChannelLogsVm**](GetChannelLogsVm.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_channels_id_logs_raw_get
 
-> crate::models::GetChannelRawLogsVm api_channels_id_logs_raw_get(id, max, since, api_version)
+> models::GetChannelRawLogsVm api_channels_id_logs_raw_get(id, max, since, api_version)
 
 
 ### Parameters
@@ -215,7 +215,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetChannelRawLogsVm**](GetChannelRawLogsVm.md)
+[**models::GetChannelRawLogsVm**](GetChannelRawLogsVm.md)
 
 ### Authorization
 

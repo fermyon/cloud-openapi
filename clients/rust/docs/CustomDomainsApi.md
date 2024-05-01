@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## api_custom_domains_domain_name_get
 
-> crate::models::DomainItem api_custom_domains_domain_name_get(domain_name, api_version)
+> models::DomainItem api_custom_domains_domain_name_get(domain_name, api_version)
 
 
 ### Parameters
@@ -23,7 +23,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DomainItem**](DomainItem.md)
+[**models::DomainItem**](DomainItem.md)
 
 ### Authorization
 

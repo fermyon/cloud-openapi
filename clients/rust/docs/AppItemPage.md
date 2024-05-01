@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**Vec<crate::models::AppItem>**](AppItem.md) |  | 
+**items** | [**Vec<models::AppItem>**](AppItem.md) |  | 
 **total_items** | **i32** |  | 
 **page_index** | **i32** |  | 
 **page_size** | **i32** |  | 

@@ -41,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_variable_pairs_get
 
-> crate::models::VariablesList api_variable_pairs_get(get_variables_query, api_version)
+> models::VariablesList api_variable_pairs_get(get_variables_query, api_version)
 
 
 ### Parameters
@@ -54,7 +54,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::VariablesList**](VariablesList.md)
+[**models::VariablesList**](VariablesList.md)
 
 ### Authorization
 

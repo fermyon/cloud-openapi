@@ -79,7 +79,7 @@ export class PersonalAccessTokensService {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
             } else if (value instanceof Date) {
                 if (key != null) {
-                    httpParams = httpParams.append(key, (value as Date).toISOString().substr(0, 10));
+                    httpParams = httpParams.append(key, (value as Date).toISOString().substring(0, 10));
                 } else {
                    throw Error("key may not be null if value is Date");
                 }
@@ -105,10 +105,10 @@ export class PersonalAccessTokensService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<PersonalAccessTokenItemPage>;
-    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<PersonalAccessTokenItemPage>>;
-    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<PersonalAccessTokenItemPage>>;
-    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<PersonalAccessTokenItemPage>;
+    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PersonalAccessTokenItemPage>>;
+    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PersonalAccessTokenItemPage>>;
+    public apiPersonalAccessTokensGet(searchText?: string, pageIndex?: number, pageSize?: number, sortBy?: string, isSortedAscending?: boolean, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (searchText !== undefined && searchText !== null) {
@@ -163,6 +163,11 @@ export class PersonalAccessTokensService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -184,6 +189,7 @@ export class PersonalAccessTokensService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -195,10 +201,10 @@ export class PersonalAccessTokensService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any>;
+    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<any>>;
+    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<any>>;
+    public apiPersonalAccessTokensIdDelete(id: string, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiPersonalAccessTokensIdDelete.');
         }
@@ -231,6 +237,11 @@ export class PersonalAccessTokensService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         let responseType_: 'text' | 'json' | 'blob' = 'json';
         if (localVarHttpHeaderAcceptSelected) {
@@ -251,6 +262,7 @@ export class PersonalAccessTokensService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );
@@ -262,10 +274,10 @@ export class PersonalAccessTokensService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<PersonalAccessTokenValue>;
-    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<PersonalAccessTokenValue>>;
-    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<PersonalAccessTokenValue>>;
-    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<PersonalAccessTokenValue>;
+    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<PersonalAccessTokenValue>>;
+    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<PersonalAccessTokenValue>>;
+    public apiPersonalAccessTokensPost(createPersonalAccessTokenCommand: CreatePersonalAccessTokenCommand, apiVersion?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (createPersonalAccessTokenCommand === null || createPersonalAccessTokenCommand === undefined) {
             throw new Error('Required parameter createPersonalAccessTokenCommand was null or undefined when calling apiPersonalAccessTokensPost.');
         }
@@ -301,6 +313,11 @@ export class PersonalAccessTokensService {
             localVarHttpContext = new HttpContext();
         }
 
+        let localVarTransferCache: boolean | undefined = options && options.transferCache;
+        if (localVarTransferCache === undefined) {
+            localVarTransferCache = true;
+        }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -334,6 +351,7 @@ export class PersonalAccessTokensService {
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
                 observe: observe,
+                transferCache: localVarTransferCache,
                 reportProgress: reportProgress
             }
         );

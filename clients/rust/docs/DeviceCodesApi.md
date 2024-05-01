@@ -41,7 +41,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_device_codes_post
 
-> crate::models::DeviceCodeItem api_device_codes_post(create_device_code_command, api_version)
+> models::DeviceCodeItem api_device_codes_post(create_device_code_command, api_version)
 
 
 ### Parameters
@@ -54,7 +54,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceCodeItem**](DeviceCodeItem.md)
+[**models::DeviceCodeItem**](DeviceCodeItem.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_device_codes_user_code_get
 
-> crate::models::DeviceCodeDetails api_device_codes_user_code_get(user_code, api_version)
+> models::DeviceCodeDetails api_device_codes_user_code_get(user_code, api_version)
 
 
 ### Parameters
@@ -83,7 +83,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeviceCodeDetails**](DeviceCodeDetails.md)
+[**models::DeviceCodeDetails**](DeviceCodeDetails.md)
 
 ### Authorization
 

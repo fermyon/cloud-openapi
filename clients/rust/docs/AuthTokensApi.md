@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## api_auth_tokens_post
 
-> crate::models::TokenInfo api_auth_tokens_post(create_token_command, api_version)
+> models::TokenInfo api_auth_tokens_post(create_token_command, api_version)
 
 
 ### Parameters
@@ -24,7 +24,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::TokenInfo**](TokenInfo.md)
+[**models::TokenInfo**](TokenInfo.md)
 
 ### Authorization
 
@@ -40,7 +40,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_auth_tokens_refresh_post
 
-> crate::models::TokenInfo api_auth_tokens_refresh_post(refresh_token_command, api_version)
+> models::TokenInfo api_auth_tokens_refresh_post(refresh_token_command, api_version)
 
 
 ### Parameters
@@ -53,7 +53,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::TokenInfo**](TokenInfo.md)
+[**models::TokenInfo**](TokenInfo.md)
 
 ### Authorization
 

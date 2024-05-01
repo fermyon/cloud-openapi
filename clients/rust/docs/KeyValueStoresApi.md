@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## api_key_value_stores_get
 
-> crate::models::KeyValueStoresList api_key_value_stores_get(app_id, api_version)
+> models::KeyValueStoresList api_key_value_stores_get(app_id, api_version)
 
 
 ### Parameters
@@ -28,7 +28,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::KeyValueStoresList**](KeyValueStoresList.md)
+[**models::KeyValueStoresList**](KeyValueStoresList.md)
 
 ### Authorization
 

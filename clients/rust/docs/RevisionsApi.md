@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## api_revisions_get
 
-> crate::models::RevisionItemPage api_revisions_get(page_index, page_size, search_text, api_version)
+> models::RevisionItemPage api_revisions_get(page_index, page_size, search_text, api_version)
 
 
 ### Parameters
@@ -26,7 +26,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::RevisionItemPage**](RevisionItemPage.md)
+[**models::RevisionItemPage**](RevisionItemPage.md)
 
 ### Authorization
 

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## api_apps_get
 
-> crate::models::AppItemPage api_apps_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, exact_match, api_version)
+> models::AppItemPage api_apps_get(search_text, page_index, page_size, sort_by, is_sorted_ascending, exact_match, api_version)
 
 
 ### Parameters
@@ -37,7 +37,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AppItemPage**](AppItemPage.md)
+[**models::AppItemPage**](AppItemPage.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_events_get
 
-> Vec<crate::models::AppEventItem> api_apps_id_events_get(id, from, to, api_version)
+> Vec<models::AppEventItem> api_apps_id_events_get(id, from, to, api_version)
 
 
 ### Parameters
@@ -97,7 +97,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::AppEventItem>**](AppEventItem.md)
+[**Vec<models::AppEventItem>**](AppEventItem.md)
 
 ### Authorization
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_get
 
-> crate::models::AppItem api_apps_id_get(id, api_version)
+> models::AppItem api_apps_id_get(id, api_version)
 
 
 ### Parameters
@@ -126,7 +126,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AppItem**](AppItem.md)
+[**models::AppItem**](AppItem.md)
 
 ### Authorization
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_logs_get
 
-> crate::models::GetAppLogsVm api_apps_id_logs_get(id, max, since, api_version)
+> models::GetAppLogsVm api_apps_id_logs_get(id, max, since, api_version)
 
 
 ### Parameters
@@ -157,7 +157,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetAppLogsVm**](GetAppLogsVm.md)
+[**models::GetAppLogsVm**](GetAppLogsVm.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_logs_raw_get
 
-> crate::models::GetAppRawLogsVm api_apps_id_logs_raw_get(id, max, since, api_version)
+> models::GetAppRawLogsVm api_apps_id_logs_raw_get(id, max, since, api_version)
 
 
 ### Parameters
@@ -188,7 +188,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::GetAppRawLogsVm**](GetAppRawLogsVm.md)
+[**models::GetAppRawLogsVm**](GetAppRawLogsVm.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Required | Notes
 
 ## api_apps_id_request_count_get
 
-> crate::models::AppRequestCountItem api_apps_id_request_count_get(id, from, to, api_version)
+> models::AppRequestCountItem api_apps_id_request_count_get(id, from, to, api_version)
 
 
 ### Parameters
@@ -279,7 +279,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AppRequestCountItem**](AppRequestCountItem.md)
+[**models::AppRequestCountItem**](AppRequestCountItem.md)
 
 ### Authorization
 

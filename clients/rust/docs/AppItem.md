@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **storage_id** | **String** |  | 
 **description** | Option<**String**> |  | [optional]
 **subdomain** | **String** |  | 
-**health_status** | Option<[**crate::models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
-**channels** | [**Vec<crate::models::AppChannelListItem>**](AppChannelListItem.md) |  | 
-**domain** | Option<[**crate::models::AppDomainItem**](AppDomainItem.md)> |  | [optional]
+**health_status** | Option<[**models::ApiHealthStatus**](ApiHealthStatus.md)> |  | [optional]
+**channels** | [**Vec<models::AppChannelListItem>**](AppChannelListItem.md) |  | 
+**domain** | Option<[**models::AppDomainItem**](AppDomainItem.md)> |  | [optional]
 **last_modified** | **String** |  | 
 **last_deployed** | Option<**String**> |  | [optional]
 **created** | **String** |  | 
