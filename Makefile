@@ -4,7 +4,7 @@ SWAGGER_ENDPOINT?="https://cloud.fermyon.com/swagger/v1/swagger.json"
 
 clients: swagger.json
 	@echo "==> Building OpenAPI clients..."
-	for lang in rust ; do \
+	for lang in rust typescript-angular ; do \
 		docker run \
 			--rm \
 			--volume "$(PWD):/local" \
