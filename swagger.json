@@ -3083,54 +3083,6 @@
         }
       }
     },
-    "/api/support": {
-      "post": {
-        "tags": [
-          "support"
-        ],
-        "parameters": [
-          {
-            "name": "Api-Version",
-            "in": "header",
-            "description": "The requested API version",
-            "schema": {
-              "type": "string",
-              "default": "1.0"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSupportTicketCommand"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSupportTicketCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSupportTicketCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateSupportTicketCommand"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/variable-pairs": {
       "post": {
         "tags": [
@@ -3348,8 +3300,7 @@
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow",
-          "GitHubPersonalToken"
+          "DeviceFlow"
         ],
         "type": "string"
       },
@@ -3509,6 +3460,11 @@
           "lastModified": {
             "type": "string",
             "format": "date-time"
+          },
+          "lastDeployed": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           },
           "created": {
             "type": "string",
@@ -3895,21 +3851,6 @@
           "label": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateSupportTicketCommand": {
-        "required": [
-          "category"
-        ],
-        "type": "object",
-        "properties": {
-          "category": {
-            "$ref": "#/components/schemas/TicketCategory"
-          },
-          "details": {
-            "type": "string"
           }
         },
         "additionalProperties": false
@@ -4602,10 +4543,6 @@
             "type": "string",
             "nullable": true
           },
-          "channel": {
-            "type": "string",
-            "nullable": true
-          },
           "type": {
             "type": "string",
             "nullable": true
@@ -4644,10 +4581,6 @@
           "lastModified": {
             "type": "string",
             "format": "date-time"
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4695,14 +4628,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "TicketCategory": {
-        "enum": [
-          "TechnicalHelp",
-          "BillingHelp",
-          "SomethingElse"
-        ],
-        "type": "string"
       },
       "TokenInfo": {
         "required": [

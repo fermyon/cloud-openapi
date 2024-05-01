@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **channels** | [**Vec<crate::models::AppChannelListItem>**](AppChannelListItem.md) |  | 
 **domain** | Option<[**crate::models::AppDomainItem**](AppDomainItem.md)> |  | [optional]
 **last_modified** | **String** |  | 
+**last_deployed** | Option<**String**> |  | [optional]
 **created** | **String** |  | 
 **latest_revision** | Option<**String**> |  | [optional]
 

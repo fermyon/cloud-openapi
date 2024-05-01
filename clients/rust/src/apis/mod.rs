@@ -103,7 +103,6 @@ pub mod payments_api;
 pub mod personal_access_tokens_api;
 pub mod revisions_api;
 pub mod sql_databases_api;
-pub mod support_api;
 pub mod variable_pairs_api;
 
 pub mod configuration;

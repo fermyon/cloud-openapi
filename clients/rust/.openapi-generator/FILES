@@ -32,7 +32,6 @@ docs/CreateDeviceCodeCommand.md
 docs/CreateKeyValuePairCommand.md
 docs/CreatePersonalAccessTokenCommand.md
 docs/CreateSqlDatabaseCommand.md
-docs/CreateSupportTicketCommand.md
 docs/CreateTokenCommand.md
 docs/CreateVariablePairCommand.md
 docs/CustomDomainsApi.md
@@ -83,8 +82,6 @@ docs/RevisionItemPage.md
 docs/RevisionsApi.md
 docs/SqlDatabasesApi.md
 docs/StringField.md
-docs/SupportApi.md
-docs/TicketCategory.md
 docs/TokenInfo.md
 docs/UpdateAppCommand.md
 docs/UpdateChannelCommand.md
@@ -108,7 +105,6 @@ src/apis/payments_api.rs
 src/apis/personal_access_tokens_api.rs
 src/apis/revisions_api.rs
 src/apis/sql_databases_api.rs
-src/apis/support_api.rs
 src/apis/variable_pairs_api.rs
 src/lib.rs
 src/models/account_details.rs
@@ -137,7 +133,6 @@ src/models/create_device_code_command.rs
 src/models/create_key_value_pair_command.rs
 src/models/create_personal_access_token_command.rs
 src/models/create_sql_database_command.rs
-src/models/create_support_ticket_command.rs
 src/models/create_token_command.rs
 src/models/create_variable_pair_command.rs
 src/models/database.rs
@@ -180,7 +175,6 @@ src/models/revision_component_dto.rs
 src/models/revision_item.rs
 src/models/revision_item_page.rs
 src/models/string_field.rs
-src/models/ticket_category.rs
 src/models/token_info.rs
 src/models/update_app_command.rs
 src/models/update_channel_command.rs
