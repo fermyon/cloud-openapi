@@ -21,8 +21,6 @@ pub struct RevisionComponentDto {
     pub name: String,
     #[serde(rename = "route", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub route: Option<Option<String>>,
-    #[serde(rename = "channel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub channel: Option<Option<String>>,
     #[serde(rename = "type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Option<String>>,
 }
@@ -34,7 +32,6 @@ impl RevisionComponentDto {
             source,
             name,
             route: None,
-            channel: None,
             r#type: None,
         }
     }

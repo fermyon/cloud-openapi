@@ -31,6 +31,8 @@ pub struct AppItem {
     pub domain: Option<Box<crate::models::AppDomainItem>>,
     #[serde(rename = "lastModified")]
     pub last_modified: String,
+    #[serde(rename = "lastDeployed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub last_deployed: Option<Option<String>>,
     #[serde(rename = "created")]
     pub created: String,
     #[serde(rename = "latestRevision", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -49,6 +51,7 @@ impl AppItem {
             channels,
             domain: None,
             last_modified,
+            last_deployed: None,
             created,
             latest_revision: None,
         }

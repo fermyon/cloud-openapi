@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **revision_number** | **String** |  | 
 **components** | [**Vec<crate::models::RevisionComponentDto>**](RevisionComponentDto.md) |  | [readonly]
 **last_modified** | Option<**String**> |  | [optional]
-**r#type** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

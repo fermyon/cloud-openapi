@@ -84,7 +84,6 @@ Class | Method | HTTP request | Description
 *SqlDatabasesApi* | [**api_sql_databases_delete**](docs/SqlDatabasesApi.md#api_sql_databases_delete) | **DELETE** /api/sql-databases | 
 *SqlDatabasesApi* | [**api_sql_databases_execute_post**](docs/SqlDatabasesApi.md#api_sql_databases_execute_post) | **POST** /api/sql-databases/execute | 
 *SqlDatabasesApi* | [**api_sql_databases_get**](docs/SqlDatabasesApi.md#api_sql_databases_get) | **GET** /api/sql-databases | 
-*SupportApi* | [**api_support_post**](docs/SupportApi.md#api_support_post) | **POST** /api/support | 
 *VariablePairsApi* | [**api_variable_pairs_delete**](docs/VariablePairsApi.md#api_variable_pairs_delete) | **DELETE** /api/variable-pairs | 
 *VariablePairsApi* | [**api_variable_pairs_get**](docs/VariablePairsApi.md#api_variable_pairs_get) | **GET** /api/variable-pairs | 
 *VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
@@ -118,7 +117,6 @@ Class | Method | HTTP request | Description
  - [CreateKeyValuePairCommand](docs/CreateKeyValuePairCommand.md)
  - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
  - [CreateSqlDatabaseCommand](docs/CreateSqlDatabaseCommand.md)
- - [CreateSupportTicketCommand](docs/CreateSupportTicketCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
  - [CreateVariablePairCommand](docs/CreateVariablePairCommand.md)
  - [Database](docs/Database.md)
@@ -160,7 +158,6 @@ Class | Method | HTTP request | Description
  - [RevisionItem](docs/RevisionItem.md)
  - [RevisionItemPage](docs/RevisionItemPage.md)
  - [StringField](docs/StringField.md)
- - [TicketCategory](docs/TicketCategory.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [UpdateAppCommand](docs/UpdateAppCommand.md)
  - [UpdateChannelCommand](docs/UpdateChannelCommand.md)

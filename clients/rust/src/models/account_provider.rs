@@ -16,8 +16,6 @@ pub enum AccountProvider {
     GitHub,
     #[serde(rename = "DeviceFlow")]
     DeviceFlow,
-    #[serde(rename = "GitHubPersonalToken")]
-    GitHubPersonalToken,
 
 }
 
@@ -26,7 +24,6 @@ impl ToString for AccountProvider {
         match self {
             Self::GitHub => String::from("GitHub"),
             Self::DeviceFlow => String::from("DeviceFlow"),
-            Self::GitHubPersonalToken => String::from("GitHubPersonalToken"),
         }
     }
 }
