@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
       - name: authenticate with GitHub Packages
         run: echo "//npm.pkg.github.com/:_authToken=${{ github.token }}" > ~/.npmrc
-      - run: npm install
+      - run: npm ci
         working-directory: clients/typescript-angular
       - name: publish to GitHub Packages
         run: npm publish
