@@ -1,4 +1,6 @@
 {
-	"npmName": "@fermyon/cloud-openapi",
+	"gitUserId": "fermyon",
+	"gitRepoId": "cloud-openapi",
+	"npmName": "@fermyon/ngx-cloud-openapi",
 	"npmVersion": "0.1.0"
 }
