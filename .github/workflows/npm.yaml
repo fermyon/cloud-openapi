@@ -8,6 +8,8 @@ jobs:
       packages: write
     name: publish to GitHub Packages
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${ github.token }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,5 +18,3 @@ jobs:
       - name: publish to GitHub Packages
         run: npm publish
         working-directory: clients/typescript-angular
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
