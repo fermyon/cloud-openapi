@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - name: authenticate with GitHub Packages
-        run: echo "//npm.pkg.github.com/:_authToken=${{ github.token }}" > ~/.npmrc
+        with:
+          registry-url: "https://npm.pkg.github.com"
       - run: npm ci
         working-directory: clients/typescript-angular
       - name: publish to GitHub Packages
