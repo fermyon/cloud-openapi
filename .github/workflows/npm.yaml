@@ -13,8 +13,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           registry-url: "https://npm.pkg.github.com"
-      - run: npm ci
-        working-directory: clients/typescript-angular
       - name: publish to GitHub Packages
         run: npm publish
         working-directory: clients/typescript-angular
