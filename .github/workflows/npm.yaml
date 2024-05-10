@@ -8,13 +8,16 @@ jobs:
       packages: write
     name: publish to GitHub Packages
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: clients/typescript-angular
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           registry-url: 'https://npm.pkg.github.com'
-      - name: publish to GitHub Packages
-        run: npm publish
-        working-directory: clients/typescript-angular
+      - run: npm install
+      - run: npm run build
+      - run: npm publish dist
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
